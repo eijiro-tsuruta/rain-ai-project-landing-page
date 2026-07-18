@@ -35,7 +35,9 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://www.rainaiproject.com/#business",
   "name": "Rain AI Project",
+  "legalName": "有限会社エイ・シイ・エム・クラフト・ジャパン",
   "alternateName": "Rain AI",
   "description": "熊本県の中小企業・小規模事業者向けに、独自の多脳層AI（Multi-Brain AI）技術を核とした業務自動化・AIエージェント導入・AIチャットボット開発を提供するAI開発スタジオ。",
   "url": "https://www.rainaiproject.com/",
@@ -107,7 +109,7 @@
         "name": "AI導入コンサルティング",
         "description": "AI活用の優先順位づけや導入計画の策定を支援する、時間制のコンサルティング。"
       },
-      "price": "6000",
+      "price": "20000",
       "priceCurrency": "JPY",
       "unitText": "時間"
     },
@@ -156,7 +158,7 @@
       "name": "AI導入の経験がなくても相談できますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "はい。何から自動化すればよいか分からない段階からの相談に対応しています。現状の業務を整理し、優先順位を一緒に決めるAI導入コンサルティング（6,000円/時間）も用意しています。"
+        "text": "はい。何から自動化すればよいか分からない段階からの相談に対応しています。現状の業務を整理し、優先順位を一緒に決めるAI導入コンサルティング（20,000円/時間・税別）も用意しています。"
       }
     },
     {
@@ -164,7 +166,7 @@
       "name": "料金はどのくらいかかりますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AI導入コンサルティングは6,000円/時間です。業務自動化・AIエージェント導入、AIチャットボット開発、Instagram自動投稿AI、LINE自動予約システムなどの開発案件は、業務内容や規模により個別見積もりとなります。まずは無料相談からご案内しています。"
+        "text": "AI導入コンサルティングは20,000円/時間（税別）です。業務自動化・AIエージェント導入、AIチャットボット開発、Instagram自動投稿AI、LINE自動予約システムなどの開発案件は、業務内容や規模により個別見積もりとなります。まずは無料相談からご案内しています。"
       }
     },
     {
@@ -172,7 +174,7 @@
       "name": "Rain BIOとは何ですか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Rain BIOは、Rain AI Projectが開発したペット栄養相談向けの多脳層AIです。GPTストア検索で世界最上位を獲得し、現在はAPIとして提供されています。店舗向けの軽量版「Rain BIO mini」もあります。"
+        "text": "Rain BIOは、Rain AI Projectが開発した犬の健康全般に対応する多脳層AIです。食事や栄養だけでなく、日々の健康管理に関する幅広い相談を支援します。GPTストア検索で世界最上位を獲得し、現在はAPIとして提供されています。店舗向けの軽量版「Rain BIO mini」もあります。"
       }
     },
     {
@@ -446,6 +448,8 @@
   }
   .service-card h3{font-size:16px;font-weight:700;margin-bottom:8px;}
   .service-card p{font-size:13.5px;color:var(--navy-2);margin:0;}
+  .service-more{display:inline-block;margin-top:15px;color:var(--sky-deep);font-size:13px;font-weight:700;text-decoration:none;}
+  .service-more:hover{text-decoration:underline;}
   .service-card.price{background:var(--navy);border-color:var(--navy);}
   .service-card.price{grid-column:1/-1;display:grid;grid-template-columns:42px 1fr auto;grid-template-rows:auto auto;align-items:center;column-gap:18px;}
   .service-card.price h3,.service-card.price .price-tag{color:#fff;}
@@ -570,7 +574,9 @@
   /* ---------- footer ---------- */
   footer{padding:40px 0;border-top:1px solid var(--mist);}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer .f-brand{display:flex;flex-direction:column;gap:4px;}
   footer .f-logo{font-family:var(--display);font-weight:900;color:var(--navy);font-size:15px;}
+  footer .f-company{font-size:10.5px;color:var(--navy-2);}
   footer .f-meta{font-size:12.5px;color:var(--navy-2);font-family:var(--mono);}
   .f-socials{display:flex;gap:10px;}
   .f-socials a{
@@ -856,6 +862,7 @@
         </div>
         <h3>SEO・AI検索対応LP制作</h3>
         <p>Google検索とChatGPTなどのAI検索を考慮し、問い合わせにつながる集客用LP・Webサイトを設計・制作します。</p>
+        <a class="service-more" href="/lp-production">LP制作サービスを詳しく見る →</a>
       </div>
       <div class="service-card">
         <div class="icon">
@@ -897,8 +904,8 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M7 7h7a3 3 0 010 6H8a3 3 0 000 6h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
         <h3>コンサルティング料金</h3>
-        <div class="price-tag">¥6,000<span style="font-size:13px;font-weight:400;"> / 時間</span></div>
-        <p>必要な時間だけ、必要な分だけ。小規模事業者でも導入しやすい時間制です。</p>
+        <div class="price-tag">¥20,000<span style="font-size:13px;font-weight:400;"> / 時間（税別）</span></div>
+        <p>現状の業務整理、AI活用の優先順位づけ、導入方法の助言を時間制で行います。</p>
       </div>
     </div>
     <div class="growth-box">
@@ -906,7 +913,7 @@
         <span class="new-label">NEW / WEB GROWTH</span>
         <h3>検索に強いLPと、24時間働くAI受付をひとつに。</h3>
         <p>見た目だけで終わらせず、検索キーワード、AI検索、問い合わせ導線、計測、公開後の改善まで初期設計に組み込みます。チャットボットを追加すれば、よくある質問への回答から相談・予約への案内まで自動化できます。</p>
-        <a class="btn-primary" href="#contact">LP・AI受付について相談する</a>
+        <a class="btn-primary" href="/lp-production">LP制作サービスを見る</a>
       </div>
       <div class="growth-list" aria-label="LP制作に含まれる主な項目">
         <span>検索意図・顧客導線の設計</span>
@@ -933,7 +940,7 @@
         <div class="product-top">
           <span class="tag">GPTストア世界最上位 → API公開</span>
           <h3 style="margin-top:14px;">Rain BIO</h3>
-          <p>ペット栄養相談に特化した多脳層AI。GPTストア検索で世界最上位を獲得し、現在はAPIとして提供中。</p>
+          <p>食事や栄養だけでなく、犬の健康全般に関する相談を支援する多脳層AI。GPTストア検索で世界最上位を獲得し、現在はAPIとして提供中。</p>
           <div class="product-actions">
             <a class="product-link" href="https://drive.google.com/file/d/1n-Me-q7akHjLyTDEtDsTgZlBSl5yybmR/view" target="_blank" rel="noopener noreferrer" aria-label="Rain BIO Vetのデモ動画をGoogle Driveで見る">Rain BIO Vet デモ</a>
           </div>
@@ -1044,15 +1051,15 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q"><h3>AI導入の経験がなくても相談できますか？</h3><span class="plus">+</span></summary>
-        <p class="faq-a">はい。何から自動化すればよいか分からない段階からの相談に対応しています。現状の業務を整理し、優先順位を一緒に決めるAI導入コンサルティング（6,000円/時間）もご用意しています。</p>
+        <p class="faq-a">はい。何から自動化すればよいか分からない段階からの相談に対応しています。現状の業務を整理し、優先順位を一緒に決めるAI導入コンサルティング（20,000円/時間・税別）もご用意しています。</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><h3>料金はどのくらいかかりますか？</h3><span class="plus">+</span></summary>
-        <p class="faq-a">AI導入コンサルティングは6,000円/時間です。業務自動化・AIエージェント導入、AIチャットボット開発、Instagram自動投稿AI、LINE自動予約システムなどの開発案件は、業務内容や規模により個別見積もりとなります。まずは無料相談からご案内しています。</p>
+        <p class="faq-a">AI導入コンサルティングは20,000円/時間（税別）です。業務自動化・AIエージェント導入、AIチャットボット開発、Instagram自動投稿AI、LINE自動予約システムなどの開発案件は、業務内容や規模により個別見積もりとなります。まずは無料相談からご案内しています。</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><h3>Rain BIOとは何ですか？</h3><span class="plus">+</span></summary>
-        <p class="faq-a">Rain AI Projectが開発したペット栄養相談向けの多脳層AIです。GPTストア検索で世界最上位を獲得し、現在はAPIとして提供されています。店舗向けの軽量版「Rain BIO mini」もあります。</p>
+        <p class="faq-a">Rain AI Projectが開発した、犬の健康全般に対応する多脳層AIです。食事や栄養だけでなく、日々の健康管理に関する幅広い相談を支援します。GPTストア検索で世界最上位を獲得し、現在はAPIとして提供されています。店舗向けの軽量版「Rain BIO mini」もあります。</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><h3>どんな業務をAIで自動化できますか？</h3><span class="plus">+</span></summary>
@@ -1091,7 +1098,10 @@
 
 <footer>
   <div class="wrap">
-    <div class="f-logo">Rain AI Project</div>
+    <div class="f-brand">
+      <div class="f-logo">Rain AI Project</div>
+      <div class="f-company">運営：有限会社エイ・シイ・エム・クラフト・ジャパン</div>
+    </div>
     <div class="f-socials">
       <a href="https://x.com/Rain_AI_Project" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.53 3H21l-7.39 8.44L22.2 21h-6.78l-5.3-6.5L4 21H.53l7.9-9.03L1 3h6.93l4.79 5.94L17.53 3zm-1.19 16h1.86L7.74 4.93H5.75L16.34 19z"/></svg>
@@ -1106,7 +1116,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM.5 8.98h8.96V23.5H.5V8.98zM9.02 8.98h8.59v1.98h.12c1.2-2.15 4.13-4.41 8.5-4.41 9.09 0 10.77 5.99 10.77 13.79V23.5h-8.96v-7.5c0-1.79-.03-4.08-2.49-4.08-2.49 0-2.87 1.94-2.87 3.95v7.63H9.02V8.98z" transform="scale(0.9)"/></svg>
       </a>
     </div>
-    <div class="f-meta">代表：鶴田英二郎（熊本） ／ © 2026 Rain AI Project ／ <a href="/privacy.html" style="color:inherit;text-decoration:underline;">プライバシーポリシー</a> ／ <a href="/terms.html" style="color:inherit;text-decoration:underline;">利用規約</a></div>
+    <div class="f-meta">代表：鶴田英二郎（熊本） ／ © 2026 Rain AI Project ／ <a href="/privacy.html" style="color:inherit;text-decoration:underline;">プライバシーポリシー</a> ／ <a href="/terms.html" style="color:inherit;text-decoration:underline;">AI宣伝しとけ 利用規約</a></div>
   </div>
 </footer>
 
