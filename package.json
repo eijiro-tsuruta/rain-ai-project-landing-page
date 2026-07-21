@@ -1,0 +1,9 @@
+{
+  "name": "rain-ai-project-landing-page",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "check": "node --check server.mjs && node --check api/chat.js && node --check lib/chat-service.js && node --check chatbot.js"
+  }
+}
