@@ -19,7 +19,6 @@
       .launcher:hover{transform:translateY(-2px);box-shadow:0 20px 42px rgba(5,34,52,.35)}
       .launcher svg{width:28px;height:28px}
       .launcher .dot{position:absolute;right:3px;top:3px;width:15px;height:15px;border-radius:50%;background:#2fc981;border:3px solid #fff}
-      .launcher-label{position:absolute;right:76px;top:13px;white-space:nowrap;background:#fff;color:var(--navy);border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-size:13px;font-weight:700;box-shadow:0 10px 26px rgba(5,34,52,.15)}
       .panel{position:absolute;right:0;bottom:0;width:min(430px,calc(100vw - 28px));height:min(690px,calc(100vh - 36px));background:#fff;border:1px solid rgba(20,82,113,.16);border-radius:22px;box-shadow:0 28px 70px rgba(4,30,47,.3);overflow:hidden;display:none;grid-template-rows:auto 1fr auto auto;transform-origin:bottom right}
       .panel.open{display:grid;animation:show .2s ease-out}
       @keyframes show{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
@@ -37,11 +36,11 @@
       .meta{display:flex;justify-content:space-between;gap:8px;margin-top:7px;color:#80939d;font-size:10.5px}.meta a{color:#527b91}.notice{padding:8px 13px 10px;text-align:center;background:#f7fafb;color:#70858f;font-size:10.5px;border-top:1px solid #edf3f6}
       .mail-cta{display:inline-flex;align-items:center;gap:6px;margin-top:8px;color:#126d96;font-weight:700;text-decoration:underline;text-underline-offset:3px}
       .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-      @media(max-width:600px){:host{right:13px;bottom:14px}.launcher{width:61px;height:61px}.launcher-label{display:none}.panel{position:fixed;inset:10px;width:auto;height:auto;border-radius:18px}.head{padding-top:max(14px,env(safe-area-inset-top))}.bubble{max-width:88%}.notice{padding-bottom:max(10px,env(safe-area-inset-bottom))}}
+      @media(max-width:600px){:host{right:13px;bottom:14px}.launcher{width:61px;height:61px}.panel{position:fixed;inset:10px;width:auto;height:auto;border-radius:18px}.head{padding-top:max(14px,env(safe-area-inset-top))}.bubble{max-width:88%}.notice{padding-bottom:max(10px,env(safe-area-inset-bottom))}}
       @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
     </style>
     <button class="launcher" type="button" aria-label="Rain AI相談チャットを開く" aria-expanded="false">
-      <span class="launcher-label">AIに相談する</span><span class="dot" aria-hidden="true"></span>
+      <span class="dot" aria-hidden="true"></span>
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5h16v11H9l-5 4v-15Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
     </button>
     <section class="panel" role="dialog" aria-modal="false" aria-label="Rain AI相談アシスタント">
@@ -125,6 +124,9 @@
   }
 
   launcher.addEventListener("click", () => setOpen(true));
+  document.querySelectorAll("[data-rain-chat-open]").forEach((trigger) => {
+    trigger.addEventListener("click", () => setOpen(true));
+  });
   shadow.querySelector(".close").addEventListener("click", () => setOpen(false));
   shadow.querySelector(".reset").addEventListener("click", initial);
   send.addEventListener("click", () => submit());
