@@ -4,7 +4,7 @@
 
 - 公開URL: https://www.rainaiproject.com/
 - ホスティング: Vercel
-- 構成: 静的HTML / CSS / JavaScript
+- 構成: 静的HTML / CSS / JavaScript / Vercel Functions（AIチャット）
 - 目的: サービス紹介、プロダクト紹介、無料相談への導線
 
 ## ページ構成
@@ -17,6 +17,19 @@
 | `robots.txt` | 検索・AIクローラー設定 |
 | `sitemap.xml` | 検索エンジン向けサイトマップ |
 | `vercel.json` | VercelのURL設定 |
+| `chatbot.js` | LP右下の相談チャットウィジェット |
+| `api/chat.js` | OpenAI Responses APIへ接続するVercel Function |
+| `server.mjs` | ローカル確認用サーバー |
+
+## ローカル確認
+
+APIキーはGit管理外の `.env.local` に保存し、次のコマンドで起動します。
+
+```bash
+npm run dev
+```
+
+ブラウザで `http://127.0.0.1:3000` を開きます。会話内容はRain AI独自のデータベースには保存せず、回答生成時のみOpenAI APIへ送信します。
 
 ## デプロイ
 
