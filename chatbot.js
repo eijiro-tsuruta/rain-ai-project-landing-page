@@ -69,6 +69,7 @@
   const head = shadow.querySelector(".head");
   const state = { messages: [], busy: false, turns: 0 };
   const suggestions = [
+    "無料AI導入診断について知りたい",
     "自社でAIをどう使えるか相談する",
     "チャットボットの費用を見積もる",
     "チャットボットでの集客を体験する",
@@ -100,7 +101,7 @@
   }
   function initial() {
     state.messages = []; state.turns = 0; messagesEl.replaceChildren();
-    addMessage("assistant", "こんにちは。Rain AI Projectのサービス、AIチャットボットの参考費用、ホームページへの設置方法などをご案内します。\n\n何から確認しますか？"); addSuggestions();
+    addMessage("assistant", "こんにちは。Rain AI Projectのサービス、無料AI導入診断、AIチャットボットの参考費用、ホームページへの設置方法などをご案内します。\n\n何から確認しますか？"); addSuggestions();
   }
   function setOpen(open) {
     panel.classList.toggle("open", open); launcher.style.display = open ? "none" : "grid"; launcher.setAttribute("aria-expanded", String(open)); document.body.classList.toggle("rain-chat-open", open); if (open) setTimeout(() => input.focus(), 50);
