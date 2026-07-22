@@ -12,6 +12,10 @@
 | ファイル | 内容 |
 | --- | --- |
 | `index.html` | 公式ランディングページ |
+| `kumamoto-ai-guide.html` | 熊本の中小企業向けAI導入ガイド（SEO支援記事） |
+| `blog.html` | 熊本のAI・DXブログ一覧 |
+| `blog/kumamoto-ai-2026.html` | 熊本県の最新DX調査を解説するブログ記事 |
+| `SEO-CONTENT-PLAN.md` | 「熊本 AI」向けブログの更新方針と記事計画 |
 | `privacy.html` | プライバシーポリシー |
 | `terms.html` | 利用規約 |
 | `robots.txt` | 検索・AIクローラー設定 |
