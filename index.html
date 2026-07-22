@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="facebook-domain-verification" content="73nz498dfwtkg9vjmwf1osrmxqhu8k">
 <title>熊本のAI開発・AI導入支援｜Rain AI Project</title>
 <meta name="description" content="熊本でAI開発・AI導入支援をお探しならRain AI Project。熊本県の中小企業・小規模事業者向けに、業務自動化、AIエージェント、AIチャットボット、LINE予約の設計・開発を支援します。初回30分無料。">
 <link rel="canonical" href="https://www.rainaiproject.com/">
@@ -223,6 +224,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "繰り返し発生する問い合わせ、社内情報の検索、定型文書の整理、ホームページのAIチャットボット、LINE予約、Instagram投稿など、現在負担になっている業務ひとつから始められます。初回相談で業務と課題を整理し、効果を確認しやすい範囲から小さく設計・開発します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "このサイトのAIチャットボットでは何ができますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rain AI Projectの公式サイト自体がAIチャットボットの導入見本です。画面右下のBotで、業種や課題に応じたAI活用の方向性、導入方法、3つの参考価格帯に基づく概算案内を体験できます。正式な仕様と金額は人が確認します。"
       }
     }
   ]
@@ -473,6 +482,25 @@
   }
   .product-card.lead .tag{background:rgba(255,255,255,.14);color:#fff;}
   .tag.dev{background:#FCEFD8;color:#9A6A1B;}
+  .product-link{
+    display:inline-flex;align-items:center;gap:8px;margin-top:2px;
+    color:var(--sky-deep);font-size:12px;font-weight:700;text-decoration:none;
+  }
+  .product-link:hover{text-decoration:underline;text-underline-offset:4px;}
+
+  /* ---------- insights ---------- */
+  .insights-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;}
+  .insight-card{display:block;border:1px solid var(--mist);border-radius:16px;padding:28px 26px;background:#fff;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}
+  .insight-card:hover{transform:translateY(-3px);box-shadow:0 16px 32px -18px rgba(10,40,64,.25);border-color:var(--sky);}
+  .insight-card.featured{background:var(--navy);border-color:var(--navy);color:#fff;}
+  .insight-meta{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--sky-deep);}
+  .insight-card.featured .insight-meta{color:var(--sky);}
+  .insight-card h3{font-size:20px;line-height:1.55;margin:10px 0 9px;color:var(--navy);}
+  .insight-card.featured h3{color:#fff;}
+  .insight-card p{font-size:13.5px;color:var(--navy-2);margin:0 0 14px;}
+  .insight-card.featured p{color:var(--mist);}
+  .insight-read{font-size:12px;font-weight:700;color:var(--sky-deep);}
+  .insight-card.featured .insight-read{color:var(--sky);}
 
   /* ---------- target band ---------- */
   .target{background:var(--navy);color:#fff;text-align:center;padding:84px 0;}
@@ -557,6 +585,7 @@
     .profile-card{border-left:none;border-top:3px solid var(--sky-deep);padding-left:0;padding-top:20px;}
     .services-grid{grid-template-columns:repeat(2,1fr);}
     .products-grid{grid-template-columns:1fr;}
+    .insights-grid{grid-template-columns:1fr;}
     .kumamoto-examples,.process-list{grid-template-columns:1fr;}
     .contact-box{grid-template-columns:1fr;padding:40px 26px;text-align:center;}
     .contact-box .mail-col{display:flex;flex-direction:column;align-items:center;}
@@ -580,6 +609,7 @@
       <a href="#concept">多脳層AI</a>
       <a href="#services">サービス</a>
       <a href="#products">プロダクト</a>
+      <a href="/blog">ブログ</a>
       <a href="#faq">FAQ</a>
     </nav>
     <button class="nav-cta" type="button" data-rain-chat-open>AIに相談する</button>
@@ -595,6 +625,7 @@
       <p class="lead">熊本でAI導入・AI開発をお考えの中小企業・小規模事業者へ。Rain AI Projectは、独自の「多脳層AI」を核に、現場の業務を自動化するAI開発スタジオです。知識量を競うAIではなく、現場のノイズから気付きを引き出すAIをつくっています。</p>
       <div class="badge-row">
         <span class="badge">ペット向け多脳層AI「Rain BIO」GPTストア検索 世界最上位獲得</span>
+        <span class="badge">このサイトのBotで導入案内・概算価格を体験できます</span>
       </div>
       <div class="hero-ctas">
         <button class="btn-primary" type="button" data-rain-chat-open>AIに相談してみる</button>
@@ -844,9 +875,35 @@
           <span class="tag dev">テスト段階</span>
           <h3 style="margin-top:14px;">AI宣伝しとけ</h3>
           <p>写真から投稿文とハッシュタグを生成し、Instagramへの投稿を支援するSNS運用AI。現在テスト段階です。</p>
+          <a class="product-link" href="https://ai-senden-fixed.vercel.app/" target="_blank" rel="noopener noreferrer">アプリを試す <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="alt" id="insights">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Kumamoto AI Insights</div>
+      <h2>熊本のAI・DX最新情報</h2>
+      <p>熊本県・熊本市などの一次情報と、実際のAI設計・運用経験を基に、中小企業が次に取るべき行動まで解説します。</p>
+    </div>
+    <div class="insights-grid">
+      <a class="insight-card featured" href="/blog/kumamoto-ai-2026">
+        <div class="insight-meta">2026.07.22 ／ 最新調査</div>
+        <h3>熊本県のDX取組企業、AI活用は37.2％へ</h3>
+        <p>熊本県が公開した2026年最新調査から、AI活用が伸びている背景と、県内事業者が今始めるべき業務を読み解きます。</p>
+        <span class="insight-read">記事を読む →</span>
+      </a>
+      <a class="insight-card" href="/kumamoto-ai-guide">
+        <div class="insight-meta">2026.07.22 ／ 実践ガイド</div>
+        <h3>熊本の中小企業向けAI導入ガイド</h3>
+        <p>業務選定、費用、安全対策、相談先の選び方を整理。Botによる導入案内と概算価格も体験できます。</p>
+        <span class="insight-read">ガイドを読む →</span>
+      </a>
+    </div>
+    <p style="margin-top:22px;"><a class="product-link" href="/blog" style="font-size:14px;">AI・DXブログの記事一覧を見る <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -855,6 +912,9 @@
     <div class="eyebrow">Kumamoto AI Development</div>
     <h2>熊本のAI導入・AI開発を、<br>現場の課題ひとつから。</h2>
     <p>Rain AI Projectは、熊本県内の中小企業・小規模事業者を対象に、業務自動化、AIエージェント導入、AIチャットボット開発を提供します。大手向けの汎用ツールをそのまま当てはめるのではなく、現在の業務を整理し、効果を確認しやすい範囲から小さく導入します。</p>
+    <p>この公式サイト自体がAIチャットボットの導入見本です。画面右下のBotが業種や課題を伺い、AI活用の方向性、導入方法、参考価格をご案内します。説明だけでなく、実際の相談導線をその場でお試しいただけます。</p>
+    <p><button class="btn-primary" type="button" data-rain-chat-open>Botで導入案内・概算価格を試す</button></p>
+    <p><a class="product-link" href="/kumamoto-ai-guide" style="color:#8dd4f5;font-size:14px;">熊本の中小企業向けAI導入ガイドを読む <span aria-hidden="true">→</span></a></p>
     <div class="kumamoto-examples">
       <article class="kumamoto-card">
         <div class="num">01 / OFFICE</div>
@@ -926,6 +986,10 @@
         <summary class="faq-q"><h3>どんな業務をAIで自動化できますか？</h3><span class="plus">+</span></summary>
         <p class="faq-a">業務自動化・AIエージェント導入、AIチャットボット開発、Instagram自動投稿AI、LINE自動予約システムなど、定型業務や問い合わせ対応、SNS運用、予約管理を中心に自動化を支援しています。</p>
       </details>
+      <details class="faq-item">
+        <summary class="faq-q"><h3>このサイトのAIチャットボットでは何ができますか？</h3><span class="plus">+</span></summary>
+        <p class="faq-a">この公式サイト自体がAIチャットボットの導入見本です。画面右下のBotで、業種や課題に応じたAI活用の方向性、導入方法、3つの参考価格帯に基づく概算案内を体験できます。正式な仕様と金額は人が確認します。</p>
+      </details>
     </div>
   </div>
 </section>
@@ -966,7 +1030,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM.5 8.98h8.96V23.5H.5V8.98zM9.02 8.98h8.59v1.98h.12c1.2-2.15 4.13-4.41 8.5-4.41 9.09 0 10.77 5.99 10.77 13.79V23.5h-8.96v-7.5c0-1.79-.03-4.08-2.49-4.08-2.49 0-2.87 1.94-2.87 3.95v7.63H9.02V8.98z" transform="scale(0.9)"/></svg>
       </a>
     </div>
-    <div class="f-meta">代表：鶴田英二郎（熊本） ／ © 2026 Rain AI Project ／ <a href="/privacy.html" style="color:inherit;text-decoration:underline;">プライバシーポリシー</a> ／ <a href="/terms.html" style="color:inherit;text-decoration:underline;">利用規約</a></div>
+    <div class="f-meta">代表：鶴田英二郎（熊本） ／ © 2026 Rain AI Project ／ <a href="/blog" style="color:inherit;text-decoration:underline;">AI・DXブログ</a> ／ <a href="/kumamoto-ai-guide" style="color:inherit;text-decoration:underline;">熊本のAI導入ガイド</a> ／ <a href="/privacy.html" style="color:inherit;text-decoration:underline;">プライバシーポリシー</a> ／ <a href="/terms.html" style="color:inherit;text-decoration:underline;">利用規約</a></div>
   </div>
 </footer>
 
