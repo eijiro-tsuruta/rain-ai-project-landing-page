@@ -13,6 +13,7 @@
 | --- | --- |
 | `index.html` | 公式ランディングページ |
 | `kumamoto-ai-guide.html` | 熊本の中小企業向けAI導入ガイド（SEO支援記事） |
+| `kumamoto-ai-diagnosis.html` | 登録不要の熊本企業向けAI導入セルフ診断 |
 | `blog.html` | 熊本のAI・DXブログ一覧 |
 | `blog/kumamoto-ai-2026.html` | 熊本県の最新DX調査を解説するブログ記事 |
 | `SEO-CONTENT-PLAN.md` | 「熊本 AI」向けブログの更新方針と記事計画 |
