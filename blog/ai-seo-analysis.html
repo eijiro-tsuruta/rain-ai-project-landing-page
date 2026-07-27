@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIにSEOを分析させたら、検索上位の厳しい現実が見えてきた</title>
+<meta name="description" content="AIでSEOを分析し、過去の変更履歴まで調べて分かったのは、検索順位だけではなくサイト全体の構造と人間による管理の限界でした。Rain AI Projectの公開検証記録です。">
+<link rel="canonical" href="https://www.rainaiproject.com/blog/ai-seo-analysis">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Rain AI Project">
+<meta property="og:title" content="AIにSEOを分析させたら、検索上位の厳しい現実が見えてきた">
+<meta property="og:description" content="検索上位に入らない理由を過去まで遡って調べると、サイト構造と人間による管理の限界が見えてきました。">
+<meta property="og:url" content="https://www.rainaiproject.com/blog/ai-seo-analysis">
+<meta property="og:image" content="https://www.rainaiproject.com/og-ai-seo-analysis.png">
+<meta property="article:published_time" content="2026-07-27T18:00:00+09:00">
+<meta property="article:modified_time" content="2026-07-27T18:00:00+09:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AIにSEOを分析させたら、検索上位の厳しい現実が見えてきた">
+<meta name="twitter:description" content="検索順位の問題を過去まで遡って調べると、サイト構造と人間による管理の限界が見えてきました。">
+<meta name="twitter:image" content="https://www.rainaiproject.com/og-ai-seo-analysis.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.rainaiproject.com/"},
+      {"@type":"ListItem","position":2,"name":"ブログ","item":"https://www.rainaiproject.com/blog"},
+      {"@type":"ListItem","position":3,"name":"AIにSEOを分析させたら、検索上位の厳しい現実が見えてきた","item":"https://www.rainaiproject.com/blog/ai-seo-analysis"}
+    ]},
+    {"@type":"BlogPosting","@id":"https://www.rainaiproject.com/blog/ai-seo-analysis#article","headline":"AIにSEOを分析させたら、検索上位の厳しい現実が見えてきた","description":"AIでSEOを分析し、過去の変更履歴まで調べて見えてきたサイト構造と人間による管理の限界を、Rain AI Projectの公開検証として記録します。","datePublished":"2026-07-27T18:00:00+09:00","dateModified":"2026-07-27T18:00:00+09:00","inLanguage":"ja","mainEntityOfPage":"https://www.rainaiproject.com/blog/ai-seo-analysis","image":"https://www.rainaiproject.com/og-ai-seo-analysis.png","author":{"@type":"Person","name":"鶴田英二郎","jobTitle":"Rain AI Project代表","url":"https://www.rainaiproject.com/#profile","sameAs":"https://www.linkedin.com/in/eijiro-tsuruta-270238371/"},"publisher":{"@id":"https://www.rainaiproject.com/#organization"},"about":["AI","SEO","検索上位","サイト構造","検索エンジン最適化","人とAIの役割分担"]}
+  ]
+}
+</script>
+<style>
+  :root{--navy:#0A2840;--navy2:#123A5C;--sky:#3FA9DC;--deep:#1C7FB0;--pale:#EAF5FC;--ink:#16293A;--muted:#5c7482;--line:#DDE8EF;--display:'Zen Kaku Gothic New',sans-serif;--body:'Noto Sans JP',sans-serif}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:var(--body);line-height:1.95;background:#fff}a{color:var(--deep)}.wrap{width:min(1080px,calc(100% - 40px));margin:auto}
+  header{border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);position:sticky;top:0;z-index:5}.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font:900 20px var(--display);color:var(--navy);text-decoration:none}.logo span{color:var(--sky)}.nav a:last-child{font-size:13px;font-weight:700;text-decoration:none}
+  .hero{padding:74px 0;background:linear-gradient(135deg,#f7fcff,var(--pale))}.crumb{font-size:12px;color:#607887;margin-bottom:24px}.crumb a{color:inherit}.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);font-weight:700}h1{font:900 clamp(34px,5.6vw,59px)/1.32 var(--display);letter-spacing:-.035em;color:var(--navy);max-width:960px;margin:12px 0 22px}.lead{font-size:18px;max-width:830px;margin:0}.byline{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:13px;margin-top:28px}.cover{display:block;width:100%;height:auto;border-radius:20px;margin-top:38px;box-shadow:0 20px 48px rgba(10,40,64,.12)}
+  .layout{display:grid;grid-template-columns:minmax(0,720px) 260px;gap:64px;padding:68px 0 100px}.article h2{font:900 31px/1.5 var(--display);color:var(--navy);margin:68px 0 16px}.article h2:first-child{margin-top:0}.article p{margin:0 0 20px}.article ul{padding-left:1.4em;margin:12px 0 26px}.article li{margin:8px 0}.key{background:var(--navy);color:#fff;border-radius:18px;padding:30px;margin-bottom:48px}.key strong{display:block;font:900 clamp(26px,4vw,39px)/1.4 var(--display);color:#76c9ee}.key span{display:block;font-size:14px;color:#d1e4ee;margin-top:10px}.note{background:var(--pale);border-left:4px solid var(--sky);padding:22px 24px;margin:28px 0}blockquote{margin:30px 0;padding:24px 28px;border-left:4px solid var(--sky);background:#f7fcff;color:var(--navy);font:700 19px/1.9 var(--display)}.source{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+  .cta{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:20px;padding:36px;margin-top:58px}.cta h2{color:#fff;margin:0 0 10px;font-size:27px}.cta p{margin-bottom:20px}.cta a{display:inline-block;border-radius:999px;background:var(--sky);color:#071d2d;padding:12px 19px;font:700 14px var(--body);text-decoration:none;margin:4px}.toc{position:sticky;top:98px;border-left:2px solid var(--line);padding-left:19px}.toc strong{display:block;color:var(--navy);margin-bottom:8px}.toc a{display:block;color:#607887;text-decoration:none;font-size:13px;padding:6px 0}
+  footer{background:#071d2d;color:#c9d8e2;padding:42px 0;font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px}.foot strong{color:#fff;font:900 18px var(--display)}.foot a{color:#fff}@media(max-width:820px){.layout{grid-template-columns:1fr}.toc{display:none}.hero{padding:54px 0}.article h2{font-size:27px}.foot{display:block}.foot strong{display:block;margin-bottom:10px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="logo" href="/">Rain <span>AI</span> Project</a><a href="/blog">AI・DXブログ</a></div></header>
+<section class="hero"><div class="wrap">
+  <div class="crumb"><a href="/">ホーム</a> ／ <a href="/blog">ブログ</a> ／ AIとSEOの公開検証</div>
+  <div class="label">AI × SEO Field Note</div>
+  <h1>AIにSEOを分析させたら、<br>検索上位の厳しい現実が見えてきた</h1>
+  <p class="lead">Googleに登録されることと、検索上位に表示されることは違います。AIで現在の順位だけでなく過去の変更まで遡って調べると、問題は記事単体ではなく、サイト全体の構造と人間による管理の限界にあることが見えてきました。</p>
+  <div class="byline"><time datetime="2026-07-27T18:00:00+09:00">公開：2026年7月27日</time><span>執筆：鶴田英二郎</span><span>Rain AI Project 公開検証記録</span></div>
+  <img class="cover" src="/og-ai-seo-analysis.png" width="1200" height="630" alt="AIにSEOを分析させたら、検索上位の厳しい現実が見えてきた">
+</div></section>
+<main><div class="wrap layout"><article class="article">
+  <section class="key"><strong>登録された。それでも上位には出ない。</strong><span>技術設定だけでは説明できない差を、サイトの過去と構造から調べました。</span></section>
+
+  <h2 id="indexed">Googleに載ることと、検索上位に入ることは違う</h2>
+  <p>最近、AIそのものについて話すより、AIを使ってSEOを調べる機会の方が増えました。</p>
+  <p>タイトル、説明文、見出し、構造化データ、サイトマップ、内部リンク。以前なら一つずつ専門知識を使って確認していた項目も、AIを使えばかなり細かく点検できます。</p>
+  <p>Rain AI Projectの公式サイトでも、AIを使いながらSEOの技術設定を整えました。その結果、公開した主要ページは数日でGoogleに登録され、サイト名で検索すれば表示されるようになりました。</p>
+  <p>しかし、2026年7月27日に「熊本 AI 導入支援」で確認すると、Rain AI Projectは最初の検索結果ページには表示されていませんでした。</p>
+  <div class="note"><strong>ここで分けて考える必要があります。</strong><br>Googleがページを発見して登録することと、利用者が検索する言葉で上位に表示することは、同じではありません。</div>
+  <p>検索上位には、長い運営歴、蓄積された記事、外部からの紹介、地域での知名度を持つサイトが並びます。新しいサイトが技術設定と数本の記事だけで追いつけないのは、ある意味では当然です。</p>
+
+  <h2 id="history">過去まで調べると、構造上の問題が見えてきた</h2>
+  <p>今回、AIに確認させたのは現在の検索順位だけではありません。</p>
+  <p>過去にどのようなページを作り、何を変更し、サイトがどの方向へ進んできたのか。ページタイトル、説明文、内部リンク、サイトマップ、構造化データ、公開履歴まで遡って調べました。</p>
+  <p>そこで分かったのは、一つの大きな間違いではなく、小さなズレの積み重ねです。</p>
+  <ul>
+    <li>事業の方向が変わっても、過去の表現が一部に残る</li>
+    <li>重要なページを追加しても、既存ページから十分につながっていない</li>
+    <li>複数のページが似た役割を持ち、どのページを中心にするか曖昧になる</li>
+    <li>一つずつは正しくても、サイト全体として伝えるテーマが弱くなる</li>
+  </ul>
+  <p>人間には同じ事業の延長に見えても、検索エンジンから見ると、サイトが何を専門としているのか分かりにくくなることがあります。</p>
+  <p>これは文章の上手さだけでは解決できません。サイト全体を一つの構造として考える必要があります。</p>
+
+  <h2 id="human-limit">人間だけで全体を管理することには限界がある</h2>
+  <p>もちろん、これらは人間でも確認できます。</p>
+  <p>しかし、すべてのページを開き、過去の変更と比較し、タイトル、URL、内部リンク、公開日、構造化データ、サイトマップの整合性を継続的に確認するのは簡単ではありません。</p>
+  <p>ページが増えるほど、確認すべき関係も増えていきます。一つの記事を直した結果、別のページと役割が重なる。サービス内容を変更したのに、古い説明が他の場所へ残る。新しいページは正しく作れても、古いページとの関係までは見直されない。</p>
+  <p>人間は目の前の文章へ集中できます。一方で、サイト全体とその履歴を常に同時に見ることには限界があります。</p>
+  <blockquote>問題は、人間の能力が低いことではありません。情報が増え続ける構造を、人間の記憶と目視確認だけで管理しようとしていることです。</blockquote>
+
+  <h2 id="ai-role">AIに任せるべきなのは、記事の量産より点検かもしれない</h2>
+  <p>AIにSEO記事を書かせること自体は難しくありません。検索されそうな言葉を並べ、見出しを作り、もっともらしい説明を短時間で増やせます。</p>
+  <p>しかし、多くのサイトが同じ方法を使えば、検索結果には似たような記事が増えるだけです。文章は整っていても、現場で試した記録、地域固有の事情、失敗から得た判断材料がなければ、利用者にとっての価値は増えません。</p>
+  <p>AIが本当に力を発揮するのは、人間が見落としやすい関係を横断的に点検することではないでしょうか。</p>
+  <ul>
+    <li>過去と現在で説明が矛盾していないか</li>
+    <li>複数のページが同じ検索意図を奪い合っていないか</li>
+    <li>重要なページがサイト内で孤立していないか</li>
+    <li>検索エンジンへ伝える情報が全体で統一されているか</li>
+    <li>現在の事業とサイトの構造が一致しているか</li>
+  </ul>
+  <p>何を伝えるかを決めるのは人間です。その判断がサイト全体へ正しく反映されているかを点検する仕事は、AIの方が得意になりつつあります。</p>
+
+  <h2 id="trust">検索上位を決めるのは、設定だけではない</h2>
+  <p>サイトマップはGoogleがページを発見する助けになりますが、登録や上位表示を保証するものではありません。Google自身も、改善の効果が数日で現れる場合がある一方、サイト全体への評価には数か月かかることがあると説明しています。</p>
+  <p>つまり、技術設定を整えれば終わりではありません。</p>
+  <p>実際に試したことを書く。一次情報を確認する。過去の記事を更新する。ページ同士の関係を整える。外部から参照される活動を続ける。こうした積み重ねが、サイトの信頼になります。</p>
+  <p>AIは問題を見つけられますが、企業の実績や地域からの信頼まで自動的に作ってくれるわけではありません。</p>
+
+  <h2 id="next">Rain AI Projectでは、過程そのものを公開する</h2>
+  <p>Rain AI Projectは、まだ長い運営歴や多数の導入事例を持つサイトではありません。だからこそ、確認できない実績を大きく見せるのではなく、何を試し、何が分かり、どこを改善したのかを公開していきます。</p>
+  <p>成功した話だけでなく、検索上位に入らなかった事実や、過去を調べて見つかった構造上の問題も記録します。</p>
+  <blockquote>人間が方向を決め、AIが履歴と全体の整合性を点検する。これからのSEOに必要なのは、記事の大量生産ではなく、この役割分担なのかもしれません。</blockquote>
+  <p>AIは、検索順位を自動的に上げる魔法ではありません。しかし、人間が作り、人間が変更し続けてきたサイトの過去を調べ、現在とのズレを発見する道具にはなります。</p>
+  <p>この記事も、その公開検証の一つです。</p>
+
+  <p class="source"><strong>参考：</strong><br>
+    <a href="https://developers.google.com/search/docs/appearance/core-updates" target="_blank" rel="noopener noreferrer">Google Search Central「Google 検索のコア アップデート」</a><br>
+    <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener noreferrer">Google Search Central「有用で信頼性の高い、ユーザー第一のコンテンツの作成」</a><br>
+    <a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview" target="_blank" rel="noopener noreferrer">Google Search Central「サイトマップについて」</a>
+  </p>
+
+  <section class="cta"><h2>Rain AI Projectの公開検証を見る</h2><p>熊本のAI導入に関する実践ガイド、無料診断、開発・改善記録を公開しています。</p><a href="/blog">AI・DXブログを見る</a><a href="/kumamoto-ai-guide">AI導入ガイドを読む</a></section>
+</article><aside><nav class="toc"><strong>目次</strong><a href="#indexed">登録と検索上位の違い</a><a href="#history">過去から見えた構造</a><a href="#human-limit">人間による管理の限界</a><a href="#ai-role">AIに任せる点検</a><a href="#trust">設定だけではない評価</a><a href="#next">公開検証を続ける理由</a></nav></aside></div></main>
+<footer><div class="wrap foot"><strong>Rain AI Project</strong><div><a href="/">公式サイト</a> ／ <a href="/blog">ブログ</a> ／ <a href="/kumamoto-ai-guide">AI導入ガイド</a> ／ <a href="/privacy">プライバシーポリシー</a></div></div></footer>
+</body>
+</html>
