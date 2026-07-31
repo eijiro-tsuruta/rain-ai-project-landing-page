@@ -3,6 +3,7 @@ import test from "node:test";
 
 import { buildChatInstructions, handleChat } from "../lib/chat-service.js";
 import {
+  RAIN_FIELD_KNOWLEDGE,
   buildRainFieldContext,
   isRainFieldQuery,
   retrieveRainFieldKnowledge,
@@ -15,6 +16,81 @@ function messages(question) {
 function retrievedIds(question) {
   return retrieveRainFieldKnowledge(messages(question)).map((chunk) => chunk.id);
 }
+
+const manualCoverageCases = [
+  ["取扱説明書は何ページで、いつ発行されましたか？", "manual-metadata-and-contents", /全27ページ/],
+  ["Rain FieldのWeb URLはどこですか？", "manual-metadata-and-contents", /rainfield-mvp\.vercel\.app/],
+  ["別のパソコンやシークレットウィンドウと共有できますか？", "getting-started-and-storage", /共有されません/],
+  ["見積書をPDFで保存できますか？", "getting-started-and-storage", /ブラウザの印刷機能を使ってPDF化/],
+  ["写真画像そのものをAIへ送信しますか？", "getting-started-and-storage", /写真画像そのものはAIへ送信されません/],
+  ["取扱説明書の「必須」とは何ですか？", "manual-notation", /入力しないと登録できない/],
+  ["Rain Fieldでは何を管理できますか？", "overview-and-workflow", /案件、材料・仕入、見積単価、見積書、発注書/],
+  ["材料・単価マスタでは何を管理しますか？", "screen-navigation", /材料・仕入一覧と見積単価マスタ/],
+  ["売上や経費はどのメニューで確認しますか？", "screen-navigation", /「売上・利益管理」/],
+  ["Rain Fieldを使い始める順番を教えて", "basic-workflow-steps", /1\. 「材料・単価マスタ」/],
+  ["案件の登録方法はどうしますか？", "project-registration", /「＋ 新規案件」/],
+  ["案件は顧客名や住所で検索できますか？", "project-search-and-status", /顧客名または住所の一部/],
+  ["案件のステータスには何がありますか？", "project-search-and-status", /現調・提案中・見積提出・受注・失注・完了/],
+  ["案件を削除したら関連書類は残りますか？", "project-deletion", /請求書、メール下書きも削除/],
+  ["材料を手入力で登録する手順は？", "materials", /「材料・商品を手入力」/],
+  ["材料登録で発注計算に必要な項目は？", "materials", /施工可能数量とロス率/],
+  ["同じ仕入先の商品コードを重複登録できますか？", "materials", /重複登録できません/],
+  ["CSVはShift-JISに対応していますか？", "material-import", /Shift-JISに対応/],
+  ["一括取込の上限サイズと行数は？", "material-import", /50MBまで.*5,000行/],
+  ["CSV取り込み後に入力が必要な項目は？", "material-import", /見積単位.*ロス率は取り込みません/],
+  ["商品はどの項目から検索できますか？", "material-search-and-price-history", /JAN・バーコード/],
+  ["仕入価格を変更する手順は？", "material-search-and-price-history", /価格適用日を変更/],
+  ["仕入価格変更は保存済み見積書へ反映されますか？", "material-search-and-price-history", /保存済みの見積書は自動更新されません/],
+  ["材料から見積単価を登録する手順は？", "estimate-price-master", /「この見積単価を登録」/],
+  ["掛け率20%で原価100円なら見積単価はいくら？", "estimate-price-master", /見積単価は120円/],
+  ["仕入単価9800円、100㎡、ロス5%の材料原価は？", "estimate-price-master", /102\.9円/],
+  ["工数や外注費はどう登録しますか？", "labor-costs", /「見積単価を直接入力」/],
+  ["30分の工数は数量いくつですか？", "labor-costs", /30分は0\.5/],
+  ["見積書を作る具体的な手順は？", "estimates", /「見積を保存する」/],
+  ["AI見積提案は単価を変更しますか？", "estimates", /AIは単価を変更しません/],
+  ["自由入力の見積項目は発注に引き継がれますか？", "estimates", /発注書の自動計算には引き継がれません/],
+  ["発注の必要量の計算式は？", "automatic-order-quantity", /必要量＝見積数量/],
+  ["185㎡、1缶60㎡、ロス8%、2缶単位なら？", "automatic-order-quantity", /発注数4缶/],
+  ["発注数が0になる原因は？", "automatic-order-quantity", /未入力・0の場合/],
+  ["仕入先別発注書を作る手順は？", "purchase-orders", /仕入先タブで発注先を切り替え/],
+  ["見積変更後に発注数を再計算するには？", "purchase-orders", /「見積書から再取込む」/],
+  ["仕入先未設定だと発注書を印刷できますか？", "purchase-orders", /保存・印刷できません/],
+  ["写真を登録する手順は？", "photos-reports-documents", /「写真を選択してアップロード」/],
+  ["AI報告書を再生成すると前の内容は？", "photos-reports-documents", /前回内容を上書き/],
+  ["近隣挨拶文は本番生成ですか？", "photos-reports-documents", /サンプル生成を含みます/],
+  ["工程表はどのように作られますか？", "photos-reports-documents", /定番工程を自動配分/],
+  ["写真は1案件何枚が目安ですか？", "photos-reports-documents", /1案件20枚/],
+  ["請求書を作る具体的な手順は？", "invoices-sales-profit", /「請求書を保存する」/],
+  ["月次売上は何を集計しますか？", "invoices-sales-profit", /請求書の税抜小計/],
+  ["利益はどう計算されますか？", "invoices-sales-profit", /売上から経費を差し引いた利益/],
+  ["顧客名と現場住所は必須ですと出ます", "errors", /顧客名と現場住所を入力して再登録/],
+  ["ファイルは50MB以下にしてくださいと出ます", "errors", /ファイルを分割するか不要列を削除/],
+  ["品目名と仕入単価の列対応が必要と出ます", "errors", /「品目名」「仕入単価」を設定/],
+  ["AI生成の設定が完了していませんと出ます", "errors", /管理者へ設定状況を確認/],
+  ["生成回数が上限と出たら？", "errors", /約10分待ってから再実行/],
+  ["保存した案件が見つからない場合の確認順は？", "missing-saved-data-check", /1\. 登録時と同じパソコン/],
+  ["ロス率とは何ですか？", "glossary-and-checklist", /こぼれ、重ね、残量/],
+  ["注文できる数量単位とは何ですか？", "glossary-and-checklist", /注文数量の刻み/],
+  ["再取り込みとは何ですか？", "glossary-and-checklist", /材料の必要量と仕入先別発注書を再計算/],
+  ["初回設定で確認することは？", "glossary-and-checklist", /初回設定チェックリスト/],
+  ["運用開始前の最終確認は？", "glossary-and-checklist", /仕入先の注文条件と一致/],
+];
+
+test("取扱説明書の全27ページに対応する知識を持つ", () => {
+  const coveredPages = new Set(RAIN_FIELD_KNOWLEDGE.flatMap((chunk) => chunk.pages));
+  assert.deepEqual([...coveredPages].sort((left, right) => left - right), Array.from({ length: 27 }, (_, index) => index + 1));
+});
+
+test("取扱説明書の全主要項目を質問から検索できる", () => {
+  for (const [question, expectedId, expectedText] of manualCoverageCases) {
+    const matches = retrieveRainFieldKnowledge(messages(question));
+    const ids = matches.map((chunk) => chunk.id);
+    const context = buildRainFieldContext(messages(question));
+
+    assert.ok(ids.includes(expectedId), `${question}: expected ${expectedId}, got ${ids.join(", ") || "none"}`);
+    assert.match(context, expectedText, `${question}: expected answer evidence was not retrieved`);
+  }
+});
 
 test("Rain Fieldの操作質問とRain AIのサービス相談を区別する", () => {
   assert.equal(isRainFieldQuery(messages("クラウドに保存・同期できますか？")), true);
@@ -65,7 +141,8 @@ test("Rain Fieldの回答指示には推測禁止と出典表記を含める", (
   const instructions = buildChatInstructions(messages("Rain Fieldの料金と今後の機能を教えて"));
   assert.match(instructions, /料金、将来仕様、クラウド連携を推測しない/);
   assert.match(instructions, /取扱説明書または公式運用方針には記載がなく、確認が必要/);
-  assert.match(instructions, /回答末尾に「参照: 取扱説明書/);
+  assert.match(instructions, /提示された「出典:」の章名・ページ表記を変更せず/);
+  assert.match(instructions, /一般的にありそうという理由で追加しない/);
   assert.match(instructions, /必ずその内容から回答し、「記載がない」「確認が必要」とは答えない/);
 });
 
