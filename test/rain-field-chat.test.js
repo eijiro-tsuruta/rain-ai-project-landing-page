@@ -36,6 +36,7 @@ const manualCoverageCases = [
   ["材料登録で発注計算に必要な項目は？", "materials", /施工可能数量とロス率/],
   ["同じ仕入先の商品コードを重複登録できますか？", "materials", /重複登録できません/],
   ["CSVはShift-JISに対応していますか？", "material-import", /Shift-JISに対応/],
+  ["CVSで今までの材料を取り込めますか？", "material-import", /対応形式は\.xlsxと\.csv/],
   ["一括取込の上限サイズと行数は？", "material-import", /50MBまで.*5,000行/],
   ["CSV取り込み後に入力が必要な項目は？", "material-import", /見積単位.*ロス率は取り込みません/],
   ["商品はどの項目から検索できますか？", "material-search-and-price-history", /JAN・バーコード/],
@@ -118,6 +119,21 @@ test("案件登録の質問には9ページの具体的な5手順を取得する
   assert.match(context, /調査日、担当者、建物種別/);
   assert.match(context, /「登録する」を押します。登録後、案件詳細が開きます/);
   assert.match(context, /第4章・9ページ/);
+});
+
+test("CVSという入力ミスでも12〜13ページの材料一括取込を最優先で取得する", () => {
+  for (const question of [
+    "CVSで今までの材料を取り込めますか？",
+    "ＣＶＳで既存材料を一括登録できますか？",
+  ]) {
+    const matches = retrieveRainFieldKnowledge(messages(question));
+    const context = buildRainFieldContext(messages(question));
+
+    assert.equal(matches[0]?.id, "material-import", `${question}: material-import should rank first`);
+    assert.match(context, /対応形式は\.xlsxと\.csv/);
+    assert.match(context, /50MBまで.*5,000行/);
+    assert.match(context, /見積単位、1仕入単位で施工できる数量、ロス率は取り込みません/);
+  }
 });
 
 test("発注数量の計算例を取得する", () => {
