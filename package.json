@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "node server.mjs",
-    "check": "node --check server.mjs && node --check api/chat.js && node --check lib/chat-service.js && node --check chatbot.js"
+    "check": "node --check server.mjs && node --check api/chat.js && node --check lib/chat-service.js && node --check lib/rain-field-knowledge.js && node --check chatbot.js",
+    "test": "node --test"
   }
 }

@@ -25,6 +25,7 @@
 | `vercel.json` | VercelのURL設定 |
 | `chatbot.js` | LP右下の相談チャットウィジェット |
 | `api/chat.js` | OpenAI Responses APIへ接続するVercel Function |
+| `lib/rain-field-knowledge.js` | Rain Field取扱説明書の章別知識とローカル検索 |
 | `server.mjs` | ローカル確認用サーバー |
 
 ## ローカル確認
@@ -36,6 +37,8 @@ npm run dev
 ```
 
 ブラウザで `http://127.0.0.1:3000` を開きます。会話内容はRain AI独自のデータベースには保存せず、回答生成時のみOpenAI APIへ送信します。
+
+Rain Fieldの操作質問では、取扱説明書を章別に検索し、質問に関連する部分だけを回答生成時の指示へ追加します。説明書全文を毎回送信せず、OpenAIのvector storeも使用しません。
 
 ## デプロイ
 
@@ -52,5 +55,6 @@ npm run dev
 2. 「無料相談」リンクが正しく動作すること
 3. canonical、OGP、構造化データが `www.rainaiproject.com` を参照していること
 4. `sitemap.xml` と実際の公開URLが一致していること
+5. `npm test` と `npm run check` が成功すること
 
 © 2026 Rain AI Project
