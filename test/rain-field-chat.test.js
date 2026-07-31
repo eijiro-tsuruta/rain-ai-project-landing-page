@@ -28,7 +28,20 @@ test("質問に対応する説明書チャンクを取得する", () => {
   assert.ok(retrievedIds("自由入力した項目が発注書に出ません").includes("estimates"));
   assert.ok(retrievedIds("発注数が0になります").includes("automatic-order-quantity"));
   assert.ok(retrievedIds("仕入先未設定で印刷できません").includes("purchase-orders"));
-  assert.ok(retrievedIds("案件を削除したら写真は残りますか？").includes("projects"));
+  assert.ok(retrievedIds("案件を削除したら写真は残りますか？").includes("project-deletion"));
+});
+
+test("案件登録の質問には9ページの具体的な5手順を取得する", () => {
+  const matches = retrieveRainFieldKnowledge(messages("案件の登録方法はどうしますか？"));
+  const context = buildRainFieldContext(messages("案件の登録方法はどうしますか？"));
+
+  assert.equal(matches[0]?.id, "project-registration");
+  assert.match(context, /1\. 上部メニューの「案件一覧」を開きます/);
+  assert.match(context, /2\. 画面右上の「＋ 新規案件」を押します/);
+  assert.match(context, /顧客名と現場住所.*必須/);
+  assert.match(context, /調査日、担当者、建物種別/);
+  assert.match(context, /「登録する」を押します。登録後、案件詳細が開きます/);
+  assert.match(context, /第4章・9ページ/);
 });
 
 test("発注数量の計算例を取得する", () => {
@@ -53,6 +66,7 @@ test("Rain Fieldの回答指示には推測禁止と出典表記を含める", (
   assert.match(instructions, /料金、将来仕様、クラウド連携を推測しない/);
   assert.match(instructions, /取扱説明書または公式運用方針には記載がなく、確認が必要/);
   assert.match(instructions, /回答末尾に「参照: 取扱説明書/);
+  assert.match(instructions, /必ずその内容から回答し、「記載がない」「確認が必要」とは答えない/);
 });
 
 test("既存のResponses API設定を維持して関連知識だけを送る", async () => {
@@ -93,5 +107,5 @@ test("既存のResponses API設定を維持して関連知識だけを送る", a
 test("Rain AIのサービス相談にはRain Fieldの章本文を追加しない", () => {
   const instructions = buildChatInstructions(messages("チャットボット制作の参考価格はいくらですか？"));
   assert.match(instructions, /案内・FAQ型: 初期15万〜30万円/);
-  assert.doesNotMatch(instructions, /今回の質問に関連するRain Field知識/);
+  assert.doesNotMatch(instructions, /\n## 今回の質問に関連するRain Field知識/);
 });
