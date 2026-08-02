@@ -19,7 +19,8 @@ function retrievedIds(question) {
 
 const manualCoverageCases = [
   ["取扱説明書は何ページで、いつ発行されましたか？", "manual-metadata-and-contents", /全27ページ/],
-  ["Rain FieldのWeb URLはどこですか？", "manual-metadata-and-contents", /rainfield-mvp\.vercel\.app/],
+  ["Rain FieldのWeb URLはどこですか？", "official-access-status", /rainfield\.rainaiproject\.com/],
+  ["Rain Fieldはもう使えますか？", "official-access-status", /フロント画面を含めて完成.*すぐに稼働できます/],
   ["別のパソコンやシークレットウィンドウと共有できますか？", "getting-started-and-storage", /共有されません/],
   ["見積書をPDFで保存できますか？", "getting-started-and-storage", /ブラウザの印刷機能を使ってPDF化/],
   ["写真画像そのものをAIへ送信しますか？", "getting-started-and-storage", /写真画像そのものはAIへ送信されません/],
@@ -80,6 +81,18 @@ const manualCoverageCases = [
 test("取扱説明書の全27ページに対応する知識を持つ", () => {
   const coveredPages = new Set(RAIN_FIELD_KNOWLEDGE.flatMap((chunk) => chunk.pages));
   assert.deepEqual([...coveredPages].sort((left, right) => left - right), Array.from({ length: 27 }, (_, index) => index + 1));
+});
+
+test("Rain Fieldの現在の公式URLと稼働状況を最優先で案内する", () => {
+  const urlQuestion = messages("Rain FieldのWeb URLはどこですか？");
+  const statusQuestion = messages("Rain Fieldはもう使えますか？");
+  const urlContext = buildRainFieldContext(urlQuestion);
+
+  assert.equal(retrieveRainFieldKnowledge(urlQuestion)[0]?.id, "official-access-status");
+  assert.equal(retrieveRainFieldKnowledge(statusQuestion)[0]?.id, "official-access-status");
+  assert.match(urlContext, /https:\/\/rainfield\.rainaiproject\.com/);
+  assert.doesNotMatch(urlContext, /rainfield-mvp\.vercel\.app/);
+  assert.match(urlContext, /出典: Rain Field公式案内/);
 });
 
 test("取扱説明書の全主要項目を質問から検索できる", () => {
