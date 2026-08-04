@@ -126,8 +126,21 @@
 
   launcher.addEventListener("click", () => setOpen(true));
   document.querySelectorAll("[data-rain-chat-open]").forEach((trigger) => {
-    trigger.addEventListener("click", () => setOpen(true));
+    trigger.addEventListener("click", () => {
+      setOpen(true);
+      const prompt = trigger.getAttribute("data-rain-chat-prompt");
+      if (prompt) submit(prompt);
+      if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: "rain_field_bot_open", rain_field_prompt: prompt || "" });
+    });
   });
+  document.querySelectorAll("[data-rain-field-action]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: "rain_field_action", rain_field_action: trigger.getAttribute("data-rain-field-action") || "unknown" });
+    });
+  });
+  if (/^\/products\/rain-field\/?$/.test(window.location.pathname) && Array.isArray(window.dataLayer)) {
+    window.dataLayer.push({ event: "rain_field_product_view" });
+  }
   shadow.querySelector(".close").addEventListener("click", () => setOpen(false));
   shadow.querySelector(".reset").addEventListener("click", initial);
   send.addEventListener("click", () => submit());

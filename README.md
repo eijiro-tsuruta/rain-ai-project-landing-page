@@ -18,6 +18,7 @@
 | `blog/kumamoto-ai-2026.html` | 熊本県の最新DX調査を解説するブログ記事 |
 | `blog/ai-seo-analysis.html` | AIでSEOとサイト構造を分析した公開検証記事 |
 | `blog/rain-field-construction-office.html` | 一人親方・小規模工務店向けRain Fieldの開発記録 |
+| `products/rain-field.html` | Rain Fieldの機能・画面・導入案内をまとめた製品ページ |
 | `assets/rain-field/` | Rain Field記事用の画面画像 |
 | `SEO-CONTENT-PLAN.md` | 「熊本 AI」向けブログの更新方針と記事計画 |
 | `privacy.html` | プライバシーポリシー |
