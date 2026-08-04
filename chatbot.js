@@ -141,6 +141,9 @@
   if (/^\/products\/rain-field\/?$/.test(window.location.pathname) && Array.isArray(window.dataLayer)) {
     window.dataLayer.push({ event: "rain_field_product_view" });
   }
+  if (/^\/products\/line-reservation-bot\/?$/.test(window.location.pathname) && Array.isArray(window.dataLayer)) {
+    window.dataLayer.push({ event: "line_reservation_product_view" });
+  }
   shadow.querySelector(".close").addEventListener("click", () => setOpen(false));
   shadow.querySelector(".reset").addEventListener("click", initial);
   send.addEventListener("click", () => submit());

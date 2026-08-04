@@ -215,3 +215,13 @@ test("Rain AIのサービス相談にはRain Fieldの章本文を追加しない
   assert.match(instructions, /案内・FAQ型: 初期15万〜30万円/);
   assert.doesNotMatch(instructions, /\n## 今回の質問に関連するRain Field知識/);
 });
+
+test("LINE予約Botの機能・料金・アカウント方針を案内できる", () => {
+  const instructions = buildChatInstructions(messages("LINE予約Botの料金と複数店舗対応を教えて"));
+  assert.match(instructions, /初期55,000円、月額9,000円から/);
+  assert.match(instructions, /AI FAQ・自由文応答は初期33,000円からと月額3,000円から/);
+  assert.match(instructions, /追加店舗は初期11,000円\/店舗と月額4,000円\/店舗/);
+  assert.match(instructions, /店舗別の予約カレンダー/);
+  assert.match(instructions, /お客様名義で取得/);
+  assert.match(instructions, /パスワードは預からない/);
+});

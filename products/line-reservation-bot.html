@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDLLF5G3');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINE予約Bot｜Googleカレンダー連携の予約システム｜Rain AI Project</title>
+<meta name="description" content="LINEでメニュー・日付・時間を選び、空き確認からGoogleカレンダーへの予約登録まで自動化するLINE予約Bot。初期費用55,000円から、月額9,000円から。複数店舗、リマインド、AI FAQにも対応します。">
+<link rel="canonical" href="https://www.rainaiproject.com/products/line-reservation-bot">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rain AI Project">
+<meta property="og:title" content="LINE予約Bot｜Googleカレンダー連携の予約システム">
+<meta property="og:description" content="いつものLINEから予約。空き確認、日時選択、Googleカレンダー登録までを一つの流れにします。">
+<meta property="og:url" content="https://www.rainaiproject.com/products/line-reservation-bot">
+<meta property="og:image" content="https://www.rainaiproject.com/assets/line-reservation/google-calendar-booking.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LINE予約Bot｜Googleカレンダー連携">
+<meta name="twitter:description" content="電話や予約台帳への転記を減らす、小規模店舗向けLINE予約システム。">
+<meta name="twitter:image" content="https://www.rainaiproject.com/assets/line-reservation/google-calendar-booking.jpg">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.rainaiproject.com/"},
+        {"@type":"ListItem","position":2,"name":"プロダクト","item":"https://www.rainaiproject.com/#products"},
+        {"@type":"ListItem","position":3,"name":"LINE予約Bot","item":"https://www.rainaiproject.com/products/line-reservation-bot"}
+      ]
+    },
+    {
+      "@type":"SoftwareApplication",
+      "name":"LINE予約Bot",
+      "applicationCategory":"BusinessApplication",
+      "operatingSystem":"LINE, Web",
+      "url":"https://www.rainaiproject.com/products/line-reservation-bot",
+      "description":"LINE上でメニュー・日付・時間を選択し、空き確認とGoogleカレンダーへの予約登録を行う予約システム。",
+      "offers":{"@type":"AggregateOffer","priceCurrency":"JPY","lowPrice":"9000","offerCount":"2"},
+      "creator":{"@type":"Organization","name":"Rain AI Project","url":"https://www.rainaiproject.com/"}
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"LINE予約Botでは何ができますか？","acceptedAnswer":{"@type":"Answer","text":"お客様がLINEでメニュー、日付、時間を選択し、空き枠を確認して予約できます。確定した予約はGoogleカレンダーへ登録され、キャンセルにも対応します。"}},
+        {"@type":"Question","name":"導入には何が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"お客様名義のLINE公式アカウントとGoogleアカウントが必要です。本人確認はお客様に行っていただき、Rain AI Projectが管理者として初期設定と連携を支援します。"}},
+        {"@type":"Question","name":"料金はいくらですか？","acceptedAnswer":{"@type":"Answer","text":"標準導入は初期費用55,000円、月額9,000円からです。登録代行を含むおまかせ導入は初期費用77,000円です。いずれも税別で、LINE公式アカウントなど外部サービスの利用料は別途お客様負担です。"}},
+        {"@type":"Question","name":"複数店舗で使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。1つのGoogleアカウント内に店舗別の予約カレンダーを作り、LINEで選ばれた店舗のカレンダーへ振り分けられます。追加設定と月額料金が必要です。"}},
+        {"@type":"Question","name":"AIが予約を確定するのですか？","acceptedAnswer":{"@type":"Answer","text":"予約の空き確認と確定は、決められた予約処理とGoogleカレンダーの再確認によって行います。AIによる自由文回答は追加オプションで、予約を独自判断して確定するものではありません。"}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{--navy:#08283f;--navy2:#123d5f;--green:#05b86b;--green2:#daf8e9;--sky:#46a7d5;--pale:#edf7fc;--warm:#faf8f4;--ink:#152b3b;--muted:#5d7482;--line:#dbe7ed;--display:'Zen Kaku Gothic New',sans-serif;--body:'Noto Sans JP',sans-serif}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:var(--body);line-height:1.85}a{color:#176d96}.wrap{width:min(1140px,calc(100% - 40px));margin:auto}
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(219,231,237,.8)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font:900 20px var(--display);color:var(--navy);text-decoration:none;white-space:nowrap}.logo span{color:var(--sky)}.nav-links{display:flex;align-items:center;gap:22px}.nav-links a{font-size:13px;font-weight:700;color:var(--navy);text-decoration:none}.nav-links .nav-cta{padding:10px 16px;border-radius:999px;background:var(--navy);color:#fff;border:0}
+  .hero{overflow:hidden;background:linear-gradient(135deg,#fff 0%,#f5fbf8 58%,#eaf6fc 100%);padding:62px 0 74px}.crumb{font-size:12px;color:#6a7f8b;margin-bottom:40px}.crumb a{color:inherit}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.72fr);gap:72px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#087d4b;background:#eafff4;border:1px solid #bdebd5;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700;letter-spacing:.06em}.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}h1{font:900 clamp(40px,5.7vw,70px)/1.18 var(--display);letter-spacing:-.045em;color:var(--navy);margin:20px 0 22px}.hero h1 em{font-style:normal;color:#029b5b}.lead{font-size:18px;max-width:650px;margin:0;color:#354f60}.actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 21px;border:1px solid transparent;border-radius:999px;font:700 14px var(--body);text-decoration:none;cursor:pointer}.btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 26px rgba(5,184,107,.2)}.btn-primary:hover{background:#049c5b}.btn-secondary{background:#fff;color:var(--navy);border-color:#b9d0dc}.micro{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;color:var(--muted);font-size:12px}.micro span:before{content:"✓";color:#15875c;font-weight:900;margin-right:6px}.phone{position:relative;max-width:330px;margin:auto;padding:12px;border-radius:36px;background:#071f32;box-shadow:0 28px 65px rgba(8,40,63,.2)}.phone img{display:block;width:100%;height:auto;border-radius:27px}.caption{margin:12px 8px 0;font-size:11px;color:var(--muted);text-align:center}
+  .section{padding:82px 0}.alt{background:var(--warm)}.dark{background:var(--navy);color:#fff}.section-head{max-width:800px;margin-bottom:38px}.section-label{color:#078351;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase}.section-head h2{font:900 clamp(30px,4vw,44px)/1.35 var(--display);letter-spacing:-.025em;color:var(--navy);margin:10px 0 15px}.section-head p{font-size:17px;margin:0;color:#3f5969}.dark .section-label{color:#75e7b4}.dark .section-head h2{color:#fff}.dark .section-head p{color:#c9dce7}
+  .pain-grid,.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:27px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(8,40,63,.05)}.card b{display:block;font:700 18px/1.5 var(--display);color:var(--navy);margin-bottom:8px}.card p{margin:0;color:var(--muted);font-size:14px}
+  .flow-list{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;counter-reset:flow}.flow-card{counter-increment:flow;position:relative;padding:20px 15px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.06);min-height:150px}.flow-card:before{content:"0" counter(flow);display:block;color:#75e7b4;font-size:11px;font-weight:700;letter-spacing:.1em;margin-bottom:18px}.flow-card b{display:block;font:700 16px var(--display);margin-bottom:7px}.flow-card span{display:block;color:#bfd3df;font-size:12px;line-height:1.65}
+  .screen-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;align-items:center}.screen-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 18px 42px rgba(8,40,63,.09)}.screen-card img{display:block;width:100%;height:auto;border-radius:14px}.screen-copy h3{font:900 29px/1.45 var(--display);color:var(--navy);margin:0 0 13px}.screen-copy p{margin:0 0 16px;color:#496171}.screen-copy ul{margin:0;padding-left:1.2em;color:#496171;font-size:14px}.screen-copy li{margin:7px 0}
+  .feature{padding:28px;border:1px solid var(--line);border-radius:18px;background:#fff}.feature-num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--green2);color:#078351;font-size:12px;font-weight:900}.feature h3{font:700 20px/1.5 var(--display);color:var(--navy);margin:14px 0 7px}.feature p{margin:0;color:var(--muted);font-size:14px}
+  .pricing{background:#f3f9fc}.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.price-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px}.price-card.recommended{border:2px solid var(--green)}.price-card .badge{position:absolute;right:22px;top:20px;background:var(--green2);color:#087d4b;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:700}.price-card h3{font:900 24px var(--display);color:var(--navy);margin:0 0 7px}.price{font:900 37px var(--display);color:var(--navy);margin:12px 0 3px}.price small{font:500 13px var(--body);color:var(--muted)}.monthly{font-size:14px;color:#087d4b;font-weight:700;margin-bottom:20px}.price-card ul{margin:0;padding-left:1.2em;color:#496171;font-size:14px}.price-card li{margin:8px 0}.price-note{margin-top:20px;padding:19px 22px;background:#fff;border-left:4px solid var(--sky);font-size:13px;color:#496171}
+  .option-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.option-table th,.option-table td{padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}.option-table tr:last-child th,.option-table tr:last-child td{border-bottom:0}.option-table th{width:32%;font:700 16px/1.55 var(--display);color:var(--navy)}.option-table td{font-size:14px;color:#496171}.option-price{display:block;color:#078351;font-weight:700;margin-bottom:4px}.table-scroll{overflow-x:auto}
+  .stores{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.calendar-map{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px}.calendar-map .id{font-size:12px;color:var(--muted);margin-bottom:18px}.calendar-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.calendar{border-radius:14px;padding:20px;border:1px solid var(--line)}.calendar:first-child{border-top:5px solid #3794d1}.calendar:last-child{border-top:5px solid var(--green)}.calendar b{display:block;color:var(--navy)}.calendar span{font-size:12px;color:var(--muted)}
+  .account-box{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:24px;padding:40px}.account-box h2{font:900 32px/1.4 var(--display);margin:0 0 12px}.account-box p{color:#d2e2eb}.account-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.account-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:18px}.account-item b{display:block;margin-bottom:5px}.account-item span{font-size:12px;color:#c9dce7}
+  .faq details{border-top:1px solid #ccdce4;padding:20px 0}.faq details:last-child{border-bottom:1px solid #ccdce4}.faq summary{list-style:none;cursor:pointer;font:700 17px/1.55 var(--display);color:var(--navy);padding-right:34px;position:relative}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"＋";position:absolute;right:4px;top:-2px;color:var(--green);font-size:23px}.faq details[open] summary:after{content:"−"}.faq details p{margin:13px 34px 0 0;color:var(--muted);font-size:14px}
+  .last-box{text-align:center;padding:54px 30px;border-radius:26px;background:linear-gradient(135deg,#eafff4,#edf8fd);border:1px solid #d6ece2}.last-box h2{font:900 clamp(31px,4.5vw,48px)/1.35 var(--display);color:var(--navy);margin:0 0 14px}.last-box p{max-width:690px;margin:0 auto;color:#496171}.last-box .actions{justify-content:center}.sub-links{margin-top:20px;font-size:13px}.sub-links a{margin:0 8px}
+  footer{background:#061d2f;color:#c8d9e3;padding:44px 0;font-size:13px}.foot{display:flex;justify-content:space-between;gap:24px}.foot strong{display:block;color:#fff;font:900 18px var(--display)}.foot a{color:#fff}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.phone{max-width:360px}.flow-list{grid-template-columns:repeat(3,1fr)}.screen-grid,.stores{grid-template-columns:1fr}.screen-grid .screen-copy{order:-1}.account-grid{grid-template-columns:1fr}.price-grid{grid-template-columns:1fr}}
+  @media(max-width:640px){.wrap{width:min(100% - 28px,1140px)}.nav{min-height:64px}.nav-links a{display:none}.hero{padding:38px 0 52px}.crumb{margin-bottom:28px}h1{font-size:40px}.lead{font-size:16px}.actions .btn{width:100%}.section{padding:58px 0}.pain-grid,.feature-grid{grid-template-columns:1fr}.flow-list{grid-template-columns:repeat(2,1fr)}.flow-card{min-height:132px}.option-table{min-width:660px}.calendar-row{grid-template-columns:1fr}.account-box{padding:30px 23px}.foot{display:block}.foot strong{margin-bottom:12px}}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDLLF5G3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header><div class="wrap nav"><a class="logo" href="/">Rain <span>AI</span> Project</a><nav class="nav-links" aria-label="主要ナビゲーション"><a href="/#products">プロダクト</a><a href="#price">料金</a><a href="#faq">FAQ</a><button class="btn nav-cta" type="button" data-rain-chat-open data-rain-chat-prompt="LINE予約Botの機能、導入費用、月額料金を説明してください。">AIに質問</button></nav></div></header>
+
+<main>
+  <section class="hero"><div class="wrap">
+    <div class="crumb"><a href="/">ホーム</a> ／ <a href="/#products">プロダクト</a> ／ LINE予約Bot</div>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">完成・導入可能</span>
+        <h1>いつものLINEを、<br><em>予約の窓口</em>に。</h1>
+        <p class="lead">お客様はLINEでメニュー、日付、時間を選ぶだけ。空き確認からGoogleカレンダーへの予約登録までを自動化し、電話対応と予約台帳への転記を減らします。</p>
+        <div class="actions"><button class="btn btn-primary" type="button" data-rain-chat-open data-rain-chat-prompt="LINE予約Botの導入を検討しています。機能、料金、導入に必要なものを順番に案内してください。">AI Botに相談する</button><a class="btn btn-secondary" href="#price">料金を見る</a></div>
+        <div class="micro"><span>Googleカレンダー連携</span><span>予約・キャンセル対応</span><span>複数店舗は追加対応</span></div>
+      </div>
+      <div><div class="phone"><img src="/assets/line-reservation/line-booking-chat.jpg" width="720" height="1572" alt="LINE予約Botでメニュー、空きのある日、予約時間を順に選択している実際の画面"></div><p class="caption">実際のLINE予約画面。掲載内容は説明用です。</p></div>
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="section-head"><span class="section-label">Why LINE booking</span><h2>予約のたびに止まる仕事を、少し減らす。</h2><p>お客様には新しい予約アプリの登録を求めず、店舗側は使い慣れたGoogleカレンダーで予約を確認できます。</p></div>
+    <div class="pain-grid">
+      <div class="card"><b>営業時間中の電話対応</b><p>施術中・接客中・移動中でも、Botがお客様へ空き枠を案内します。</p></div>
+      <div class="card"><b>LINEから予約台帳へ転記</b><p>確定した予約をGoogleカレンダーへ自動登録し、二重入力を減らします。</p></div>
+      <div class="card"><b>日程の往復連絡</b><p>空いている日と時間だけを提示し、候補日のやり取りを短くします。</p></div>
+    </div>
+  </div></section>
+
+  <section class="section dark"><div class="wrap">
+    <div class="section-head"><span class="section-label">Booking flow</span><h2>予約完了まで、LINEの中で案内します。</h2><p>予約条件はプログラムで処理し、確定直前にもGoogleカレンダーを確認します。</p></div>
+    <div class="flow-list">
+      <div class="flow-card"><b>メニュー選択</b><span>施術や相談メニューと所要時間を選択</span></div>
+      <div class="flow-card"><b>日付選択</b><span>空き枠がある日だけを案内</span></div>
+      <div class="flow-card"><b>時間選択</b><span>予約できる開始時刻から選択</span></div>
+      <div class="flow-card"><b>空き再確認</b><span>確定前に重複がないか再確認</span></div>
+      <div class="flow-card"><b>自動登録</b><span>Googleカレンダーへ予約を記入</span></div>
+    </div>
+  </div></section>
+
+  <section class="section alt"><div class="wrap">
+    <div class="screen-grid">
+      <div class="screen-copy"><span class="section-label">Actual calendar</span><h3>確定した予約は、Googleカレンダーへ。</h3><p>LINEで確定した日時、メニュー、予約者をGoogleカレンダーへ登録します。店舗は普段のカレンダーから予約状況を確認できます。</p><ul><li>予約日時とメニューを自動登録</li><li>LINE経由の予約であることを記録</li><li>店舗ごとのカレンダーへの振り分けに対応</li></ul></div>
+      <div class="screen-card"><img src="/assets/line-reservation/google-calendar-booking.jpg" width="1800" height="1252" loading="lazy" alt="LINE予約BotからGoogleカレンダーに登録された予約予定の実際の画面"></div>
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="section-head"><span class="section-label">Standard functions</span><h2>月額9,000円の基本機能。</h2><p>AIを使わなくても安定して動かせる予約処理を基本にし、自由文対応など必要な機能だけを追加できます。</p></div>
+    <div class="feature-grid">
+      <article class="feature"><span class="feature-num">01</span><h3>メニュー・所要時間</h3><p>メニューごとの所要時間を設定し、予約できる時間帯を計算します。</p></article>
+      <article class="feature"><span class="feature-num">02</span><h3>空き枠の確認</h3><p>Googleカレンダーを確認し、予約可能な日と時間だけを案内します。</p></article>
+      <article class="feature"><span class="feature-num">03</span><h3>予約の自動登録</h3><p>選択内容を確認し、重複を再確認してからカレンダーへ登録します。</p></article>
+      <article class="feature"><span class="feature-num">04</span><h3>予約キャンセル</h3><p>LINEから対象の予約を確認し、決められた手順でキャンセルできます。</p></article>
+      <article class="feature"><span class="feature-num">05</span><h3>基本メッセージ設定</h3><p>店舗名、営業時間、予約時の案内文など基本的な応答を設定します。</p></article>
+      <article class="feature"><span class="feature-num">06</span><h3>稼働保守</h3><p>Botの稼働確認と、基本設定範囲の軽微な調整を月額内で行います。</p></article>
+    </div>
+  </div></section>
+
+  <section class="section pricing" id="price"><div class="wrap">
+    <div class="section-head"><span class="section-label">Price</span><h2>導入費用と月額料金。</h2><p>アカウント取得から支援することを前提に、設定量に合わせて2つの導入方法を用意しました。</p></div>
+    <div class="price-grid">
+      <article class="price-card recommended"><span class="badge">基本プラン</span><h3>標準導入</h3><div class="price">55,000円 <small>税別・初期費用</small></div><div class="monthly">月額 9,000円（税別）から</div><ul><li>1店舗・3メニュー程度まで</li><li>LINE・Googleアカウント取得支援</li><li>Googleカレンダー連携</li><li>基本メッセージ設定</li><li>予約・キャンセル動作確認</li><li>管理方法の説明</li></ul></article>
+      <article class="price-card"><h3>おまかせ導入</h3><div class="price">77,000円 <small>税別・初期費用</small></div><div class="monthly">月額 9,000円（税別）から</div><ul><li>1店舗・10メニュー程度まで</li><li>標準導入の全内容</li><li>メニュー・営業時間の登録代行</li><li>予約案内文の調整</li><li>営業日・休業日の初期設定</li><li>公開後の初期調整</li></ul></article>
+    </div>
+    <div class="price-note"><strong>外部サービスの料金：</strong>LINE公式アカウントの有料プラン、Google Workspaceなどを利用する場合、その利用料はお客様から各サービスへ直接お支払いいただきます。LINEの料金は配信方法と通数により異なります。</div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="section-head"><span class="section-label">Options</span><h2>必要な機能だけ、後から追加できます。</h2><p>業種や店舗規模によって負荷が変わる機能は、基本料金に混ぜずオプションとして明示します。</p></div>
+    <div class="table-scroll"><table class="option-table">
+      <tbody>
+        <tr><th>AI FAQ・自由文応答</th><td><span class="option-price">初期 33,000円から ＋ 月額 3,000円から（税別）</span>店舗のメニュー、料金、アクセス、注意事項などを学習させ、定型ボタン以外の質問にもAIが回答します。FAQの件数、資料量、回答範囲、更新頻度に応じてお見積もりします。</td></tr>
+        <tr><th>予約リマインド</th><td><span class="option-price">初期 11,000円（税別）</span>予約前日にLINEで確認メッセージを送ります。能動的な配信はLINE公式アカウントの課金対象通数に含まれる場合があります。</td></tr>
+        <tr><th>追加店舗</th><td><span class="option-price">初期 11,000円／店舗 ＋ 月額 4,000円／店舗（税別）</span>LINEで店舗を選択し、店舗ごとに分けたGoogleカレンダーへ予約を振り分けます。店舗ごとの設定確認と保守を含みます。営業時間や予約条件が大きく異なる場合は個別見積もりです。</td></tr>
+        <tr><th>メニュー追加・複雑な条件</th><td><span class="option-price">11,000円から（税別）</span>担当者指名、設備・席の管理、メニューの組み合わせ、特殊な受付締切などを追加します。</td></tr>
+        <tr><th>独自機能・外部連携</th><td><span class="option-price">個別見積もり</span>顧客台帳、決済、会員管理、既存予約システムなどとの連携は、現在の運用を確認して設計します。</td></tr>
+      </tbody>
+    </table></div>
+  </div></section>
+
+  <section class="section alt"><div class="wrap stores">
+    <div><span class="section-label">Multi-store</span><div class="section-head"><h2>2店舗でも、Botを丸ごと2つ作る必要はありません。</h2><p>1つのGoogleアカウントの中に店舗別の予約カレンダーを作り、選ばれた店舗へ振り分けます。普段は担当店舗だけを表示できるため、管理画面が予約で埋まるのを避けられます。</p></div></div>
+    <div class="calendar-map"><div class="id">会社のGoogleアカウント：1つ</div><div class="calendar-row"><div class="calendar"><b>熊本店・予約</b><span>青色の予約カレンダー</span></div><div class="calendar"><b>福岡店・予約</b><span>緑色の予約カレンダー</span></div></div></div>
+  </div></section>
+
+  <section class="section"><div class="wrap"><div class="account-box">
+    <h2>アカウントは、お客様の名義で作成します。</h2>
+    <p>導入後もお客様が管理権限を持てるよう、LINEとGoogleはお客様名義で取得します。本人確認や認証コードの入力だけご協力いただき、Rain AI Projectが管理者として接続と初期設定を支援します。パスワードをお預かりする運用は行いません。</p>
+    <div class="account-grid"><div class="account-item"><b>LINE公式アカウント</b><span>お客様が所有し、店舗名で運用</span></div><div class="account-item"><b>Googleアカウント</b><span>お客様が所有し、予約カレンダーを管理</span></div><div class="account-item"><b>Rain AI Project</b><span>管理者権限で連携・設定・保守を支援</span></div></div>
+  </div></div></section>
+
+  <section class="section alt faq" id="faq"><div class="wrap">
+    <div class="section-head"><span class="section-label">FAQ</span><h2>LINE予約Botについて、よくある質問。</h2></div>
+    <details><summary>LINE予約Botでは何ができますか？</summary><p>お客様がLINEでメニュー、日付、時間を選択し、空き枠を確認して予約できます。確定した予約はGoogleカレンダーへ登録され、LINEからのキャンセルにも対応します。</p></details>
+    <details><summary>AIが予約を判断して確定するのですか？</summary><p>いいえ。空き確認と予約確定は、決められた予約処理とGoogleカレンダーの再確認によって行います。AI FAQオプションは自由文の質問に回答するためのもので、AIが予約を独自判断して確定するものではありません。</p></details>
+    <details><summary>GoogleとLINEの設定が分からなくても導入できますか？</summary><p>はい。アカウント取得から初期設定まで支援します。アカウントはお客様名義で作り、本人確認と認証コードの入力だけご協力いただきます。</p></details>
+    <details><summary>LINE公式アカウントの料金は月額料金に含まれますか？</summary><p>含まれません。LINE公式アカウントのプラン料金や追加メッセージ料金は、お客様からLINEへ直接お支払いいただきます。必要なプランは、予約件数とリマインドなどの配信数を確認してご案内します。</p></details>
+    <details><summary>複数店舗で利用できますか？</summary><p>はい。1つのLINE公式アカウントで店舗を選択し、店舗ごとに分けたGoogleカレンダーへ予約を振り分けられます。追加店舗は初期11,000円、月額4,000円／店舗からです。予約条件が大きく異なる場合は個別にお見積もりします。</p></details>
+    <details><summary>担当者ごとの予約にも対応できますか？</summary><p>担当者指名や担当者別の空き枠管理は追加設計になります。人数、メニュー、勤務時間、指名なし予約の割り当て方法を確認して個別にお見積もりします。</p></details>
+    <details><summary>料金は確定価格ですか？</summary><p>掲載価格は標準的な1店舗運用の参考価格です。メニュー数、予約条件、複数店舗、外部連携によって作業範囲が変わる場合は、開始前に内容と正式金額をご案内します。</p></details>
+  </div></section>
+
+  <section class="section"><div class="wrap"><div class="last-box">
+    <h2>今の予約方法を聞いて、<br>必要な構成を整理します。</h2>
+    <p>店舗数、月間予約数、メニュー数、担当者数が分かれば、標準プランで足りるか、追加設定が必要かを案内できます。</p>
+    <div class="actions"><button class="btn btn-primary" type="button" data-rain-chat-open data-rain-chat-prompt="LINE予約Botを導入したいです。店舗数、月間予約数、メニュー数、担当者数を一つずつ質問して、必要なプランを案内してください。">AI Botで導入相談</button><a class="btn btn-secondary" href="mailto:rainaiproject@gmail.com?subject=LINE%E4%BA%88%E7%B4%84Bot%E5%B0%8E%E5%85%A5%E7%9B%B8%E8%AB%87">メールで相談する</a></div>
+    <div class="sub-links"><a href="/#products">他のプロダクトを見る</a><a href="https://www.lycbiz.com/jp/service/line-official-account/plan/" target="_blank" rel="noopener noreferrer">LINE公式料金を確認する</a></div>
+  </div></div></section>
+</main>
+
+<footer><div class="wrap foot"><strong>Rain AI Project</strong><div><a href="/">公式サイト</a> ／ <a href="/#products">プロダクト</a> ／ <a href="/blog">ブログ</a> ／ <a href="/privacy">プライバシーポリシー</a></div></div></footer>
+<script src="/chatbot.js" defer></script>
+</body>
+</html>
