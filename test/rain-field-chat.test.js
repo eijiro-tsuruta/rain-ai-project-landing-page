@@ -212,7 +212,9 @@ test("既存のResponses API設定を維持して関連知識だけを送る", a
 
 test("Rain AIのサービス相談にはRain Fieldの章本文を追加しない", () => {
   const instructions = buildChatInstructions(messages("チャットボット制作の参考価格はいくらですか？"));
-  assert.match(instructions, /案内・FAQ型: 初期15万〜30万円/);
+  assert.match(instructions, /ホームページAIチャットボット: 初期55,000円、月額9,900円から/);
+  assert.match(instructions, /PDF・FAQ・専門資料の追加: 初期33,000円から/);
+  assert.match(instructions, /内容によって数百万円規模となる場合がある/);
   assert.doesNotMatch(instructions, /\n## 今回の質問に関連するRain Field知識/);
 });
 
