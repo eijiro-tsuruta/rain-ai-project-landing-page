@@ -90,7 +90,7 @@
     }
     const bubble = document.createElement("div"); bubble.className = "bubble"; bubble.textContent = displayText(role, text); row.append(bubble);
     if (extra && role === "assistant") {
-      const link = document.createElement("a"); link.className = "mail-cta"; link.href = "mailto:rainaiproject@gmail.com?subject=Rain%20AI%20Project%E3%81%B8%E3%81%AE%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87"; link.textContent = "メールで無料相談する →"; bubble.append(document.createElement("br"), link);
+      const link = document.createElement("a"); link.className = "mail-cta"; link.href = "mailto:rainaiproject@gmail.com?subject=Rain%20AI%20Project%E3%81%B8%E3%81%AE%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87"; link.dataset.gtmEvent = "mail_click"; link.textContent = "メールで無料相談する →"; bubble.append(document.createElement("br"), link);
     }
     messagesEl.append(row); scrollEnd(); return row;
   }

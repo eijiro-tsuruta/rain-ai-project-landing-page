@@ -27,6 +27,7 @@
 | `sitemap.xml` | 検索エンジン向けサイトマップ |
 | `vercel.json` | VercelのURL設定 |
 | `chatbot.js` | LP右下の相談チャットウィジェット |
+| `gtm-mail-click.js` | メールリンクのクリックをGTM向けにdataLayerへ送る共通スクリプト |
 | `api/chat.js` | OpenAI Responses APIへ接続するVercel Function |
 | `lib/rain-field-knowledge.js` | Rain Field取扱説明書の章別知識とローカル検索 |
 | `server.mjs` | ローカル確認用サーバー |
@@ -55,9 +56,10 @@ Rain Fieldの操作質問では、取扱説明書を章別に検索し、質問�
 ## 更新時の確認
 
 1. PCとスマートフォンで表示崩れがないこと
-2. 「無料相談」リンクが正しく動作すること
-3. canonical、OGP、構造化データが `www.rainaiproject.com` を参照していること
-4. `sitemap.xml` と実際の公開URLが一致していること
-5. `npm test` と `npm run check` が成功すること
+2. `rainaiproject@gmail.com` 宛てのメールリンクには `data-gtm-event="mail_click"` を付け、ページから `/gtm-mail-click.js` を読み込むこと
+3. 「無料相談」リンクが正しく動作し、クリック時に `mail_click`、`link_url`、`page_path` がdataLayerへ送られること
+4. canonical、OGP、構造化データが `www.rainaiproject.com` を参照していること
+5. `sitemap.xml` と実際の公開URLが一致していること
+6. `npm test` と `npm run check` が成功すること
 
 © 2026 Rain AI Project
