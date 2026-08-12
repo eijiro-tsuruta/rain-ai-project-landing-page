@@ -20,8 +20,14 @@
   </url>
   <url>
     <loc>https://www.rainaiproject.com/blog</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rainaiproject.com/blog/line-yoyaku-bot-failure</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
