@@ -9,10 +9,13 @@
     if (!link) return;
 
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
+    const payload = {
       event: "mail_click",
       link_url: link.href,
       page_path: window.location.pathname,
-    });
+    };
+    const product = link.dataset?.gtmProduct || "";
+    if (product) payload.product = product;
+    window.dataLayer.push(payload);
   });
 })();

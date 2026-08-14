@@ -208,7 +208,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "name": "Rain BIOとは何ですか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Rain BIOは、犬・猫の栄養、消化生理、病態、薬剤、薬剤耐性、国内外のガイドライン、研究情報を横断し、専門家の判断材料を整理する多脳層AIです。医療情報も扱うため一般公開はせず、用途と安全対策を確認したうえで限定提供しています。店舗向けには情報範囲を限定したRain BIO miniがあります。"
+        "text": "Rain BIOは、犬・猫の栄養、消化生理、病態、薬剤、薬剤耐性、国内外のガイドライン、研究情報を横断し、専門家の判断材料を整理する多脳層AIです。医療情報も扱うため一般公開はせず、用途と安全対策を確認したうえで限定提供しています。犬猫の食事相談に特化したホームページ導入型AI Bot「Rain BIO mini」も提供しています。"
       }
     },
     {
@@ -479,6 +479,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   .product-card{
     border-radius:16px;overflow:hidden;border:1px solid var(--mist);background:#fff;
+  }
+  .product-card-link{
+    display:block;color:inherit;text-decoration:none;cursor:pointer;
+    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+  }
+  .product-card-link:hover{
+    transform:translateY(-3px);box-shadow:0 16px 32px -18px rgba(10,40,64,.25);border-color:var(--sky);
   }
   .product-top{padding:26px 24px 20px;}
   .product-card.lead .product-top{background:var(--navy);color:#fff;}
@@ -869,13 +876,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="product-link" href="/products/rain-bio">詳しく見る <span aria-hidden="true">→</span></a>
         </div>
       </div>
-      <div class="product-card">
+      <a class="product-card product-card-link" href="/products/rain-bio-mini" aria-label="Rain BIO miniの機能・料金・導入方法を見る">
         <div class="product-top">
-          <span class="tag">For Pet Shops</span>
+          <span class="tag">犬猫の食事相談AI Bot</span>
           <h3 style="margin-top:14px;">Rain BIO mini</h3>
-          <p>ペットショップ向けに最適化した軽量版。店頭での接客・相談対応をサポートします。</p>
+          <p>フード選び、原材料・成分評価、手作り食の栄養計算に対応。ペット関連事業者のホームページに導入できる、犬猫の食事相談に特化したAI Botです。</p>
+          <span class="product-link">機能・料金・導入方法を見る <span aria-hidden="true">→</span></span>
         </div>
-      </div>
+      </a>
       <div class="product-card">
         <div class="product-top">
           <span class="tag dev">多脳層AI｜開発中</span>
@@ -1040,7 +1048,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><h3>Rain BIOとは何ですか？</h3><span class="plus">+</span></summary>
-        <p class="faq-a">犬・猫の栄養、消化生理、病態、薬剤、薬剤耐性、国内外のガイドライン、研究情報を横断し、専門家の判断材料を整理する多脳層AIです。医療情報も扱うため一般公開はせず、用途と安全対策を確認したうえで限定提供しています。店舗向けには情報範囲を限定したRain BIO miniがあります。</p>
+        <p class="faq-a">犬・猫の栄養、消化生理、病態、薬剤、薬剤耐性、国内外のガイドライン、研究情報を横断し、専門家の判断材料を整理する多脳層AIです。医療情報も扱うため一般公開はせず、用途と安全対策を確認したうえで限定提供しています。犬猫の食事相談に特化したホームページ導入型AI Bot「Rain BIO mini」も提供しています。</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><h3>どんな業務をAIで自動化できますか？</h3><span class="plus">+</span></summary>

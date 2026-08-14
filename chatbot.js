@@ -129,8 +129,15 @@
     trigger.addEventListener("click", () => {
       setOpen(true);
       const prompt = trigger.getAttribute("data-rain-chat-prompt");
+      const trackingEvent = trigger.getAttribute("data-rain-chat-event") || "rain_field_bot_open";
+      const trackingProduct = trigger.getAttribute("data-rain-chat-product") || "";
       if (prompt) submit(prompt);
-      if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: "rain_field_bot_open", rain_field_prompt: prompt || "" });
+      if (Array.isArray(window.dataLayer)) window.dataLayer.push({
+        event: trackingEvent,
+        rain_chat_prompt: prompt || "",
+        product: trackingProduct,
+        page_path: window.location.pathname,
+      });
     });
   });
   document.querySelectorAll("[data-rain-field-action]").forEach((trigger) => {
