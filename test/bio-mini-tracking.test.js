@@ -30,5 +30,5 @@ test("Bio mini LP has its canonical public URL and shared site scripts", async (
 
   assert.match(html, /rel="canonical" href="https:\/\/www\.rainaiproject\.com\/products\/rain-bio-mini"/);
   assert.match(html, /<script src="\/gtm-mail-click\.js" defer><\/script>/);
-  assert.match(html, /<script src="\/chatbot\.js" defer><\/script>/);
+  assert.match(html, /<script src="\/chatbot\.js\?v=20260816-3" defer><\/script>/);
 });
