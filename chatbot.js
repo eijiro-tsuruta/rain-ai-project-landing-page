@@ -35,6 +35,7 @@
       .composer{border-top:1px solid var(--line);padding:11px;background:#fff}.input-wrap{display:flex;gap:8px;align-items:flex-end;border:1px solid #c9dce6;border-radius:14px;padding:8px 8px 8px 11px;transition:border .15s,box-shadow .15s}.input-wrap:focus-within{border-color:var(--sky);box-shadow:0 0 0 3px rgba(46,158,211,.11)}textarea{border:0;outline:0;resize:none;width:100%;min-height:38px;max-height:94px;padding:8px 0;background:transparent;color:var(--text);font-size:13.5px;line-height:1.45}textarea::placeholder{color:#8ca0ab}.send{border:0;background:var(--navy);color:#fff;border-radius:11px;width:39px;height:39px;display:grid;place-items:center;flex:none}.send:disabled{opacity:.35;cursor:not-allowed}.send svg{width:17px;height:17px}
       .meta{display:flex;justify-content:space-between;gap:8px;margin-top:7px;color:#80939d;font-size:10.5px}.meta a{color:#527b91}.notice{padding:8px 13px 10px;text-align:center;background:#f7fafb;color:#70858f;font-size:10.5px;border-top:1px solid #edf3f6}
       .mail-cta{display:inline-flex;align-items:center;gap:6px;margin-top:8px;color:#126d96;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+      .answer-link{color:#126d96;font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}.answer-link:hover{color:#0a4f70}
       .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
       @media(max-width:600px){:host{right:13px;bottom:14px}.launcher{width:61px;height:61px}.panel{position:fixed;inset:10px;width:auto;height:auto;border-radius:18px}.head{padding-top:max(14px,env(safe-area-inset-top))}.bubble{max-width:88%}.notice{padding-bottom:max(10px,env(safe-area-inset-bottom))}}
       @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -82,13 +83,40 @@
     if (role !== "assistant") return value;
     return value.replace(/\*\*/g, "").replace(/(^|\n)-\s+/g, "$1・");
   }
+  function appendLinkedText(element, text) {
+    const value = String(text || "");
+    const pattern = /https?:\/\/[^\s<>"']+/g;
+    let cursor = 0;
+    let match;
+    while ((match = pattern.exec(value)) !== null) {
+      element.append(document.createTextNode(value.slice(cursor, match.index)));
+      let url = match[0];
+      let trailing = "";
+      while (/[.,!?;:、。）」』】\]]$/.test(url)) {
+        trailing = url.slice(-1) + trailing;
+        url = url.slice(0, -1);
+      }
+      const link = document.createElement("a");
+      link.className = "answer-link";
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = url;
+      element.append(link, document.createTextNode(trailing));
+      cursor = match.index + match[0].length;
+    }
+    element.append(document.createTextNode(value.slice(cursor)));
+  }
   function addMessage(role, text, extra = false) {
     const row = document.createElement("div");
     row.className = `message ${role}`;
     if (role === "assistant") {
       const avatar = document.createElement("span"); avatar.className = "avatar"; avatar.textContent = "RA"; row.append(avatar);
     }
-    const bubble = document.createElement("div"); bubble.className = "bubble"; bubble.textContent = displayText(role, text); row.append(bubble);
+    const bubble = document.createElement("div"); bubble.className = "bubble";
+    if (role === "assistant") appendLinkedText(bubble, displayText(role, text));
+    else bubble.textContent = displayText(role, text);
+    row.append(bubble);
     if (extra && role === "assistant") {
       const link = document.createElement("a"); link.className = "mail-cta"; link.href = "mailto:rainaiproject@gmail.com?subject=Rain%20AI%20Project%E3%81%B8%E3%81%AE%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87"; link.dataset.gtmEvent = "mail_click"; link.textContent = "メールで無料相談する →"; bubble.append(document.createElement("br"), link);
     }
