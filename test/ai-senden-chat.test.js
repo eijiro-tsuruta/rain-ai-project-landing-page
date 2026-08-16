@@ -14,6 +14,9 @@ function messages(question) {
 }
 
 const coverageCases = [
+  ["AI宣伝しとけの取説のURLを出せますか？", "official-links", /https:\/\/www\.rainaiproject\.com\/products\/ai-senden-guide/],
+  ["AI宣伝しとけのPDFマニュアルはどこですか？", "official-links", /https:\/\/www\.rainaiproject\.com\/output\/pdf\/ai-senden-user-guide\.pdf/],
+  ["AI宣伝しとけの利用規約のリンクを教えて", "official-links", /https:\/\/www\.rainaiproject\.com\/terms\.html/],
   ["AI宣伝しとけは何ができて、どこから登録できますか？", "overview-and-access", /ai-senden\.rainaiproject\.com\/register/],
   ["AI宣伝しとけはInstagramの個人用アカウントで使えますか？", "overview-and-access", /プロアカウント.*必要/],
   ["AI宣伝しとけの無料体験でカード登録は必要ですか？", "free-trial-and-login", /クレジットカード登録は不要/],
@@ -36,7 +39,7 @@ const coverageCases = [
 ];
 
 test("AI宣伝しとけのLP・取扱説明書・利用規約の主要項目を検索できる", () => {
-  assert.equal(AI_SENDEN_KNOWLEDGE.length, 10);
+  assert.equal(AI_SENDEN_KNOWLEDGE.length, 11);
 
   for (const [question, expectedId, expectedText] of coverageCases) {
     const matches = retrieveAiSendenKnowledge(messages(question));
@@ -87,6 +90,13 @@ test("AI宣伝しとけの回答指示は推測禁止・公開前確認・出典
   assert.match(instructions, /これ以外のプラン内容を作らない/);
   assert.match(instructions, /写真、文章、ハッシュタグ、投稿先を利用者自身が確認/);
   assert.match(instructions, /提示された「出典:」を回答末尾へ「参照: ○○」/);
+});
+
+test("取扱説明書URLの質問には公開URLを必ず渡す", () => {
+  const instructions = buildChatInstructions(messages("AI宣伝しとけの取説のURLを出せますか？"));
+  assert.match(instructions, /https:\/\/www\.rainaiproject\.com\/products\/ai-senden-guide/);
+  assert.match(instructions, /https:\/\/www\.rainaiproject\.com\/output\/pdf\/ai-senden-user-guide\.pdf/);
+  assert.match(instructions, /「公開情報に記載がない」とは回答しない/);
 });
 
 test("AI宣伝しとけの質問ではResponses APIへ関連知識だけを送り保存しない", async () => {
