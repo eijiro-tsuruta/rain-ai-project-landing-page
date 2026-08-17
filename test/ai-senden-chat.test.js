@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import test from "node:test";
 
 import { buildChatInstructions, handleChat } from "../lib/chat-service.js";
@@ -37,6 +38,27 @@ const coverageCases = [
   ["AI宣伝しとけをSafariのホーム画面に追加するには？", "pwa-home-screen", /「ホーム画面に追加」→「追加」/],
   ["AI宣伝しとけが作った文章は確認せず公開してよいですか？", "terms-and-content-responsibility", /正確性・有用性は保証されません/],
 ];
+
+test("Web取扱説明書はホーム画面への追加を3番目に案内する", () => {
+  const guide = fs.readFileSync(new URL("../products/ai-senden-guide.html", import.meta.url), "utf8");
+  const chapterIds = [...guide.matchAll(/<section class="chapter(?: faq)?" id="([^"]+)"/g)]
+    .map((match) => match[1]);
+
+  assert.deepEqual(chapterIds, [
+    "prepare",
+    "start",
+    "pwa",
+    "connect",
+    "billing",
+    "cancel",
+    "use",
+    "slow",
+    "faq",
+  ]);
+  assert.match(guide, /href="#pwa">03 ホーム画面に追加/);
+  assert.match(guide, /id="pwa"[\s\S]*?<div class="chapter-no">03<\/div>/);
+  assert.match(guide, /id="connect"[\s\S]*?<div class="chapter-no">04<\/div>/);
+});
 
 test("AI宣伝しとけのLP・取扱説明書・利用規約の主要項目を検索できる", () => {
   assert.equal(AI_SENDEN_KNOWLEDGE.length, 11);
