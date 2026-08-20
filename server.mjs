@@ -6,6 +6,13 @@ import { handleChat } from "./lib/chat-service.js";
 
 const ROOT = fileURLToPath(new URL(".", import.meta.url));
 const PORT = Number(process.env.PORT || 3000);
+const SECURITY_HEADERS = {
+  "content-security-policy": "default-src 'self'; base-uri 'self'; connect-src 'self' https://*.analytics.google.com https://*.google-analytics.com https://*.googletagmanager.com https://ad.doubleclick.net https://google.com https://google.co.jp https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.co.jp https://www.googleadservices.com; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-ancestors 'none'; frame-src https://www.googletagmanager.com; img-src 'self' data: https://*.g.doubleclick.net https://*.google-analytics.com https://*.googletagmanager.com https://google.com https://google.co.jp https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.co.jp https://www.googleadservices.com; manifest-src 'self'; media-src 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "DENY",
+  "permissions-policy": "camera=(), geolocation=(), microphone=()",
+};
 
 async function loadLocalEnv() {
   try {
@@ -66,6 +73,8 @@ function resolveStaticPath(pathname) {
 }
 
 const server = http.createServer(async (req, res) => {
+  for (const [name, value] of Object.entries(SECURITY_HEADERS)) res.setHeader(name, value);
+
   try {
     const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
     if (url.pathname === "/api/chat") {
