@@ -15,6 +15,7 @@
 | `kumamoto-ai-guide.html` | 熊本の中小企業向けAI導入ガイド（SEO支援記事） |
 | `kumamoto-ai-diagnosis.html` | 登録不要の熊本企業向けAI導入セルフ診断 |
 | `blog.html` | 熊本のAI・DXブログ一覧 |
+| `blog/rain-recruit-mobile-application.html` | スマホ応募とLINE採用導線を解説するRain Recruit記事 |
 | `blog/kumamoto-ai-2026.html` | 熊本県の最新DX調査を解説するブログ記事 |
 | `blog/ai-seo-analysis.html` | AIでSEOとサイト構造を分析した公開検証記事 |
 | `blog/rain-field-construction-office.html` | 一人親方・小規模工務店向けRain Fieldの開発記録 |
