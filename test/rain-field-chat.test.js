@@ -18,6 +18,7 @@ function retrievedIds(question) {
 }
 
 const manualCoverageCases = [
+  ["Rain Fieldの料金と無料体験について教えて", "official-pricing", /月額9,800円（税込）/],
   ["取扱説明書は何ページで、いつ発行されましたか？", "manual-metadata-and-contents", /全27ページ/],
   ["Rain FieldのWeb URLはどこですか？", "official-access-status", /rainfield\.rainaiproject\.com/],
   ["Rain Fieldはもう使えますか？", "official-access-status", /フロント画面を含めて完成.*すぐに稼働できます/],
@@ -95,6 +96,19 @@ test("Rain Fieldの現在の公式URLと稼働状況を最優先で案内する"
   assert.match(urlContext, /出典: Rain Field公式案内/);
 });
 
+test("Rain Fieldの料金・無料体験・支払い条件を案内できる", () => {
+  const question = messages("Rain Fieldの料金はいくらですか？無料体験もありますか？");
+  const context = buildRainFieldContext(question);
+
+  assert.equal(retrieveRainFieldKnowledge(question)[0]?.id, "official-pricing");
+  assert.match(context, /月額9,800円（税込）/);
+  assert.match(context, /無料体験は14日間/);
+  assert.match(context, /開始時にカード登録が必要/);
+  assert.match(context, /体験期間中の請求は0円/);
+  assert.match(context, /終了後に月額9,800円（税込）が自動請求/);
+  assert.match(context, /出典: Rain Field公式料金案内/);
+});
+
 test("取扱説明書の全主要項目を質問から検索できる", () => {
   for (const [question, expectedId, expectedText] of manualCoverageCases) {
     const matches = retrieveRainFieldKnowledge(messages(question));
@@ -169,10 +183,24 @@ test("最新の保存・共有方針を回答知識へ含める", () => {
 test("Rain Fieldの回答指示には推測禁止と出典表記を含める", () => {
   const instructions = buildChatInstructions(messages("Rain Fieldの料金と今後の機能を教えて"));
   assert.match(instructions, /料金、将来仕様、クラウド連携を推測しない/);
-  assert.match(instructions, /取扱説明書または公式運用方針には記載がなく、確認が必要/);
+  assert.match(instructions, /取扱説明書、公式料金案内または公式運用方針には記載がなく、確認が必要/);
   assert.match(instructions, /提示された「出典:」の章名・ページ表記を変更せず/);
   assert.match(instructions, /一般的にありそうという理由で追加しない/);
   assert.match(instructions, /必ずその内容から回答し、「記載がない」「確認が必要」とは答えない/);
+  assert.match(instructions, /月額9,800円（税込）、無料体験は14日間/);
+  assert.match(instructions, /Rain Field公式料金案内/);
+});
+
+test("Rain Recruitの概要・料金・安全方針を案内できる", () => {
+  const instructions = buildChatInstructions(messages("Rain Recruitは何ができますか？料金も教えて"));
+
+  assert.match(instructions, /既存の求人広告を入口に/);
+  assert.match(instructions, /https:\/\/recruit\.rainaiproject\.com\//);
+  assert.match(instructions, /初期設定費: 98,000円（税別・両プラン共通）/);
+  assert.match(instructions, /スタンダードプラン: 月額25,000円（税別）/);
+  assert.match(instructions, /面接評価・記録付きプラン: 月額35,000円（税別）/);
+  assert.match(instructions, /最終判断は必ず企業の採用担当者/);
+  assert.match(instructions, /応募者データは導入企業が所有/);
 });
 
 test("既存のResponses API設定を維持して関連知識だけを送る", async () => {
