@@ -101,6 +101,7 @@ test("Rain Fieldの料金・無料体験・支払い条件を案内できる", (
   const context = buildRainFieldContext(question);
 
   assert.equal(retrieveRainFieldKnowledge(question)[0]?.id, "official-pricing");
+  assert.match(context, /初期費用0円/);
   assert.match(context, /月額9,800円（税込）/);
   assert.match(context, /無料体験は14日間/);
   assert.match(context, /開始時にカード登録が必要/);
@@ -187,7 +188,7 @@ test("Rain Fieldの回答指示には推測禁止と出典表記を含める", (
   assert.match(instructions, /提示された「出典:」の章名・ページ表記を変更せず/);
   assert.match(instructions, /一般的にありそうという理由で追加しない/);
   assert.match(instructions, /必ずその内容から回答し、「記載がない」「確認が必要」とは答えない/);
-  assert.match(instructions, /月額9,800円（税込）、無料体験は14日間/);
+  assert.match(instructions, /初期費用0円、月額9,800円（税込）、無料体験は14日間/);
   assert.match(instructions, /Rain Field公式料金案内/);
 });
 
