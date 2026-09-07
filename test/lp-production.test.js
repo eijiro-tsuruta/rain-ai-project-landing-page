@@ -14,6 +14,8 @@ test("LP制作ページに価格・対象・初期設定サポートを明示す
   assert.match(html, /独自ドメイン取得をサポート/);
   assert.match(html, /Google Business Profile整備/);
   assert.match(html, /AIにも見つけてもらう/);
+  assert.match(html, /検索から相談までをつなぐ公式の受け皿/);
+  assert.match(html, /検索後の信頼確認/);
   assert.match(html, /data-gtm-event="mail_click"/);
 });
 
