@@ -13,6 +13,17 @@ test("チャット回答内のHTTP/HTTPS URLだけを安全なリンクとして
   assert.doesNotMatch(source, /bubble\.innerHTML = displayText/);
 });
 
+test("トップページでは未拒否のBotを自動展開し、閉じた選択を保存する", async () => {
+  const source = await readFile(new URL("../chatbot.js", import.meta.url), "utf8");
+
+  assert.match(source, /const isTopPage = \/\^\\\/\(\?:index\\\.html\)\?\$\//);
+  assert.match(source, /localStorage\.getItem\(autoOpenDismissedKey\)/);
+  assert.match(source, /localStorage\.setItem\(autoOpenDismissedKey, "1"\)/);
+  assert.match(source, /if \(isTopPage && !autoOpenWasDismissed\(\)\)/);
+  assert.match(source, /setOpen\(true, \{ focus: false \}\)/);
+  assert.match(source, /rain_chat_auto_open/);
+});
+
 test("全ページが同じ更新版のチャットBotを読み込む", async () => {
   const pages = [
     "index.html",
@@ -21,6 +32,7 @@ test("全ページが同じ更新版のチャットBotを読み込む", async ()
     "kumamoto-ai-diagnosis.html",
     "blog/kumamoto-ai-2026.html",
     "blog/line-yoyaku-bot-failure.html",
+    "blog/lp-production-ai-era.html",
     "blog/rain-field-construction-office.html",
     "products/ai-chatbot.html",
     "products/ai-senden.html",
@@ -36,7 +48,7 @@ test("全ページが同じ更新版のチャットBotを読み込む", async ()
     const source = await readFile(new URL(`../${page}`, import.meta.url), "utf8");
     assert.match(
       source,
-      /<script src="\/chatbot\.js\?v=20260816-3" defer><\/script>/,
+      /<script src="\/chatbot\.js\?v=20260907-1" defer><\/script>/,
       `${page} must load the current chatbot asset`,
     );
     assert.doesNotMatch(source, /src="\/chatbot\.js"/);

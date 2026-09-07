@@ -68,6 +68,8 @@
   const send = shadow.querySelector(".send");
   const count = shadow.querySelector(".count");
   const head = shadow.querySelector(".head");
+  const autoOpenDismissedKey = "rain-ai-chatbot-auto-open-dismissed";
+  const isTopPage = /^\/(?:index\.html)?$/.test(window.location.pathname);
   const state = { messages: [], busy: false, turns: 0 };
   const suggestions = [
     "無料AI導入診断について知りたい",
@@ -131,8 +133,20 @@
     state.messages = []; state.turns = 0; messagesEl.replaceChildren();
     addMessage("assistant", "こんにちは。Rain AI Projectのサービス、無料AI導入診断、AIチャットボットの参考費用、ホームページへの設置方法などをご案内します。\n\n何から確認しますか？"); addSuggestions();
   }
-  function setOpen(open) {
-    panel.classList.toggle("open", open); launcher.style.display = open ? "none" : "grid"; launcher.setAttribute("aria-expanded", String(open)); document.body.classList.toggle("rain-chat-open", open); if (open) setTimeout(() => input.focus(), 50);
+  function autoOpenWasDismissed() {
+    try { return window.localStorage.getItem(autoOpenDismissedKey) === "1"; }
+    catch { return false; }
+  }
+  function rememberAutoOpenDismissal() {
+    try { window.localStorage.setItem(autoOpenDismissedKey, "1"); }
+    catch { /* The Bot still works when browser storage is unavailable. */ }
+  }
+  function setOpen(open, { focus = true } = {}) {
+    panel.classList.toggle("open", open); launcher.style.display = open ? "none" : "grid"; launcher.setAttribute("aria-expanded", String(open)); document.body.classList.toggle("rain-chat-open", open); if (open && focus) setTimeout(() => input.focus(), 50);
+  }
+  function dismiss() {
+    rememberAutoOpenDismissal();
+    setOpen(false);
   }
   async function submit(forcedText) {
     const text = String(forcedText ?? input.value).trim();
@@ -182,16 +196,20 @@
   if (/^\/products\/ai-chatbot\/?$/.test(window.location.pathname) && Array.isArray(window.dataLayer)) {
     window.dataLayer.push({ event: "ai_chatbot_product_view" });
   }
-  shadow.querySelector(".close").addEventListener("click", () => setOpen(false));
+  shadow.querySelector(".close").addEventListener("click", dismiss);
   shadow.querySelector(".reset").addEventListener("click", initial);
   send.addEventListener("click", () => submit());
   input.addEventListener("input", () => { count.textContent = String(input.value.length); send.disabled = state.busy || !input.value.trim(); input.style.height = "auto"; input.style.height = `${Math.min(input.scrollHeight, 94)}px`; });
   input.addEventListener("keydown", (event) => { if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) { event.preventDefault(); submit(); } });
-  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && panel.classList.contains("open")) setOpen(false); });
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && panel.classList.contains("open")) dismiss(); });
 
   let drag = null;
   head.addEventListener("pointerdown", (event) => { if (event.target.closest("button") || innerWidth <= 600) return; const rect = panel.getBoundingClientRect(); drag = { x: event.clientX, y: event.clientY, left: rect.left, top: rect.top }; head.setPointerCapture(event.pointerId); });
   head.addEventListener("pointermove", (event) => { if (!drag) return; const left = Math.max(8, Math.min(innerWidth - panel.offsetWidth - 8, drag.left + event.clientX - drag.x)); const top = Math.max(8, Math.min(innerHeight - panel.offsetHeight - 8, drag.top + event.clientY - drag.y)); panel.style.position = "fixed"; panel.style.left = `${left}px`; panel.style.top = `${top}px`; panel.style.right = "auto"; panel.style.bottom = "auto"; });
   head.addEventListener("pointerup", () => { drag = null; });
   initial();
+  if (isTopPage && !autoOpenWasDismissed()) {
+    setOpen(true, { focus: false });
+    if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: "rain_chat_auto_open", page_path: window.location.pathname });
+  }
 })();
