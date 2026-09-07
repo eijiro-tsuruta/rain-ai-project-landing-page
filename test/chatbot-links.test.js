@@ -27,6 +27,7 @@ test("トップページでは未拒否のBotを自動展開し、閉じた選�
 test("全ページが同じ更新版のチャットBotを読み込む", async () => {
   const pages = [
     "index.html",
+    "lp-production.html",
     "blog.html",
     "kumamoto-ai-guide.html",
     "kumamoto-ai-diagnosis.html",

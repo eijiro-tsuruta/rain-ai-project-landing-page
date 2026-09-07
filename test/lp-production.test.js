@@ -17,6 +17,7 @@ test("LP制作ページに価格・対象・初期設定サポートを明示す
   assert.match(html, /検索から相談までをつなぐ公式の受け皿/);
   assert.match(html, /検索後の信頼確認/);
   assert.match(html, /data-gtm-event="mail_click"/);
+  assert.match(html, /<script src="\/chatbot\.js\?v=20260907-1" defer><\/script>/);
 });
 
 test("トップページからLP制作ページへ移動できる", async () => {
@@ -47,4 +48,15 @@ test("相談BotがLP制作の公開料金と条件を案内できる", () => {
   assert.match(instructions, /1ページ構成は19,800円から/);
   assert.match(instructions, /独自ドメインの取得費、追加機能、原稿作成、写真撮影、公開後の更新/);
   assert.match(instructions, /検索順位、AI検索での引用、問い合わせ数は保証しない/);
+});
+
+test("相談BotがLP制作のURL・制作範囲・進め方を案内できる", () => {
+  const instructions = buildChatInstructions([
+    { role: "user", content: "LP制作の内容と進め方、公式ページを教えて" },
+  ]);
+
+  assert.match(instructions, /https:\/\/www\.rainaiproject\.com\/lp-production/);
+  assert.match(instructions, /構造化データ・Google Business Profileとの情報整合・クロール設定/);
+  assert.match(instructions, /制作後にスマートフォン表示を含めて内容を確認/);
+  assert.match(instructions, /AIチャットボットを追加できる/);
 });
