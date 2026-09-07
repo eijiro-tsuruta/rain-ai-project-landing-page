@@ -29,6 +29,8 @@ test("実際のカフェLPサンプルと制作ページからの導線がある
 
   assert.match(lp, /href="\/samples\/cafe"/);
   assert.match(lp, /cafe-komorebi-hero\.jpg/);
+  assert.match(lp, /一杯ずつ、[\s\S]*ゆっくりと。/);
+  assert.doesNotMatch(lp, /架空のカフェLPを/);
   assert.match(sample, /喫茶 木漏れ日/);
   assert.match(sample, /cafe-komorebi-hero\.jpg/);
   assert.match(sample, /cafe-komorebi-menu\.jpg/);
