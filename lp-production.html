@@ -182,6 +182,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .audit-list span{font-size:12px;color:#fff;background:rgba(255,255,255,.08);padding:10px;border-radius:8px;}
   .audit-list span::before{content:"✓ ";color:var(--sky);font-weight:900;}
   .audit-card p{font-size:12px;color:var(--mist);margin:18px 0 0;}
+  .sample-visual{display:block;position:relative;min-height:430px;border-radius:20px;overflow:hidden;color:#fff;text-decoration:none;box-shadow:0 24px 54px -34px rgba(10,40,64,.7);}
+  .sample-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .sample-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(17,13,10,.82),transparent 66%);}
+  .sample-tag{position:absolute;z-index:2;top:20px;left:20px;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.9);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.08em;}
+  .sample-caption{position:absolute;z-index:2;left:26px;right:26px;bottom:24px;}
+  .sample-caption strong{display:block;font-family:var(--display);font-size:25px;line-height:1.45;}
+  .sample-caption span{display:block;margin-top:7px;font-size:13px;color:#fff;}
+  .showcase{padding-top:70px;padding-bottom:70px;}
+  .showcase-card{display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;border:1px solid var(--mist);border-radius:20px;background:#fff;box-shadow:0 22px 60px -45px rgba(10,40,64,.6);}
+  .showcase-card img{width:100%;height:100%;min-height:360px;object-fit:cover;}
+  .showcase-copy{padding:clamp(30px,5vw,58px);align-self:center;}
+  .showcase-copy h2{font-size:clamp(26px,3.5vw,38px);margin:12px 0 15px;}
+  .showcase-copy p{color:var(--navy-2);font-size:14px;margin-bottom:24px;}
   .trust{border-bottom:1px solid var(--mist);background:#fff;}
   .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:22px 0;}
   .trust-item{padding:3px 26px;border-right:1px solid var(--mist);}
@@ -253,7 +266,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .mobile-cta{display:none;}
   @media(max-width:880px){
     .navlinks{display:none;}
-    .hero-grid,.principle,.chat-grid,.contact{grid-template-columns:1fr;}
+    .hero-grid,.principle,.chat-grid,.contact,.showcase-card{grid-template-columns:1fr;}
     .grid-3{grid-template-columns:1fr;}
     .steps{grid-template-columns:repeat(2,1fr);}
   }
@@ -306,17 +319,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <p class="hero-note">初回相談無料 ／ 熊本県内・オンライン対応 ／ 掲載内容・追加機能により料金は変わります</p>
       </div>
-      <aside class="audit-card" aria-label="公開前後に確認する項目">
-        <div class="cap">YOU TELL US → WE HANDLE THE WEB</div>
-        <h2>必要なのは、あなたの仕事の情報だけ。</h2>
-        <div class="audit-list">
-          <span>仕事内容</span><span>対応地域</span>
-          <span>電話番号</span><span>営業時間</span>
-          <span>会社・屋号</span><span>仕事の写真</span>
-          <span>所在地</span><span>問い合わせ先</span>
-        </div>
-        <p>分かる範囲でお知らせください。Web側の設定とページ制作はこちらで進めます。</p>
-      </aside>
+      <a class="sample-visual" href="/samples/cafe" aria-label="カフェのLP制作サンプルを見る">
+        <img src="/assets/lp-samples/cafe-komorebi-hero.jpg" alt="カフェのLP制作サンプル">
+        <span class="sample-tag">LP SAMPLE</span>
+        <span class="sample-caption"><strong>架空のカフェLPを<br>実際に作ってみました。</strong><span>完成したページを見る →</span></span>
+      </a>
     </div>
   </section>
 
@@ -327,6 +334,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="trust-item"><strong>スマートフォン対応</strong><span>小さな画面でも読みやすく、相談しやすく</span></div>
     </div>
   </div>
+
+  <section class="showcase" id="sample">
+    <div class="wrap showcase-card">
+      <img src="/assets/lp-samples/cafe-komorebi-menu.jpg" alt="カフェLPサンプルの珈琲とチーズケーキ" loading="lazy">
+      <div class="showcase-copy">
+        <div class="eyebrow">Sample Website</div>
+        <h2>文字だけではなく、<br>お店の空気まで伝える。</h2>
+        <p>写真、メニュー、営業時間、アクセスを1ページにまとめたカフェ向けの制作例です。スマートフォンでも、そのまま実際のページとしてご覧いただけます。</p>
+        <a class="btn-primary" href="/samples/cafe">カフェのサンプルLPを見る</a>
+      </div>
+    </div>
+  </section>
 
   <section id="problems">
     <div class="wrap">

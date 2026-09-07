@@ -23,6 +23,18 @@ test("トップページからLP制作ページへ移動できる", async () => 
   assert.match(html, /href="\/lp-production"[^>]*>[\s\S]*?LP制作 19,800円〜/);
 });
 
+test("実際のカフェLPサンプルと制作ページからの導線がある", async () => {
+  const lp = await readFile(LP_URL, "utf8");
+  const sample = await readFile(new URL("../samples/cafe.html", import.meta.url), "utf8");
+
+  assert.match(lp, /href="\/samples\/cafe"/);
+  assert.match(lp, /cafe-komorebi-hero\.jpg/);
+  assert.match(sample, /喫茶 木漏れ日/);
+  assert.match(sample, /cafe-komorebi-hero\.jpg/);
+  assert.match(sample, /cafe-komorebi-menu\.jpg/);
+  assert.match(sample, /店舗情報は架空/);
+});
+
 test("相談BotがLP制作の公開料金と条件を案内できる", () => {
   const instructions = buildChatInstructions([
     { role: "user", content: "19,800円のホームページ制作について教えて" },

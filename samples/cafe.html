@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>喫茶 木漏れ日｜熊本・並木坂の小さな珈琲店【LP制作サンプル】</title>
+  <meta name="description" content="Rain AI Projectによるカフェ向けLP制作サンプルです。店舗名・住所・価格などはすべて架空の情報です。">
+  <meta name="theme-color" content="#261f1a">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Noto+Serif+JP:wght@400;600;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#261f1a;--cream:#f6f1e8;--paper:#fffdf9;--rust:#a64b2a;--moss:#4d6049;
+      --line:rgba(38,31,26,.16);--serif:'Noto Serif JP',serif;--sans:'Zen Kaku Gothic New',sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8}
+    img{display:block;width:100%;height:auto}
+    a{color:inherit}
+    .sample-bar{position:relative;z-index:20;background:#151311;color:#fff;text-align:center;padding:8px 18px;font-size:13px;letter-spacing:.03em}
+    .sample-bar a{margin-left:10px;color:#f3c7a8;font-weight:700}
+    .nav{position:absolute;z-index:10;top:42px;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:24px clamp(20px,5vw,72px);color:#fff}
+    .brand{text-decoration:none;font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:.12em}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{text-decoration:none;font-size:14px;font-weight:500}
+    .nav-links .reserve{border:1px solid rgba(255,255,255,.72);padding:9px 16px;border-radius:999px}
+    .hero{position:relative;min-height:calc(100svh - 35px);display:grid;align-items:end;overflow:hidden;background:#33281f}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,15,11,.76) 0%,rgba(20,15,11,.28) 52%,rgba(20,15,11,.12) 100%),linear-gradient(0deg,rgba(20,15,11,.58),transparent 48%)}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .hero-copy{position:relative;z-index:2;width:min(720px,calc(100% - 40px));margin-left:clamp(20px,8vw,130px);padding:180px 0 clamp(74px,11vh,120px);color:#fff}
+    .kicker{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.22em;text-transform:uppercase}
+    .kicker::before{content:"";width:42px;height:1px;background:currentColor}
+    h1{margin:23px 0 22px;font-family:'DM Serif Display',var(--serif);font-size:clamp(50px,8vw,104px);font-weight:400;line-height:.98;letter-spacing:.01em}
+    .hero-copy p{max-width:520px;margin:0;font-family:var(--serif);font-size:clamp(17px,2vw,22px);line-height:1.9}
+    .hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:31px;font-size:14px}
+    .scroll{position:absolute;z-index:3;right:clamp(20px,5vw,70px);bottom:42px;color:#fff;font-size:12px;letter-spacing:.16em;writing-mode:vertical-rl}
+    section{padding:clamp(74px,10vw,130px) clamp(20px,7vw,110px)}
+    .intro{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(42px,9vw,140px);align-items:start;background:var(--cream)}
+    .section-no{font-family:'DM Serif Display',serif;font-size:74px;line-height:1;color:var(--rust)}
+    .section-label{display:block;margin-top:12px;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+    h2{margin:0 0 26px;font-family:var(--serif);font-size:clamp(31px,4.5vw,58px);line-height:1.45;font-weight:600;letter-spacing:.02em}
+    .intro p{max-width:680px;margin:0;color:#5f554c;font-family:var(--serif);font-size:clamp(16px,1.55vw,19px);line-height:2.15}
+    .menu-feature{display:grid;grid-template-columns:1.12fr .88fr;min-height:680px;padding:0;background:var(--ink);color:#fff}
+    .menu-photo{height:100%;min-height:540px;object-fit:cover}
+    .menu-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(48px,7vw,104px)}
+    .menu-copy .eyebrow{color:#dab298;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+    .menu-copy h2{margin:14px 0 18px;color:#fff}
+    .menu-copy p{margin:0 0 34px;color:#d8d0c9}
+    .menu-list{border-top:1px solid rgba(255,255,255,.22)}
+    .menu-item{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.22)}
+    .menu-item strong{font-family:var(--serif);font-size:17px}
+    .menu-item span{white-space:nowrap;color:#e2b997}
+    .details{background:var(--paper)}
+    .details-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:50px}
+    .details-head h2{margin:0}
+    .details-head p{max-width:430px;margin:0;color:#6d6259}
+    .detail-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .detail{padding:36px 32px;border-right:1px solid var(--line)}
+    .detail:last-child{border-right:0}
+    .detail small{display:block;color:var(--rust);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+    .detail h3{margin:12px 0 8px;font-family:var(--serif);font-size:20px}
+    .detail p{margin:0;color:#6d6259}
+    .access{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,110px);align-items:center;background:var(--moss);color:#fff}
+    .map{aspect-ratio:4/3;display:grid;place-items:center;border:1px solid rgba(255,255,255,.4);background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(0,0,0,.08));position:relative;overflow:hidden}
+    .map::before,.map::after{content:"";position:absolute;background:rgba(255,255,255,.22);transform:rotate(-24deg)}
+    .map::before{width:150%;height:24px}.map::after{width:26px;height:150%;transform:rotate(20deg)}
+    .pin{position:relative;z-index:2;width:62px;height:62px;display:grid;place-items:center;border-radius:50% 50% 50% 0;background:var(--rust);transform:rotate(-45deg);font-family:var(--serif);font-size:22px}
+    .pin span{transform:rotate(45deg)}
+    .access h2{color:#fff}
+    .access dl{display:grid;grid-template-columns:96px 1fr;gap:12px 20px;margin:32px 0}
+    .access dt{color:#cbd4c8;font-size:14px}.access dd{margin:0}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 24px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-weight:700}
+    footer{display:flex;justify-content:space-between;gap:24px;padding:30px clamp(20px,7vw,110px);background:#171310;color:#d7cfc8;font-size:13px}
+    footer a{color:#f3c7a8}
+    @media(max-width:780px){
+      .nav{top:38px}.nav-links a:not(.reserve){display:none}
+      .hero{min-height:760px}.hero-copy{margin:0 20px;padding-bottom:90px}
+      .intro,.menu-feature,.access{grid-template-columns:1fr}
+      .menu-photo{min-height:390px;max-height:520px}
+      .details-head{display:block}.details-head p{margin-top:18px}
+      .detail-grid{grid-template-columns:1fr}.detail{border-right:0;border-bottom:1px solid var(--line)}.detail:last-child{border-bottom:0}
+      footer{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <div class="sample-bar">Rain AI ProjectによるLP制作サンプルです。店舗情報は架空です。<a href="/lp-production">制作サービスを見る →</a></div>
+  <header class="nav">
+    <a class="brand" href="#top">喫茶 木漏れ日</a>
+    <nav class="nav-links" aria-label="ページ内ナビゲーション">
+      <a href="#concept">私たちの珈琲</a><a href="#menu">メニュー</a><a href="#access">アクセス</a><a class="reserve" href="#access">席について</a>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <img class="hero-img" src="/assets/lp-samples/cafe-komorebi-hero.jpg" alt="木のカウンターで珈琲を淹れる小さなカフェの店主">
+      <div class="hero-copy">
+        <div class="kicker">Coffee &amp; quiet time</div>
+        <h1>Slow coffee,<br>soft morning.</h1>
+        <p>一杯ずつ、ゆっくりと。<br>熊本・並木坂の小さな珈琲店。</p>
+        <div class="hero-meta"><span>OPEN 8:00–18:00</span><span>CLOSED WED.</span></div>
+      </div>
+      <div class="scroll">SCROLL</div>
+    </section>
+
+    <section class="intro" id="concept">
+      <div><div class="section-no">01</div><span class="section-label">Our coffee</span></div>
+      <div>
+        <h2>急がない時間を、<br>珈琲といっしょに。</h2>
+        <p>季節に合わせて選んだ豆を、店内で少量ずつ焙煎しています。朝の一杯も、午後のひと休みも。その日の気分に合わせて、香りの違いをお楽しみください。</p>
+      </div>
+    </section>
+
+    <section class="menu-feature" id="menu">
+      <img class="menu-photo" src="/assets/lp-samples/cafe-komorebi-menu.jpg" alt="木のテーブルに置かれたバスクチーズケーキと珈琲" loading="lazy">
+      <div class="menu-copy">
+        <span class="eyebrow">Today’s recommendation</span>
+        <h2>珈琲と、<br>手づくりのおやつ。</h2>
+        <p>毎朝店内で焼き上げる、素朴なお菓子をご用意しています。</p>
+        <div class="menu-list">
+          <div class="menu-item"><strong>木漏れ日ブレンド</strong><span>¥550</span></div>
+          <div class="menu-item"><strong>深煎りカフェオレ</strong><span>¥620</span></div>
+          <div class="menu-item"><strong>バスクチーズケーキ</strong><span>¥580</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="details">
+      <div class="details-head"><h2>小さな店だから、<br>できること。</h2><p>豆の好みや過ごし方に合わせて、一杯をご提案します。どうぞ気軽に声をかけてください。</p></div>
+      <div class="detail-grid">
+        <article class="detail"><small>Fresh roast</small><h3>少量ずつ自家焙煎</h3><p>豆の個性が伝わるよう、季節ごとに焙煎を調整します。</p></article>
+        <article class="detail"><small>Hand drip</small><h3>一杯ずつハンドドリップ</h3><p>ご注文をいただいてから、丁寧に抽出します。</p></article>
+        <article class="detail"><small>Take away</small><h3>テイクアウトできます</h3><p>珈琲と焼き菓子は、お持ち帰りでもご用意できます。</p></article>
+      </div>
+    </section>
+
+    <section class="access" id="access">
+      <div class="map" aria-label="店舗の地図をイメージしたサンプル"><div class="pin"><span>木</span></div></div>
+      <div>
+        <span class="kicker">Visit us</span>
+        <h2>いつもの道に、<br>ひと息つける場所を。</h2>
+        <dl><dt>住所</dt><dd>熊本市中央区並木坂 1-2-3</dd><dt>営業時間</dt><dd>8:00–18:00</dd><dt>定休日</dt><dd>水曜日</dd><dt>駐車場</dt><dd>近隣コインパーキングをご利用ください</dd></dl>
+        <a class="button" href="#top">ページ上部へ戻る</a>
+      </div>
+    </section>
+  </main>
+  <footer><span>© 喫茶 木漏れ日 — Fictional sample</span><span>このページは架空の店舗を使った<a href="/lp-production">LP制作例</a>です。</span></footer>
+</body>
+</html>
