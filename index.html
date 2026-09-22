@@ -143,6 +143,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     {
       "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY",
+      "description": "期間限定で無料公開中。",
+      "itemOffered": {
+        "@type": "SoftwareApplication",
+        "name": "住まいの方位レポート",
+        "applicationCategory": "BusinessApplication",
+        "description": "間取り図から方位と部屋配置を読み取り、不動産営業の商談で使える穏やかな風水説明レポートを作成するAIツール。",
+        "url": "https://fengshui.rainaiproject.com/"
+      }
+    },
+    {
+      "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
         "name": "AI導入・業務整理相談",
@@ -400,6 +413,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .btn-secondary{background:#fff;color:var(--navy);border:1px solid var(--mist);}
   .btn-secondary:hover{border-color:var(--sky);color:var(--sky-deep);}
 
+  /* ---------- featured product ---------- */
+  .product-spotlight{padding:28px 0;background:#fff;}
+  .product-spotlight-card{
+    display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:34px;
+    min-height:260px;padding:30px 36px;border:1px solid var(--mist);border-radius:18px;
+    color:inherit;text-decoration:none;overflow:hidden;
+    background:linear-gradient(125deg,#fff 0%,#fff 56%,var(--sky-light) 56%,#e5f4fb 100%);
+    box-shadow:0 18px 42px -30px rgba(10,40,64,.35);
+    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+  }
+  .product-spotlight-card:hover{transform:translateY(-3px);box-shadow:0 24px 48px -28px rgba(10,40,64,.4);border-color:var(--sky);}
+  .spotlight-label{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--sky-deep);}
+  .spotlight-label::before{content:"";width:8px;height:8px;border-radius:50%;background:#82C341;box-shadow:0 0 0 5px rgba(130,195,65,.14);}
+  .product-spotlight h2{font-size:clamp(24px,3vw,36px);line-height:1.45;margin:14px 0 10px;color:var(--navy);}
+  .product-spotlight p{max-width:56ch;margin:0;color:var(--navy-2);font-size:14.5px;}
+  .spotlight-actions{display:flex;align-items:center;gap:14px;margin-top:20px;}
+  .spotlight-status{padding:7px 12px;border-radius:999px;background:#EAF6D5;color:#47791D;font-size:11px;font-weight:700;}
+  .spotlight-link{color:var(--sky-deep);font-size:12px;font-weight:700;}
+  .spotlight-visual{position:relative;height:206px;display:flex;align-items:center;justify-content:center;}
+  .spotlight-floorplan{width:152px;height:190px;object-fit:cover;object-position:top;background:#fff;border:7px solid #fff;box-shadow:0 16px 32px -18px rgba(10,40,64,.5);transform:rotate(3deg);}
+  .spotlight-chip{position:absolute;padding:10px 13px;background:#fff;border:1px solid var(--mist);border-radius:10px;box-shadow:0 12px 28px -18px rgba(10,40,64,.45);}
+  .spotlight-chip span,.spotlight-chip strong{display:block;}
+  .spotlight-chip span{font-family:var(--mono);font-size:9px;color:var(--navy-2);}
+  .spotlight-chip strong{margin-top:4px;color:var(--navy);font-size:15px;}
+  .spotlight-chip.north{top:22px;right:6px;}
+  .spotlight-chip.report{bottom:14px;left:0;}
+
   /* signature visual: rain -> layered brain */
   .signature{position:relative;}
   .rain-line{
@@ -535,6 +575,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color:var(--sky-deep);font-size:12px;font-weight:700;text-decoration:none;
   }
   .product-link:hover{text-decoration:underline;text-underline-offset:4px;}
+  .fengshui-product-card{position:relative;background:linear-gradient(145deg,#fff 0%,#F3FAFD 100%);}
+  .fengshui-card-visual{height:128px;display:flex;align-items:center;justify-content:center;gap:18px;overflow:hidden;background:var(--navy);}
+  .fengshui-card-visual img{width:82px;height:112px;object-fit:cover;object-position:top;border:5px solid #fff;transform:rotate(3deg);box-shadow:0 10px 22px rgba(0,0,0,.24);}
+  .fengshui-card-data{display:grid;gap:8px;color:#fff;}
+  .fengshui-card-data span{padding:7px 10px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.08);font-family:var(--mono);font-size:9px;}
 
   /* ---------- insights ---------- */
   .insights-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;}
@@ -626,6 +671,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width:900px){
     .navlinks{display:none;}
     .hero .wrap{grid-template-columns:1fr;}
+    .product-spotlight-card{grid-template-columns:1fr;padding:28px;background:linear-gradient(160deg,#fff 0%,#fff 62%,var(--sky-light) 62%);}
+    .spotlight-visual{height:190px;}
     .signature{order:-1;max-width:320px;margin:0 auto 12px;}
     .concept-grid{grid-template-columns:1fr;}
     .compare{grid-template-columns:1fr;}
@@ -708,6 +755,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <text x="180" y="338" text-anchor="middle" class="node-label" fill="var(--navy-2)" font-size="11">気付き / INSIGHT</text>
       </svg>
     </div>
+  </div>
+</section>
+
+<section class="product-spotlight" aria-labelledby="fengshui-spotlight-title">
+  <div class="wrap">
+    <a class="product-spotlight-card" href="https://fengshui.rainaiproject.com/" target="_blank" rel="noopener noreferrer" aria-label="住まいの方位レポートを無料で試す">
+      <div>
+        <span class="spotlight-label">NEW PRODUCT｜不動産営業向けAI</span>
+        <h2 id="fengshui-spotlight-title">間取り図から、<br>風水説明レポートを約1分で。</h2>
+        <p>方位・部屋配置・良い点・改善策まで、商談でそのまま見せられるレポートに整理します。</p>
+        <div class="spotlight-actions">
+          <span class="spotlight-status">期間限定・無料公開中</span>
+          <span class="spotlight-link">実際に試す →</span>
+        </div>
+      </div>
+      <div class="spotlight-visual" aria-hidden="true">
+        <img class="spotlight-floorplan" src="/assets/products/feng-shui-floorplan.png" alt="" width="1024" height="1536">
+        <div class="spotlight-chip north"><span>DIRECTION</span><strong>北 ↑</strong></div>
+        <div class="spotlight-chip report"><span>AI REPORT</span><strong>2LDKを解析</strong></div>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -931,6 +999,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="product-link" href="/products/rain-field">製品の機能と画面を見る <span aria-hidden="true">→</span></a>
         </div>
       </div>
+      <a class="product-card product-card-link fengshui-product-card" href="https://fengshui.rainaiproject.com/" target="_blank" rel="noopener noreferrer" aria-label="住まいの方位レポートを無料で試す">
+        <div class="fengshui-card-visual" aria-hidden="true">
+          <img src="/assets/products/feng-shui-floorplan.png" alt="" width="1024" height="1536" loading="lazy">
+          <div class="fengshui-card-data"><span>方位を検出　北 ↑</span><span>説明レポート完成 ✓</span></div>
+        </div>
+        <div class="product-top">
+          <span class="tag">公開・期間限定無料</span>
+          <h3 style="margin-top:14px;">住まいの方位レポート</h3>
+          <p>間取り図を入れるだけ。AIが方位と部屋配置を読み取り、良い点・気になる点・改善策を商談用レポートにまとめます。</p>
+          <span class="product-link">無料でレポートを作る <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
       <a class="product-card product-card-link" href="https://estimate.rainaiproject.com/" target="_blank" rel="noopener noreferrer" aria-label="LINE見積の使い方・機能・料金を見る">
         <div class="product-top">
           <span class="tag">公開・テスト期間中無料</span>
