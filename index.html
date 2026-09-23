@@ -151,7 +151,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "name": "住まいの方位レポート",
         "applicationCategory": "BusinessApplication",
         "description": "間取り図から方位と部屋配置を読み取り、不動産営業の商談で使える穏やかな風水説明レポートを作成するAIツール。",
-        "url": "https://fengshui.rainaiproject.com/"
+        "url": "https://ouchifusui.rainaiproject.com/product"
+      }
+    },
+    {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY",
+      "description": "LINEで無料利用できるおうち風水サービス。",
+      "itemOffered": {
+        "@type": "SoftwareApplication",
+        "name": "Rain AI | おうち風水",
+        "applicationCategory": "LifestyleApplication",
+        "description": "間取り図診断、玄関の風水アドバイス、ラッキーカラー診断をLINEで利用できるAI風水サービス。",
+        "url": "https://ouchifusui.rainaiproject.com/"
       }
     },
     {
@@ -415,6 +428,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ---------- featured product ---------- */
   .product-spotlight{padding:28px 0;background:#fff;}
+  .product-spotlight + .product-spotlight{padding-top:0;}
   .product-spotlight-card{
     display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:34px;
     min-height:260px;padding:30px 36px;border:1px solid var(--mist);border-radius:18px;
@@ -439,6 +453,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .spotlight-chip strong{margin-top:4px;color:var(--navy);font-size:15px;}
   .spotlight-chip.north{top:22px;right:6px;}
   .spotlight-chip.report{bottom:14px;left:0;}
+  .ouchifusui-spotlight-card{background:linear-gradient(125deg,#fff 0%,#fff 56%,#EAFBF0 56%,#DDF7E7 100%);}
+  .ouchifusui-spotlight-card .spotlight-label{color:#07883F;}
+  .ouchifusui-spotlight-card .spotlight-label::before{background:#06C755;box-shadow:0 0 0 5px rgba(6,199,85,.14);}
+  .spotlight-phone{height:206px;width:auto;border:7px solid #fff;border-radius:18px;box-shadow:0 16px 32px -18px rgba(10,40,64,.5);}
+  .spotlight-chip.line{top:18px;right:2px;}
+  .spotlight-chip.features{bottom:12px;left:0;}
 
   /* signature visual: rain -> layered brain */
   .signature{position:relative;}
@@ -580,6 +600,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .fengshui-card-visual img{width:82px;height:112px;object-fit:cover;object-position:top;border:5px solid #fff;transform:rotate(3deg);box-shadow:0 10px 22px rgba(0,0,0,.24);}
   .fengshui-card-data{display:grid;gap:8px;color:#fff;}
   .fengshui-card-data span{padding:7px 10px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.08);font-family:var(--mono);font-size:9px;}
+  .ouchifusui-product-card{position:relative;background:linear-gradient(145deg,#fff 0%,#F1FCF5 100%);}
+  .ouchifusui-card-visual{height:128px;display:flex;align-items:center;justify-content:center;gap:18px;overflow:hidden;background:linear-gradient(135deg,#07314A,#075A3A);}
+  .ouchifusui-card-visual img{height:116px;width:auto;border:4px solid #fff;border-radius:10px;box-shadow:0 10px 22px rgba(0,0,0,.24);}
+  .ouchifusui-card-data{display:grid;gap:8px;color:#fff;}
+  .ouchifusui-card-data span{padding:7px 10px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.08);font-family:var(--mono);font-size:9px;}
 
   /* ---------- insights ---------- */
   .insights-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;}
@@ -760,9 +785,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="product-spotlight" aria-labelledby="fengshui-spotlight-title">
   <div class="wrap">
-    <a class="product-spotlight-card" href="https://fengshui.rainaiproject.com/" target="_blank" rel="noopener noreferrer" aria-label="住まいの方位レポートを無料で試す">
+    <a class="product-spotlight-card" href="https://ouchifusui.rainaiproject.com/product" target="_blank" rel="noopener noreferrer" aria-label="住まいの方位レポートを無料で試す">
       <div>
-        <span class="spotlight-label">NEW PRODUCT｜不動産営業向けAI</span>
+        <span class="spotlight-label">NEW｜不動産営業向けAI</span>
         <h2 id="fengshui-spotlight-title">間取り図から、<br>風水説明レポートを約1分で。</h2>
         <p>方位・部屋配置・良い点・改善策まで、商談でそのまま見せられるレポートに整理します。</p>
         <div class="spotlight-actions">
@@ -774,6 +799,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img class="spotlight-floorplan" src="/assets/products/feng-shui-floorplan.png" alt="" width="1024" height="1536">
         <div class="spotlight-chip north"><span>DIRECTION</span><strong>北 ↑</strong></div>
         <div class="spotlight-chip report"><span>AI REPORT</span><strong>2LDKを解析</strong></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="product-spotlight" aria-labelledby="ouchifusui-spotlight-title">
+  <div class="wrap">
+    <a class="product-spotlight-card ouchifusui-spotlight-card" href="https://ouchifusui.rainaiproject.com/" target="_blank" rel="noopener noreferrer" aria-label="Rain AI おうち風水のLPを見る">
+      <div>
+        <span class="spotlight-label">NEW｜LINEでできるおうち風水</span>
+        <h2 id="ouchifusui-spotlight-title">間取り図も、玄関も、<br>あなたの運気も。</h2>
+        <p>間取り図診断、玄関の風水アドバイス、ラッキーカラー診断。写真をLINEで送るだけで始められます。</p>
+        <div class="spotlight-actions">
+          <span class="spotlight-status">無料で公開中</span>
+          <span class="spotlight-link">LPを見る →</span>
+        </div>
+      </div>
+      <div class="spotlight-visual" aria-hidden="true">
+        <img class="spotlight-phone" src="/assets/products/ouchifusui-line-screen.png" alt="" width="946" height="2048">
+        <div class="spotlight-chip line"><span>LINE AI</span><strong>3つの風水診断</strong></div>
+        <div class="spotlight-chip features"><span>PHOTO TO ADVICE</span><strong>写真を送るだけ</strong></div>
       </div>
     </a>
   </div>
@@ -999,16 +1045,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="product-link" href="/products/rain-field">製品の機能と画面を見る <span aria-hidden="true">→</span></a>
         </div>
       </div>
-      <a class="product-card product-card-link fengshui-product-card" href="https://fengshui.rainaiproject.com/" target="_blank" rel="noopener noreferrer" aria-label="住まいの方位レポートを無料で試す">
+      <a class="product-card product-card-link fengshui-product-card" href="https://ouchifusui.rainaiproject.com/product" target="_blank" rel="noopener noreferrer" aria-label="住まいの方位レポートを無料で試す">
         <div class="fengshui-card-visual" aria-hidden="true">
           <img src="/assets/products/feng-shui-floorplan.png" alt="" width="1024" height="1536" loading="lazy">
           <div class="fengshui-card-data"><span>方位を検出　北 ↑</span><span>説明レポート完成 ✓</span></div>
         </div>
         <div class="product-top">
-          <span class="tag">公開・期間限定無料</span>
+          <span class="tag">NEW｜公開・期間限定無料</span>
           <h3 style="margin-top:14px;">住まいの方位レポート</h3>
           <p>間取り図を入れるだけ。AIが方位と部屋配置を読み取り、良い点・気になる点・改善策を商談用レポートにまとめます。</p>
           <span class="product-link">無料でレポートを作る <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+      <a class="product-card product-card-link ouchifusui-product-card" href="https://ouchifusui.rainaiproject.com/" target="_blank" rel="noopener noreferrer" aria-label="Rain AI おうち風水のLPを見る">
+        <div class="ouchifusui-card-visual" aria-hidden="true">
+          <img src="/assets/products/ouchifusui-line-screen.png" alt="" width="946" height="2048" loading="lazy">
+          <div class="ouchifusui-card-data"><span>LINEで写真を送信</span><span>AIがその場で診断 ✓</span></div>
+        </div>
+        <div class="product-top">
+          <span class="tag">NEW｜無料公開中</span>
+          <h3 style="margin-top:14px;">Rain AI | おうち風水</h3>
+          <p>間取り図・玄関の写真から風水をAIが診断。ラッキーカラー診断も、LINEですぐに試せます。</p>
+          <span class="product-link">LPで詳しく見る <span aria-hidden="true">→</span></span>
         </div>
       </a>
       <a class="product-card product-card-link" href="https://estimate.rainaiproject.com/" target="_blank" rel="noopener noreferrer" aria-label="LINE見積の使い方・機能・料金を見る">
