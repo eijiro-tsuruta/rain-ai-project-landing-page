@@ -74,7 +74,11 @@
     .access h2{color:#fff}
     .access dl{display:grid;grid-template-columns:96px 1fr;gap:12px 20px;margin:32px 0}
     .access dt{color:#cbd4c8;font-size:14px}.access dd{margin:0}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 24px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-weight:700}
+    .social-label{margin:0 0 12px;color:#cbd4c8;font-size:13px;letter-spacing:.12em}
+    .social-links{display:flex;flex-wrap:wrap;gap:12px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 24px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-weight:700}
+    .button::after{content:"\2197";font-size:15px}
+    .button.line{background:#79bd65;color:#14210f}
     footer{display:flex;justify-content:space-between;gap:24px;padding:30px clamp(20px,7vw,110px);background:#171310;color:#d7cfc8;font-size:13px}
     footer a{color:#f3c7a8}
     @media(max-width:780px){
@@ -93,7 +97,7 @@
   <header class="nav">
     <a class="brand" href="#top">喫茶 木漏れ日</a>
     <nav class="nav-links" aria-label="ページ内ナビゲーション">
-      <a href="#concept">私たちの珈琲</a><a href="#menu">メニュー</a><a href="#access">アクセス</a><a class="reserve" href="#access">席について</a>
+      <a href="#concept">私たちの珈琲</a><a href="#menu">メニュー</a><a href="#access">アクセス</a><a class="reserve" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
   </header>
   <main id="top">
@@ -145,7 +149,11 @@
         <span class="kicker">Visit us</span>
         <h2>いつもの道に、<br>ひと息つける場所を。</h2>
         <dl><dt>住所</dt><dd>熊本市中央区並木坂 1-2-3</dd><dt>営業時間</dt><dd>8:00–18:00</dd><dt>定休日</dt><dd>水曜日</dd><dt>駐車場</dt><dd>近隣コインパーキングをご利用ください</dd></dl>
-        <a class="button" href="#top">ページ上部へ戻る</a>
+        <p class="social-label">最新情報・お問い合わせ</p>
+        <div class="social-links">
+          <a class="button" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+          <a class="button line" href="https://line.me/" target="_blank" rel="noopener noreferrer">LINEで問い合わせる</a>
+        </div>
       </div>
     </section>
   </main>

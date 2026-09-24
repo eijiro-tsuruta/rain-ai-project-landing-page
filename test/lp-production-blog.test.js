@@ -8,7 +8,9 @@ test("LP制作開始の記事にAI時代の役割・料金・安全な表現が�
   const html = await readFile(ARTICLE_URL, "utf8");
 
   assert.match(html, /LP制作を始めました/);
-  assert.match(html, /19,800円から/);
+  assert.match(html, /5万円買い切り/);
+  assert.match(html, /投稿できるLP/);
+  assert.match(html, /ズボラLP/);
   assert.match(html, /公式な受け皿/);
   assert.match(html, /AIにも、事業内容を/);
   assert.match(html, /AIに表示されることを保証するものではありません/);
