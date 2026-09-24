@@ -23,7 +23,8 @@ test("LP制作ページに価格・対象・初期設定サポートを明示す
 test("トップページからLP制作ページへ移動できる", async () => {
   const html = await readFile(INDEX_URL, "utf8");
 
-  assert.match(html, /href="\/lp-production"[^>]*>[\s\S]*?LP制作 19,800円〜/);
+  assert.match(html, /<h3>HP・LP制作<\/h3>/);
+  assert.match(html, /href="\/lp-production"[^>]*>制作内容を見る/);
 });
 
 test("実際のカフェLPサンプルと制作ページからの導線がある", async () => {

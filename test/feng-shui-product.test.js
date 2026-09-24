@@ -9,10 +9,10 @@ const LINE_SCREEN_URL = new URL("../assets/products/ouchifusui-line-screen.png",
 test("トップページで住まいの方位レポートを視覚的に案内する", async () => {
   const html = await readFile(INDEX_URL, "utf8");
 
-  assert.match(html, /class="product-spotlight"/);
-  assert.match(html, /間取り図から、<br>風水説明レポートを約1分で/);
+  assert.match(html, /class="work-media work-media-contain work-media-fengshui"/);
+  assert.match(html, />住まいの方位レポート<\/h3>/);
   assert.match(html, /href="https:\/\/ouchifusui\.rainaiproject\.com\/product"/);
-  assert.match(html, /NEW｜不動産営業向けAI/);
+  assert.match(html, /REAL ESTATE AI \/ FREE TRIAL/);
   assert.match(html, /assets\/products\/feng-shui-floorplan\.png/);
   await access(IMAGE_URL);
 });
@@ -20,8 +20,8 @@ test("トップページで住まいの方位レポートを視覚的に案内�
 test("トップページにおうち風水の新カードを掲載する", async () => {
   const html = await readFile(INDEX_URL, "utf8");
 
-  assert.match(html, /class="product-spotlight-card ouchifusui-spotlight-card"/);
-  assert.match(html, /NEW｜LINEでできるおうち風水/);
+  assert.match(html, /class="work-media work-media-contain work-media-ouchifusui"/);
+  assert.match(html, />Rain AI \| おうち風水<\/h3>/);
   assert.match(html, /href="https:\/\/ouchifusui\.rainaiproject\.com\/"/);
   assert.match(html, /assets\/products\/ouchifusui-line-screen\.png/);
   await access(LINE_SCREEN_URL);
@@ -30,13 +30,10 @@ test("トップページにおうち風水の新カードを掲載する", async
 test("プロダクト一覧に無料公開カードを掲載する", async () => {
   const html = await readFile(INDEX_URL, "utf8");
 
-  assert.match(html, /class="product-card product-card-link fengshui-product-card"/);
   assert.match(html, />住まいの方位レポート<\/h3>/);
-  assert.match(html, /公開・期間限定無料/);
-  assert.match(html, /無料でレポートを作る/);
-  assert.match(html, /class="product-card product-card-link ouchifusui-product-card"/);
+  assert.match(html, /無料で試す ↗/);
   assert.match(html, />Rain AI \| おうち風水<\/h3>/);
-  assert.match(html, /NEW｜無料公開中/);
+  assert.match(html, /LINE AI \/ FREE/);
 });
 
 test("構造化データにも住まいの方位レポートを掲載する", async () => {

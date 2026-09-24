@@ -8,8 +8,7 @@ test("トップページのプロダクト一覧からLINE見積へ移動でき�
   const html = await readFile(INDEX_URL, "utf8");
 
   assert.match(html, /href="https:\/\/estimate\.rainaiproject\.com\/"/);
-  assert.match(html, />LINE見積<\/h3>/);
-  assert.match(html, /公開・テスト期間中無料/);
+  assert.match(html, />LINE見積 ↗<\/a>/);
   assert.match(html, /月額9,800円を予定し、現在はテスト期間として無料開放/);
   assert.match(html, /"url": "https:\/\/estimate\.rainaiproject\.com\/"/);
 });

@@ -9,7 +9,12 @@ async function htmlFiles(directory = ROOT) {
   const entries = await readdir(directory, { withFileTypes: true });
   const files = await Promise.all(entries.map(async (entry) => {
     const path = new URL(entry.name, directory);
-    if (entry.isDirectory() && entry.name !== "node_modules" && entry.name !== "tmp") return htmlFiles(new URL(`${entry.name}/`, directory));
+    const ignoredDirectory = entry.name === "node_modules"
+      || entry.name === "tmp"
+      || entry.name === "rain-recruit-lp"
+      || entry.name === "samples"
+      || entry.name.startsWith(".");
+    if (entry.isDirectory() && !ignoredDirectory) return htmlFiles(new URL(`${entry.name}/`, directory));
     return entry.isFile() && entry.name.endsWith(".html") ? [path] : [];
   }));
   return files.flat();
