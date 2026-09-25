@@ -28,7 +28,7 @@ test("トップページからLP制作ページへ移動できる", async () => 
 
   assert.match(html, /<h3>HP・LP制作<\/h3>/);
   assert.match(html, /href="\/lp-production#plans"[^>]*>料金と実物を見る/);
-  assert.match(html, /href="\/lp-production#plans"[^>]*>料金と3つのサンプルを見る/);
+  assert.match(html, /href="\/lp-production#plans"[^>]*>料金と制作サンプルを見る/);
 });
 
 test("3つのLPサンプルと制作ページからの導線がある", async () => {
@@ -40,6 +40,8 @@ test("3つのLPサンプルと制作ページからの導線がある", async ()
   assert.match(lp, /href="\/samples\/cafe"/);
   assert.match(lp, /href="\/samples\/italian"/);
   assert.match(lp, /href="\/samples\/washoku-ai"/);
+  assert.match(lp, /href="\/samples\/rain-shop"/);
+  assert.match(lp, /イラストが動く/);
   assert.match(lp, /cafe-komorebi-hero\.jpg/);
   assert.match(cafe, /喫茶 木漏れ日/);
   assert.match(cafe, /店舗情報は架空/);

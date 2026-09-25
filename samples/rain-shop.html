@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rain Shop｜雑貨屋さんLPサンプル</title>
+<meta name="description" content="看板犬のボーダーコリーが雨あがりの街をお店まで歩く、雑貨屋さん向けのサンプルLP。制作：Rain AI Project">
+<meta name="robots" content="noindex">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Quicksand:wght@500;700&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#FFFFFF;
+  --shelf:#F5F3EC;
+  --ink:#22201C;
+  --ink-soft:#615C53;
+  --rule:#E4E0D5;
+  --yellow:#F7CC4A;
+  --yellow-soft:#FFF4CC;
+  --leaf:#D4E7BB;
+  --puddle:#CDE7F5;
+  --sky:#E8F3FA;
+  --tan:#C9955A;
+  --jp:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;
+  --en:"Quicksand","Zen Maru Gothic",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--jp);font-size:16px;line-height:1.85;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:700;line-height:1.35}
+p{margin:0}
+
+/* header */
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding-block:22px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--en);font-weight:700;font-size:1.7rem;letter-spacing:0}
+.logo svg{width:26px;height:34px}
+.nav{display:flex;gap:6px 28px;flex-wrap:wrap;font-size:.95rem}
+.nav a{text-decoration:none;padding-block:4px;background:linear-gradient(var(--yellow),var(--yellow)) left bottom/0 3px no-repeat;transition:background-size .25s}
+.nav a:hover{background-size:100% 3px}
+
+/* hero */
+.hero{text-align:center;padding-top:clamp(24px,5vw,56px)}
+.hero h1{font-size:clamp(1.8rem,8vw,4.5rem);letter-spacing:.04em}
+.nw{white-space:nowrap}
+.hero .lead{margin-top:18px;font-size:clamp(1rem,1.8vw,1.2rem);letter-spacing:.2em;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:18px;margin-top:28px;padding:14px 34px;border:2px solid var(--ink);border-radius:999px;background:var(--yellow);font-weight:700;font-size:1.1rem;letter-spacing:.15em;text-decoration:none;transition:transform .2s, box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 4px 0 var(--ink)}
+.btn svg{width:22px;height:22px}
+.scene-box{max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,2vw,24px);margin-top:-8px}
+#scene{display:block;width:100%;height:auto;cursor:pointer;touch-action:manipulation}
+.scene-ctrl{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:4px 18px;padding-block:6px 0;font-size:.8rem;color:var(--ink-soft)}
+.scene-ctrl button{font:inherit;color:inherit;background:none;border:0;padding:6px 4px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.scene-ctrl button:hover{color:var(--ink)}
+
+/* sections */
+section{padding-block:clamp(40px,5vw,64px)}
+.sec-head{display:flex;flex-direction:column;gap:6px;margin-bottom:clamp(28px,4vw,44px)}
+.eyebrow{font-family:var(--en);font-weight:700;font-size:.85rem;letter-spacing:.3em;color:var(--ink-soft);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:9px;height:12px;background:var(--yellow);border:1.5px solid var(--ink);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;transform:rotate(0deg);clip-path:none}
+.sec-head h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+.sec-head p{color:var(--ink-soft);margin-top:6px}
+
+/* products */
+.items{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,48px) clamp(20px,3vw,36px);list-style:none;margin:0;padding:0}
+.item .pic{position:relative;aspect-ratio:4/3;max-width:100%;display:grid;place-items:center}
+.item .pic svg{width:72%;height:auto;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.item:hover .pic svg{transform:rotate(-4deg) translateY(-4px)}
+.tag{position:absolute;top:14px;left:14px;font-family:var(--en);font-weight:700;font-size:.72rem;letter-spacing:.15em;background:var(--yellow);border:1.5px solid var(--ink);border-radius:999px;padding:2px 10px}
+.item h3{font-size:1.1rem;margin-top:16px}
+.item p{font-size:.9rem;color:var(--ink-soft);margin-top:4px;line-height:1.7}
+.price{display:block;margin-top:8px;font-family:var(--en);font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--jp);font-weight:400;font-size:.75rem;color:var(--ink-soft);margin-left:4px}
+.more{display:flex;justify-content:flex-end;margin-top:40px}
+.link-arrow{display:inline-flex;align-items:center;gap:10px;font-size:.95rem;text-decoration:none;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+
+/* about */
+.about{background:var(--paper)}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.about-grid h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-top:10px}
+.about-body{margin-top:22px;display:grid;gap:14px;max-width:34em}
+.about-art svg{width:100%;height:auto;max-width:520px;display:block;margin-inline:auto}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 40px;margin-top:clamp(40px,5vw,64px);list-style:none;padding:0}
+.rules li{border-top:1.5px solid var(--rule);padding-top:24px;display:grid;gap:8px;align-content:start}
+.rules svg{width:44px;height:44px}
+.rules h3{font-size:1.05rem}
+.rules p{font-size:.9rem;color:var(--ink-soft);line-height:1.75}
+
+/* stamp */
+.stamp-band{display:grid;grid-template-columns:1fr auto;gap:28px 64px;align-items:center}
+.stamp-band h2{font-size:clamp(1.4rem,3vw,1.9rem)}
+.stamp-band p{margin-top:10px;max-width:30em}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:16px;padding:18px 20px;display:grid;gap:10px}
+.card-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--en);font-weight:700;font-size:.8rem;letter-spacing:.1em}
+.stamps{display:grid;grid-template-columns:repeat(5,40px);gap:10px}
+.stamps span{width:40px;height:40px;border:1.5px dashed #B8B2A4;border-radius:50%;display:grid;place-items:center}
+.stamps span.on{border:1.5px solid var(--ink);background:var(--yellow)}
+.stamps span.on svg{width:14px;height:18px}
+.stamps span.gift{border-style:solid;border-color:var(--ink);font-size:.62rem;font-weight:700;line-height:1.1;text-align:center}
+
+/* news */
+.news{list-style:none;padding:0;margin:0;border-top:1.5px solid var(--rule)}
+.news li{border-bottom:1.5px solid var(--rule)}
+.news a{display:grid;grid-template-columns:120px 1fr auto;gap:8px 32px;align-items:center;padding:22px 4px;text-decoration:none;transition:background .2s}
+.news a:hover{background:var(--shelf)}
+.news time{font-family:var(--en);font-weight:500;font-size:.9rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.news .cat{display:inline-block;font-size:.72rem;border:1.5px solid var(--ink);border-radius:999px;padding:0 10px;margin-right:12px;vertical-align:2px}
+.news svg{width:22px;height:22px}
+
+/* access */
+.access-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,5vw,64px);align-items:start}
+.info{margin:0;display:grid;grid-template-columns:auto 1fr;gap:16px 28px}
+.info dt{font-weight:700;font-size:.9rem}
+.info dd{margin:0;font-size:.95rem;font-variant-numeric:tabular-nums}
+.info dd small{color:var(--ink-soft)}
+.map{border:1.5px solid var(--rule);border-radius:20px;padding:12px}
+.map svg{width:100%;height:auto;display:block}
+
+/* footer */
+.site-foot{padding-block:0 40px}
+.foot-scene{display:block;width:100%;height:auto}
+.foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:24px}
+.foot-row .logo{font-size:1.3rem}
+.foot-note{font-size:.8rem;color:var(--ink-soft)}
+
+@media (max-width:860px){
+  .items{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.access-grid{grid-template-columns:1fr}
+  .rules{grid-template-columns:1fr}
+  .stamp-band{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .nav{font-size:.85rem;gap:4px 18px}
+  .items{grid-template-columns:1fr}
+  .news a{grid-template-columns:1fr auto}
+  .news time{grid-column:1/-1}
+  .stamps{grid-template-columns:repeat(5,36px);gap:8px}
+  .stamps span{width:36px;height:36px}
+  .hero .lead{letter-spacing:.1em}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="drop" viewBox="0 0 26 34"><path d="M13 2C8 11 3 17 3 22.5a10 10 0 0 0 20 0C23 17 18 11 13 2Z" fill="#F7CC4A" stroke="#22201C" stroke-width="2.4" stroke-linejoin="round"/><path d="M8.5 22.5a5 5 0 0 0 3 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 6l6 6-6 6" fill="none" stroke="#22201C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="arrow-up" viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10" fill="none" stroke="#22201C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="cloud" viewBox="0 0 124 54"><path d="M16 50C2 50 2 30 18 29 17 11 44 4 55 20 63 5 92 6 93 26 111 24 119 50 101 50Z" fill="#E8F3FA" stroke="#22201C" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="wrap site-head">
+  <a class="logo" href="#top" id="top"><svg aria-hidden="true"><use href="#drop"/></svg>Rain Shop</a>
+  <nav class="nav" aria-label="メインメニュー">
+    <a href="#items">商品を見る</a>
+    <a href="#about">わたしたちについて</a>
+    <a href="#news">お知らせ</a>
+    <a href="#access">アクセス</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero wrap">
+    <h1>毎日に、<br><span class="nw">ちょっといいものを。</span></h1>
+    <p class="lead">使うたび、少しうれしくなるもの。</p>
+    <a class="btn" href="#items">お店をのぞく<svg aria-hidden="true"><use href="#arrow"/></svg></a>
+  </div>
+
+  <div class="scene-box">
+    <svg id="scene" viewBox="0 20 1200 360" role="img" aria-label="雨あがりの街を、黄色い買い物袋をさげたボーダーコリーがお店へ歩いていくイラスト">
+      <defs>
+        <clipPath id="above-ground"><rect x="0" y="0" width="1400" height="331"/></clipPath>
+      </defs>
+      <g stroke="#22201C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- rainbow -->
+        <g id="rainbow" clip-path="url(#above-ground)" fill="none" stroke-linecap="butt" opacity=".9"></g>
+        <!-- clouds -->
+        <use class="cl" href="#cloud" x="120" y="92" width="124" height="54" stroke="none"/>
+        <use class="cl" href="#cloud" x="470" y="200" width="90" height="40"/>
+        <use class="cl" href="#cloud" x="1120" y="120" width="80" height="35"/>
+        <use class="cl" href="#cloud" x="930" y="70" width="104" height="45"/>
+        <!-- birds -->
+        <path d="M330 150q8-8 16 0 8-8 16 0M380 128q6-6 12 0 6-6 12 0" fill="none" stroke-width="2"/>
+        <!-- skyline -->
+        <path d="M1090 330V262h26v-20h24v88M1150 330V276h20v-24h30" fill="none" stroke="#B9B3A6" stroke-width="2"/>
+        <path d="M1160 290h6m-6 14h6m14-40h6m-6 14h6" stroke="#B9B3A6" stroke-width="2"/>
+        <!-- tree -->
+        <path d="M86 256C64 252 62 222 86 216 84 190 116 180 130 196 142 178 176 186 174 212 196 214 198 250 172 256Z" fill="#D4E7BB"/>
+        <path d="M130 330V224M130 262l-20-18M130 246l18-20" fill="none"/>
+        <!-- bushes -->
+        <path d="M30 330c-6-16 10-26 22-18 6-14 28-12 30 4 14-4 24 8 18 14Z" fill="#D4E7BB"/>
+        <path d="M796 330c-8-18 8-30 20-22 2-18 30-18 32 0v22Z" fill="#D4E7BB"/>
+        <!-- bench -->
+        <path d="M232 300h92M236 300v30M320 300v30M238 276h84v14h-84Z" fill="#fff"/>
+        <!-- shop: side -->
+        <path d="M1050 150l32 20v160h-32Z" fill="#EFECE4"/>
+        <!-- shop body -->
+        <rect x="850" y="140" width="200" height="190" fill="#fff"/>
+        <use href="#drop" x="880" y="152" width="18" height="24"/>
+        <text x="906" y="173" font-family="Quicksand, sans-serif" font-weight="700" font-size="24" fill="#22201C" stroke="none">Rain Shop</text>
+        <!-- awning -->
+        <g id="awning"></g>
+        <!-- lamps -->
+        <path d="M900 212v10M948 212v10" fill="none"/>
+        <path d="M891 230a9 8 0 0 1 18 0Z M939 230a9 8 0 0 1 18 0Z" fill="#22201C"/>
+        <!-- window -->
+        <rect x="862" y="222" width="110" height="108" fill="#FFFDF4"/>
+        <path d="M862 268h110M862 302h110" fill="none" stroke-width="2"/>
+        <g stroke-width="1.8">
+          <rect x="872" y="252" width="12" height="14" rx="2" fill="#fff"/><path d="M884 256h3v6h-3" fill="none"/>
+          <rect x="892" y="252" width="12" height="14" rx="2" fill="#F7CC4A"/>
+          <path d="M922 266v-14l7-6 7 6v14Z" fill="#fff"/><path d="M925 246c0-6 8-6 8 0" fill="none"/>
+          <rect x="945" y="248" width="8" height="18" fill="#D4E7BB"/><rect x="953" y="250" width="8" height="16" fill="#fff"/>
+          <path d="M874 300l4-10h10l4 10Z" fill="#C9955A"/><path d="M883 290c-4-8 2-10 0-14m0 14c4-6 8-4 8-10" fill="none"/>
+          <rect x="904" y="288" width="26" height="12" rx="2" fill="#fff"/><rect x="938" y="284" width="24" height="16" rx="2" fill="#F7CC4A"/>
+        </g>
+        <!-- door -->
+        <rect x="984" y="222" width="56" height="108" fill="#fff"/>
+        <rect x="994" y="234" width="36" height="40" rx="4" fill="#FFFDF4" stroke-width="2"/>
+        <circle cx="1030" cy="290" r="2.6" fill="#22201C"/>
+        <rect x="998" y="243" width="28" height="13" rx="3" fill="#F7CC4A" stroke-width="1.6"/>
+        <text x="1012" y="253" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="9" fill="#22201C" stroke="none">OPEN</text>
+        <!-- pot -->
+        <path d="M806 330l-4-18h24l-4 18Z" fill="#C9955A"/>
+        <path d="M814 312c0-10-8-14-12-20 8 0 12 6 12 12m0 8c0-10 6-16 14-18-2 8-6 12-14 14" fill="#D4E7BB"/>
+        <!-- chalkboard -->
+        <path d="M1090 330l8-58h34l8 58M1098 272l-6-6h46l-6 6" fill="none"/>
+        <path d="M1096 276h38l-4 44h-30Z" fill="#2E2B26"/>
+        <g font-family="Quicksand, sans-serif" font-weight="700" font-size="7" fill="#fff" stroke="none" text-anchor="middle">
+          <text x="1115" y="291">Good</text><text x="1115" y="301">things,</text><text x="1115" y="311">every day</text>
+        </g>
+        <!-- lamp post -->
+        <path d="M1160 330V212" fill="none"/>
+        <path d="M1150 212h20l-4-18h-12Z" fill="#fff"/><path d="M1155 194l5-8 5 8" fill="#22201C"/>
+        <!-- ground -->
+        <path d="M0 330H1200" fill="none"/>
+        <!-- puddles -->
+        <g id="puddles" stroke="none"></g>
+        <!-- rain -->
+        <g id="rain" stroke="#8CC3E3" stroke-width="2"></g>
+        <!-- dog -->
+        <g id="dog-slot"></g>
+      </g>
+    </svg>
+    <div class="scene-ctrl">
+      <button type="button" id="jump">わんこをタップでジャンプ</button>
+      <button type="button" id="replay"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>もういちど</button>
+      <button type="button" id="pause" aria-pressed="false">一時停止</button>
+    </div>
+  </div>
+
+  <section id="items">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">ITEMS</span>
+        <h2>今週の、ちょっといいもの</h2>
+        <p>店主が毎日つかって、手ばなせなくなったものだけを並べています。</p>
+      </div>
+      <ul class="items">
+        <li class="item">
+          <div class="pic"><span class="tag">NEW</span>
+            <svg viewBox="0 0 160 120" aria-hidden="true" fill="none" stroke="#22201C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M68 18c-4 6 4 8 0 14M82 14c-4 6 4 8 0 14" stroke-width="2"/><path d="M50 40v52q0 8 8 8h36q8 0 8-8V40Z" fill="#fff"/><path d="M102 52q20 0 20 16t-20 16"/><path d="M76 56c-6 10-8 14-8 18a8 8 0 0 0 16 0c0-4-2-8-8-18Z" fill="#F7CC4A"/><path d="M38 104h86"/></svg>
+          </div>
+          <h3>しずくマグ</h3>
+          <p>熊本の窯でひとつずつ焼いた、ぽってり厚手のマグ。</p>
+          <span class="price">¥2,420<small>税込</small></span>
+        </li>
+        <li class="item">
+          <div class="pic">
+            <svg viewBox="0 0 160 120" aria-hidden="true" fill="none" stroke="#22201C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M62 48q0-28 18-28t18 28"/><path d="M46 48h68l-6 58H52Z" fill="#fff"/><path d="M80 66c-5 8-7 12-7 15a7 7 0 0 0 14 0c0-3-2-7-7-15Z" fill="#F7CC4A"/></svg>
+          </div>
+          <h3>帆布のおつかいトート</h3>
+          <p>雨にもつよい撥水の帆布。たたむと手のひらサイズ。</p>
+          <span class="price">¥3,300<small>税込</small></span>
+        </li>
+        <li class="item">
+          <div class="pic">
+            <svg viewBox="0 0 160 120" aria-hidden="true" fill="none" stroke="#22201C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M80 16v8"/><path d="M28 66Q80 6 132 66q-13-8-26 0-13-8-26 0-13-8-26 0-13-8-26 0Z" fill="#F7CC4A"/><path d="M80 24v42M80 66v36q0 8-8 8t-8-6"/><path d="M42 98l3 5m10-9l3 5m60-3l3 5" stroke="#8CC3E3" stroke-width="2"/></svg>
+          </div>
+          <h3>晴雨兼用のおりたたみ傘</h3>
+          <p>日傘にもなる、軽さ240gのたよれる一本。</p>
+          <span class="price">¥4,950<small>税込</small></span>
+        </li>
+        <li class="item">
+          <div class="pic">
+            <svg viewBox="0 0 160 120" aria-hidden="true" fill="none" stroke="#22201C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M44 42c0-22 30-22 30 0 0 12-10 18-15 20" stroke="#C9955A" stroke-width="7"/><path d="M44 42c0-22 30-22 30 0 0 12-10 18-15 20" stroke-width="1.4" stroke-dasharray="3 4"/><path d="M59 62c20 10 42 12 56 26" stroke="#C9955A" stroke-width="6"/><rect x="112" y="84" width="14" height="22" rx="4" fill="#F7CC4A"/><circle cx="119" cy="100" r="3" fill="#fff"/></svg>
+          </div>
+          <h3>革のおさんぽリード</h3>
+          <p>やわらかい栃木レザー。使うほど手になじみます。</p>
+          <span class="price">¥5,500<small>税込</small></span>
+        </li>
+        <li class="item">
+          <div class="pic"><span class="tag">NEW</span>
+            <svg viewBox="0 0 160 120" aria-hidden="true" fill="none" stroke="#22201C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="50" y="18" width="62" height="86" rx="4" fill="#fff"/><path d="M62 18v86" stroke-width="1.6"/><path d="M72 36h28M72 48h28M72 60h20" stroke="#B9B3A6" stroke-width="2"/><rect x="100" y="18" width="7" height="86" fill="#F7CC4A"/><path d="M112 70h8" /></svg>
+          </div>
+          <h3>方眼ノート A5</h3>
+          <p>万年筆でもにじみにくい紙。ゴムバンドつき。</p>
+          <span class="price">¥880<small>税込</small></span>
+        </li>
+        <li class="item">
+          <div class="pic">
+            <svg viewBox="0 0 160 120" aria-hidden="true" fill="none" stroke="#22201C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M80 72V44"/><path d="M80 52c-4-14-20-18-28-14 4 12 16 16 28 14Z" fill="#D4E7BB"/><path d="M80 46c6-14 20-16 26-10-4 10-16 14-26 10Z" fill="#D4E7BB"/><rect x="54" y="72" width="52" height="10" rx="3" fill="#C9955A"/><path d="M58 82h44l-6 24H64Z" fill="#E3BD8E"/></svg>
+          </div>
+          <h3>ちいさな植木鉢</h3>
+          <p>窓辺にちょうどいい直径9cm。受け皿つき。</p>
+          <span class="price">¥1,650<small>税込</small></span>
+        </li>
+      </ul>
+      <div class="more"><a class="link-arrow" href="#items">すべての商品を見る<svg width="18" height="18" aria-hidden="true"><use href="#arrow-up"/></svg></a></div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <span class="eyebrow">ABOUT</span>
+          <h2>雨の日も、<br>ちょっといい日に。</h2>
+          <div class="about-body">
+            <p>Rain Shop は、住宅街の角にある小さな雑貨屋です。マグカップ、ノート、傘、おさんぽ道具。毎日の中でつい手にとるものを、ひとつずつ選んでいます。</p>
+            <p>店番は、看板犬のボーダーコリー。雨の日はお客さまが少ないので、いつもよりゆっくりお話しできます。</p>
+          </div>
+        </div>
+        <div class="about-art">
+          <svg viewBox="0 0 360 280" aria-label="カウンターで店番をする看板犬のイラスト" role="img">
+            <g stroke="#22201C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+
+              <path d="M60 70h90M60 104h90" fill="none" stroke-width="2"/>
+              <rect x="70" y="52" width="14" height="18" rx="2" fill="#F7CC4A"/><rect x="90" y="56" width="12" height="14" rx="2" fill="#fff"/>
+              <path d="M112 104V88l9-8 9 8v16Z" fill="#fff"/>
+              <use href="#cloud" x="240" y="44" width="80" height="35"/>
+              <g id="about-dog" transform="translate(180 244)"></g>
+              <rect x="40" y="200" width="280" height="62" rx="6" fill="#C9955A"/>
+              <path d="M40 216h280" fill="none" stroke-width="2"/>
+              <path d="M72 200l-4-20h26l-4 20Z" fill="#fff"/><path d="M81 180c-4-12 4-16 0-24m0 24c6-8 12-6 12-16" fill="#D4E7BB"/>
+              <rect x="250" y="176" width="40" height="24" rx="4" fill="#fff"/><path d="M256 186h28" fill="none" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <ul class="rules">
+        <li>
+          <svg viewBox="0 0 44 44" aria-hidden="true" fill="none" stroke="#22201C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="22" r="16" fill="#F7CC4A"/><path d="M22 12v10l7 5"/></svg>
+          <h3>長くつかえること</h3>
+          <p>修理や買い足しができるものを中心に。5年後もそばにある道具を選びます。</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 44 44" aria-hidden="true" fill="none" stroke="#22201C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="16" r="7" fill="#fff"/><path d="M8 38c2-9 8-13 14-13s12 4 14 13Z" fill="#D4E7BB"/></svg>
+          <h3>つくり手の顔が見えること</h3>
+          <p>県内の窯元や工房をたずね、話を聞いてから仕入れています。</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 44 44" aria-hidden="true" fill="none" stroke="#22201C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 26Q22 4 38 26q-4-3-8 0-4-3-8 0-4-3-8 0-4-3-8 0Z" fill="#F7CC4A"/><path d="M22 26v10q0 3-3 3t-3-2"/></svg>
+          <h3>雨の日がたのしくなること</h3>
+          <p>店名のとおり、雨の日に気分があがるものをいつも探しています。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="stamp">
+    <div class="wrap">
+      <div class="stamp-band">
+        <div>
+          <span class="eyebrow">RAINY DAY CARD</span>
+          <h2 style="margin-top:8px">雨の日に来てくれたら、スタンプ2倍。</h2>
+          <p>お買いものごとにスタンプをひとつ。雨の日はふたつ押します。10個たまったら、しずくマグをひとつプレゼント。</p>
+        </div>
+        <div class="card" aria-label="スタンプカードの見本。10個中4個たまっています">
+          <div class="card-top"><span>Rain Shop</span><span>4 / 10</span></div>
+          <div class="stamps" id="stamps"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">NEWS</span>
+        <h2>お知らせ</h2>
+      </div>
+      <ul class="news">
+        <li><a href="#news"><time datetime="2026-09-20">2026.09.20</time><span><span class="cat">入荷</span>秋の新作「しずくマグ」が入荷しました</span><svg aria-hidden="true"><use href="#arrow-up"/></svg></a></li>
+        <li><a href="#news"><time datetime="2026-09-12">2026.09.12</time><span><span class="cat">お店</span>雨の日スタンプカードをはじめました</span><svg aria-hidden="true"><use href="#arrow-up"/></svg></a></li>
+        <li><a href="#news"><time datetime="2026-08-28">2026.08.28</time><span><span class="cat">営業</span>9月の定休日のお知らせ</span><svg aria-hidden="true"><use href="#arrow-up"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="access" class="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">ACCESS</span>
+        <h2>お店への行きかた</h2>
+      </div>
+      <div class="access-grid">
+        <dl class="info">
+          <dt>住所</dt><dd>〒000-0000<br>熊本県〇〇市〇〇町1-2-3 <small>（サンプル）</small></dd>
+          <dt>営業時間</dt><dd>11:00〜19:00</dd>
+          <dt>定休日</dt><dd>毎週水曜日</dd>
+          <dt>駐車場</dt><dd>3台 <small>（お店の裏手）</small></dd>
+          <dt>電話</dt><dd>000-000-0000</dd>
+        </dl>
+        <div class="map">
+          <svg viewBox="0 0 480 300" role="img" aria-label="駅からお店までの手描き地図。駅を出て大通りを東へ、公園の角を北へ曲がってすぐ">
+            <g stroke="#22201C" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <path d="M0 210c80-10 160 6 240-4s160 8 240-2" stroke="#CDE7F5" stroke-width="16"/>
+              <path d="M0 160H480" stroke="#fff" stroke-width="22"/>
+              <path d="M300 0v300" stroke="#fff" stroke-width="18"/>
+              <path d="M0 149H480M0 171H480M291 0v149M309 0v149M291 171v29M309 171v29" stroke-width="2"/>
+              <rect x="40" y="110" width="90" height="30" rx="4" fill="#fff" stroke-width="2"/>
+              <path d="M40 124h90" stroke-width="1.6" stroke-dasharray="6 5"/>
+              <rect x="180" y="190" width="90" height="70" rx="12" fill="#D4E7BB" stroke-width="2"/>
+              <path d="M130 160h170v-80" stroke="#F7CC4A" stroke-width="5" stroke-dasharray="1 10"/>
+              <use href="#drop" x="316" y="44" width="30" height="40"/>
+            </g>
+            <g font-family="Zen Maru Gothic, sans-serif" font-size="14" fill="#22201C" font-weight="700">
+              <text x="85" y="100" text-anchor="middle">〇〇駅</text>
+              <text x="225" y="230" text-anchor="middle">公園</text>
+              <text x="352" y="70">Rain Shop</text>
+              <text x="160" y="292" font-weight="400" font-size="12" fill="#615C53">〇〇川</text>
+              <text x="140" y="146" font-weight="400" font-size="12" fill="#615C53">駅から歩いて6分</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <svg class="foot-scene" viewBox="0 0 1200 90" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+    <g stroke="#22201C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 70H1200" fill="none"/>
+      <ellipse cx="300" cy="80" rx="40" ry="5" fill="#CDE7F5" stroke="none"/>
+      <path d="M900 70c-6-16 8-24 18-16 4-14 26-12 28 2 12-2 18 8 14 14Z" fill="#D4E7BB"/>
+      <use href="#cloud" x="560" y="10" width="70" height="30"/>
+    </g>
+  </svg>
+  <div class="wrap foot-row">
+    <a class="logo" href="#top"><svg aria-hidden="true" style="width:20px;height:26px"><use href="#drop"/></svg>Rain Shop</a>
+    <p class="foot-note">このページは Rain AI Project が制作したサンプルです。店名・住所・商品は架空のものです。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const NS = 'http://www.w3.org/2000/svg';
+  const INK = '#22201C';
+
+  /* ---- character: Rain Shop 看板犬 (original artwork) ---- */
+  const DOG_SRC = '/assets/lp-samples/rain-shop/rain-shop-dog.png';
+  const slot = document.getElementById('dog-slot');
+  slot.innerHTML = '<g id="dog"><g class="d-bob"><image href="' + DOG_SRC + '" x="-60" y="-164" width="117" height="168"/></g></g>';
+  document.getElementById('about-dog').innerHTML = '<image href="' + DOG_SRC + '" x="-64" y="-190" width="128" height="184"/>';
+
+  /* ---- stamp card ---- */
+  const stamps = document.getElementById('stamps');
+  for (let i = 0; i < 10; i++) {
+    const s = document.createElement('span');
+    if (i < 4) { s.className = 'on'; s.innerHTML = '<svg viewBox="0 0 26 34"><use href="#drop"/></svg>'; }
+    else if (i === 9) { s.className = 'gift'; s.textContent = 'マグ'; }
+    stamps.appendChild(s);
+  }
+
+  /* ---- scene ---- */
+  const svg = document.getElementById('scene');
+  const dog = document.getElementById('dog');
+  const q = c => dog.querySelector(c);
+  const P = { bob: q('.d-bob') };
+
+  // awning stripes
+  const aw = document.getElementById('awning');
+  let awHTML = '';
+  for (let i = 0; i < 8; i++) awHTML += `<rect x="${842 + i*27}" y="188" width="27" height="22" fill="${i%2 ? '#fff' : '#F7CC4A'}" stroke="none"/>`;
+  let sc = 'M842 210';
+  for (let i = 0; i < 8; i++) sc += ` a13.5 7 0 0 0 27 0`;
+  awHTML += `<path d="${sc}" fill="none"/><path d="M842 210V188H1058V210" fill="none"/>` ;
+  // scallop fills
+  for (let i = 0; i < 8; i++) awHTML += `<path d="M${842+i*27} 210a13.5 7 0 0 0 27 0Z" fill="${i%2 ? '#fff' : '#F7CC4A'}"/>`;
+  aw.innerHTML = awHTML;
+
+  // rainbow (quarter arcs, drawn in from the left)
+  const RB = ['#F6BDBD','#F8D9AE','#F4EAA2','#CDE6B5','#BBDBF1','#D5CBEF'];
+  const rb = document.getElementById('rainbow');
+  const cx = 1270, cy = 380;
+  const arcs = RB.map((col, i) => {
+    const r = 330 - i*10;
+    const p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', `M${cx-r} ${cy}A${r} ${r} 0 0 1 ${cx} ${cy-r}`);
+    p.setAttribute('stroke', col); p.setAttribute('stroke-width', '10.5');
+    p.setAttribute('pathLength', '1'); p.setAttribute('stroke-dasharray', '1');
+    rb.appendChild(p); return p;
+  });
+
+  // puddles
+  const pud = document.getElementById('puddles');
+  const puddles = [{cx:330,rx:44},{cx:580,rx:62},{cx:1000,rx:56}].map((p, i) => {
+    const g = document.createElementNS(NS, 'g');
+    g.innerHTML = `<ellipse cx="${p.cx}" cy="350" rx="${p.rx}" ry="7" fill="#CDE7F5"/>
+      <path d="M${p.cx - p.rx*0.5} 348h${p.rx*0.3}" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <ellipse class="rip" cx="${p.cx}" cy="350" rx="0" ry="0" fill="none" stroke="#8CC3E3" stroke-width="1.6"/>`;
+    pud.appendChild(g);
+    return Object.assign(p, { rip: g.querySelector('.rip'), off: i*0.37, hit: false, trig: -9 });
+  });
+
+  // rain drops
+  const rainG = document.getElementById('rain');
+  const drops = Array.from({length: 46}, () => {
+    const l = document.createElementNS(NS, 'line');
+    rainG.appendChild(l);
+    return { el: l, x: 0, y: 0 };
+  });
+
+  const clouds = Array.from(svg.querySelectorAll('.cl')).map((el, i) => ({ el, bx: +el.getAttribute('x'), o: i * 1.7 }));
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let vb = [0, 20, 1200, 360], startX = 220;
+  const stopX = 745, GROUND = 330;
+  const S = { t: 0, x: 220, y: 0, vy: 0, phase: 0, arrived: false, arriveT: 0, paused: false };
+
+  function layout(){
+    const narrow = svg.clientWidth < 700;
+    vb = narrow ? [500, 20, 700, 360] : [0, 20, 1200, 360];
+    svg.setAttribute('viewBox', vb.join(' '));
+    startX = vb[0] - 70;  // start just off the left edge
+  }
+  function seedDrops(){
+    drops.forEach(d => { d.x = vb[0] + Math.random()*vb[2]; d.y = vb[1] + Math.random()*340 - 40; });
+  }
+  function reset(){
+    S.t = reduce ? WALK_START : 0; S.x = startX; S.y = 0; S.vy = 0; S.phase = 0; S.arrived = false;
+    puddles.forEach(p => { p.hit = false; p.trig = -9; });
+    seedDrops();
+  }
+  function finalState(){
+    S.t = 20; S.x = stopX; S.arrived = true; S.arriveT = 0; S.y = 0; S.vy = 0;
+  }
+
+  const WALK_START = 2.6, RAIN_END = 2.3;
+
+  function update(dt){
+    S.t += dt;
+    const t = S.t;
+    // rain
+    const raining = t < RAIN_END;
+    drops.forEach(d => {
+      d.y += 640 * dt;
+      if (d.y > GROUND + 10 && raining) { d.y -= 360; d.x = vb[0] + Math.random()*vb[2]; }
+    });
+    // walking
+    const walking = t > WALK_START && !S.arrived;
+    if (walking) {
+      S.x += 150 * dt; S.phase += dt * 8;
+      puddles.forEach(p => { if (!p.hit && S.x > p.cx - 4 && S.x < p.cx + 20) { p.hit = true; p.trig = t; } });
+      if (S.x >= stopX) { S.x = stopX; S.arrived = true; S.arriveT = t; S.vy = -360; }
+    }
+    // jump physics
+    if (S.y < 0 || S.vy < 0) {
+      S.vy += 1400 * dt; S.y += S.vy * dt;
+      if (S.y > 0) { S.y = 0; S.vy = 0; }
+    }
+  }
+
+  function render(){
+    const t = S.t;
+    const walking = t > WALK_START && !S.arrived;
+    // rain
+    const rainOp = t < RAIN_END ? 1 : Math.max(0, 1 - (t - RAIN_END) / 0.7);
+    rainG.setAttribute('opacity', rainOp.toFixed(3));
+    if (rainOp > 0) drops.forEach(d => {
+      d.el.setAttribute('x1', d.x.toFixed(1)); d.el.setAttribute('y1', d.y.toFixed(1));
+      d.el.setAttribute('x2', (d.x - 4).toFixed(1)); d.el.setAttribute('y2', (d.y + 16).toFixed(1));
+    });
+    // ripples
+    puddles.forEach(p => {
+      let prog = -1;
+      if (t - p.trig < 0.9) prog = (t - p.trig) / 0.9;
+      else if (t < RAIN_END + 0.6) prog = ((t * 1.3 + p.off) % 1);
+      if (prog < 0) { p.rip.setAttribute('rx', 0); p.rip.setAttribute('ry', 0); return; }
+      const big = t - p.trig < 0.9 ? 1.25 : 0.8;
+      p.rip.setAttribute('rx', (p.rx * big * (0.25 + 0.75*prog)).toFixed(1));
+      p.rip.setAttribute('ry', (7 * big * (0.4 + 0.6*prog)).toFixed(1));
+      p.rip.setAttribute('opacity', (1 - prog).toFixed(2));
+    });
+    // clouds drift
+    clouds.forEach(c => c.el.setAttribute('x', (c.bx + Math.sin(t * 0.25 + c.o) * 18).toFixed(1)));
+    // rainbow
+    const rp = S.arrived ? Math.min(1, Math.max(0, (t - S.arriveT - 0.3) / 1.6)) : 0;
+    const eased = 1 - Math.pow(1 - rp, 3);
+    arcs.forEach((a, i) => a.setAttribute('stroke-dashoffset', Math.min(1, 1 - eased + i*0.0).toFixed(3)));
+    // dog
+    const bob = reduce ? 0 : walking ? -Math.abs(Math.sin(S.phase)) * 6 : S.arrived ? -Math.max(0, Math.sin(t * 5)) * 2 : 0;
+    const tilt = reduce ? 0 : walking ? Math.sin(S.phase) * 3 : 0;
+    dog.setAttribute('transform', `translate(${S.x.toFixed(1)} ${(GROUND + S.y).toFixed(1)})`);
+    P.bob.setAttribute('transform', `translate(0 ${bob.toFixed(2)}) rotate(${tilt.toFixed(2)} 0 0)`);
+  }
+
+  let last = 0, running = false;
+  function loop(now){
+    const dt = Math.min(0.05, (now - last) / 1000 || 0); last = now;
+    if (!S.paused) update(dt);
+    render();
+    requestAnimationFrame(loop);
+  }
+
+  layout(); reset();
+  if (!running) { running = true; requestAnimationFrame(t => { last = t; loop(t); }); }
+
+  let rt;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => {
+    const wasArrived = S.arrived; layout();
+    if (!S.arrived && S.x < startX) S.x = startX;
+    if (reduce || wasArrived) render();
+  }, 120); });
+
+  function jump(){ if (S.y === 0 && S.vy === 0) { S.vy = -440; } }
+  svg.addEventListener('pointerdown', jump);
+  document.getElementById('jump').addEventListener('click', jump);
+  document.getElementById('replay').addEventListener('click', () => { reset(); S.paused = false; pauseBtn.textContent = '一時停止'; pauseBtn.setAttribute('aria-pressed','false'); });
+  const pauseBtn = document.getElementById('pause');
+  pauseBtn.addEventListener('click', () => {
+    S.paused = !S.paused;
+    pauseBtn.textContent = S.paused ? '再生' : '一時停止';
+    pauseBtn.setAttribute('aria-pressed', String(S.paused));
+  });
+})();
+</script>
+
+</body>
+</html>

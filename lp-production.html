@@ -208,6 +208,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .showcase-copy{padding:clamp(30px,5vw,58px);align-self:center;}
   .showcase-copy h2{font-size:clamp(26px,3.5vw,38px);margin:12px 0 15px;}
   .showcase-copy p{color:var(--navy-2);font-size:14px;margin-bottom:24px;}
+  .showcase-visual{position:relative;display:grid;place-items:end center;min-height:380px;overflow:hidden;background:#fffdf7;border-right:1px solid var(--mist);}
+  .showcase-visual::before{content:"";position:absolute;inset:34px;border:2px solid #22201c;border-radius:18px;}
+  .showcase-visual::after{content:"RAIN SHOP  /  LIVE SAMPLE";position:absolute;left:52px;top:49px;color:#22201c;font:700 11px var(--mono);letter-spacing:.12em;}
+  .showcase-visual img{position:relative;z-index:1;width:min(58%,300px);height:auto;min-height:0;margin-bottom:18px;object-fit:contain;filter:drop-shadow(0 12px 0 rgba(247,204,74,.42));}
+  .showcase-note{display:inline-flex;align-items:center;gap:7px;margin-bottom:2px;color:var(--sky-deep);font:700 11px var(--mono);letter-spacing:.08em;}
+  .showcase-note::before{content:"";width:9px;height:9px;border-radius:50%;background:#f7cc4a;border:1px solid #22201c;}
   .plans{background:#f5f8fa;}
   .plans .section-head{max-width:850px;}
   .plans-note{margin-top:10px;color:#6a7d8c;font-size:12px;}
@@ -306,6 +312,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-grid,.principle,.chat-grid,.contact,.showcase-card{grid-template-columns:1fr;}
     .grid-3,.plan-grid{grid-template-columns:1fr;}
     .plan-card.featured{transform:none;}
+    .showcase-visual{min-height:330px;border-right:0;border-bottom:1px solid var(--mist);}
     .steps{grid-template-columns:repeat(2,1fr);}
   }
   @media(max-width:560px){
@@ -401,6 +408,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="plan-image" href="/samples/washoku-ai"><img src="/assets/lp-samples/washoku-hero.jpg" loading="lazy" alt="和食店向けズボラLPサンプル"><span class="plan-badge">PLAN 03｜AI + BUFFER</span></a>
           <div class="plan-body"><h3>ズボラLP</h3><p class="plan-for">写真と一言だけで、LPとSNSの発信を続けたい事業者向け。</p><div class="plan-price">初期 <strong>98,000円〜</strong></div><div class="plan-monthly">月額 29,800円</div><ul class="plan-list"><li>AIが記事・写真説明を作成</li><li>SEO・AEO向けに情報整理</li><li>LPへ施工事例・お知らせを公開</li><li>BufferでSNS予約投稿</li></ul><a class="btn-primary" href="/samples/washoku-ai">和食店のAI更新を試す</a></div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase" aria-labelledby="rain-shop-title">
+    <div class="wrap">
+      <div class="showcase-card">
+        <a class="showcase-visual" href="/samples/rain-shop" aria-label="動く雑貨店LP、Rain Shopの制作サンプルを見る">
+          <img src="/assets/lp-samples/rain-shop/rain-shop-dog.png" loading="lazy" width="270" height="379" alt="黄色い買い物袋を持って二本足で歩くボーダーコリーのキャラクター">
+        </a>
+        <div class="showcase-copy">
+          <span class="showcase-note">DESIGN &amp; MOTION SAMPLE</span>
+          <h2 id="rain-shop-title">イラストが動く、<br>ショップLPも。</h2>
+          <p>白黒の手描き線画に黄色をひとさじ。看板犬が歩き、ジャンプする、雑貨店向けの架空サンプルです。ブランドのキャラクターや世界観を活かした演出もご相談いただけます。</p>
+          <a class="btn-primary" href="/samples/rain-shop">動くサンプルを見る</a>
+        </div>
       </div>
     </div>
   </section>
