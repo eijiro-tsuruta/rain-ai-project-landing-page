@@ -26,7 +26,7 @@ test("LP制作ページに3プランの価格と役割を明示する", async ()
 test("トップページからLP制作ページへ移動できる", async () => {
   const html = await readFile(INDEX_URL, "utf8");
 
-  assert.match(html, /<h3>HP・LP制作<\/h3>/);
+  assert.match(html, /<h3>LP制作・ホームページ制作<\/h3>/);
   assert.match(html, /href="\/lp-production#plans"[^>]*>料金と実物を見る/);
   assert.match(html, /href="\/lp-production#plans"[^>]*>料金と制作サンプルを見る/);
 });

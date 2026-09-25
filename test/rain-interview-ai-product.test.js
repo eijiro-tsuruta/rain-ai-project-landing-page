@@ -6,7 +6,7 @@ const homepage = await readFile(new URL("../index.html", import.meta.url), "utf8
 
 test("トップページは制作・集客支援を主役にする", () => {
   assert.match(homepage, /現場の一次情報を/);
-  assert.match(homepage, /HP・LP制作/);
+  assert.match(homepage, /LP制作・ホームページ制作/);
   assert.match(homepage, /AI広告・集客設計/);
   assert.match(homepage, /写真を送る。<br>AIが整える。<br>人が決める。/);
 });
