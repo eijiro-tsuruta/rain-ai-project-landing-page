@@ -216,6 +216,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .showcase-visual img{position:relative;z-index:1;width:min(48%,170px);height:auto;margin-bottom:20px;object-fit:contain;filter:drop-shadow(0 8px 0 rgba(247,204,74,.42));}
   .showcase-note{display:inline-flex;align-items:center;gap:7px;margin-bottom:2px;color:var(--sky-deep);font:700 11px var(--mono);letter-spacing:.08em;}
   .showcase-note::before{content:"";width:9px;height:9px;border-radius:50%;background:#f7cc4a;border:1px solid #22201c;}
+  .salon-showcase .showcase-visual{background:#edf5ef;min-height:320px;}
+  .salon-showcase .showcase-visual::before,.salon-showcase .showcase-visual::after{display:none;}
+  .salon-showcase .showcase-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% center;margin:0;filter:none;}
+  .salon-showcase .showcase-note{color:#38725f;}
+  .salon-showcase .showcase-note::before{background:#a9cab3;border-color:#73977b;}
+  .showcase + .showcase{padding-top:0;}
   .plans{background:#f5f8fa;}
   .plans .section-head{max-width:850px;}
   .plans-note{margin-top:10px;color:#6a7d8c;font-size:12px;}
@@ -414,6 +420,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="plan-image" href="/samples/washoku-ai"><img src="/assets/lp-samples/washoku-hero.jpg" loading="lazy" alt="和食店向けズボラLPサンプル"><span class="plan-badge">PLAN 03｜AI + BUFFER</span></a>
           <div class="plan-body"><h3>ズボラLP</h3><p class="plan-for">写真と一言だけで、LPとSNSの発信を続けたい事業者向け。</p><div class="plan-price">初期 <strong>98,000円〜</strong></div><div class="plan-monthly">月額 29,800円</div><ul class="plan-list"><li>AIが記事・写真説明を作成</li><li>SEO・AEO向けに情報整理</li><li>LPへ施工事例・お知らせを公開</li><li>BufferでSNS予約投稿</li></ul><a class="btn-primary" href="/samples/washoku-ai">和食店のAI更新を試す</a></div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase salon-showcase" aria-labelledby="dog-salon-title">
+    <div class="wrap">
+      <div class="showcase-card">
+        <a class="showcase-visual" href="/samples/dog-salon" aria-label="dog salon mukuのドッグサロンLPサンプルを見る">
+          <img src="/assets/lp-samples/dog-salon/hero.jpg" loading="lazy" width="1536" height="1024" alt="白い犬にやさしく寄り添う女性トリマーのイメージ">
+        </a>
+        <div class="showcase-copy">
+          <span class="showcase-note">DOG SALON / DESIGN SAMPLE</span>
+          <h2 id="dog-salon-title">清潔感を伝える、<br>ドッグサロンLP。</h2>
+          <p>白とミントを基調に、やさしいトリマーの表情とふんわりした犬の写真を。犬種別の価格表、ご利用の流れ、予約の操作イメージまで体験できる架空のサンプルです。</p>
+          <a class="btn-primary" href="/samples/dog-salon">ドッグサロンの実物を見る</a>
+        </div>
       </div>
     </div>
   </section>
