@@ -6,3 +6,18 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 @media(max-width:360px){.nav .brand small{display:none}.nav .brand{font-size:23px}.nav .brand>svg{width:29px;height:29px}.nav-button{padding:10px;font-size:11px}.hero-points{gap:10px;font-size:10px}}
+
+/* Keep the supplied artwork intact, including its text and illustration. */
+.hero-illustration{padding:28px 0 45px}
+.hero-illustration>.wrap{width:min(1360px,calc(100% - 48px))}
+.hero-poster{display:block;border-radius:14px;overflow:hidden;background:#fff}
+.hero-poster img{display:block;width:100%;height:auto;object-fit:contain}
+.hero-introduction{max-width:1080px;margin:44px auto 0;display:flex;align-items:center;justify-content:space-between;gap:45px}
+.hero-introduction h1{font-size:40px;line-height:1.55;margin-bottom:15px}
+.hero-introduction .eyebrow{margin-bottom:13px}
+.hero-introduction .hero-description{margin:0;font-size:15px}
+.hero-start{text-align:center;flex-shrink:0}
+.hero-start .hero-points{justify-content:center}
+.hero-health-note{max-width:1080px;margin:28px auto 0;color:var(--muted);font-size:12px;line-height:1.9;border-top:1px solid var(--line);padding-top:18px}
+@media(max-width:850px){.hero-introduction{gap:25px}.hero-introduction h1{font-size:34px}.hero-start .hero-button{font-size:13px;padding-inline:17px}.hero-introduction .hero-description{font-size:13px}}
+@media(max-width:620px){.hero-illustration{padding:12px 0 30px}.hero-illustration>.wrap{width:calc(100% - 24px)}.hero-poster{border-radius:8px}.hero-introduction{display:block;text-align:center;margin:28px 10px 0}.hero-introduction .eyebrow{justify-content:center}.hero-introduction h1{font-size:clamp(31px,9vw,39px)}.hero-introduction .hero-description{font-size:13px}.hero-start{margin-top:22px}.hero-start .hero-button{font-size:14px;padding-inline:20px}.hero-health-note{font-size:11px;margin:23px 10px 0;padding-top:15px}}
