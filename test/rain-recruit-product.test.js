@@ -25,6 +25,6 @@ test("トップページでは個別プロダクトの料金訴求を前面に�
 });
 
 test("プロダクトをWebと業務改善へ還元する方針を表示する", () => {
-  assert.match(homepage, /10を超える開発経験を、<br>顧客のWebへ/);
+  assert.match(homepage, /集客から、日々の業務まで。<br>つなぐための開発経験。/);
   assert.match(homepage, /得られた技術を顧客のWebと業務改善へ活かします/);
 });

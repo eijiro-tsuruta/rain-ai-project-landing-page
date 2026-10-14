@@ -5,14 +5,14 @@ import test from "node:test";
 const homepage = await readFile(new URL("../index.html", import.meta.url), "utf8");
 
 test("トップページは制作・集客支援を主役にする", () => {
-  assert.match(homepage, /現場の一次情報を/);
+  assert.match(homepage, /良い仕事が選ばれ/);
   assert.match(homepage, /LP制作・ホームページ制作/);
-  assert.match(homepage, /AI広告・集客設計/);
+  assert.match(homepage, /集客から申込みまでつなぐ/);
   assert.match(homepage, /写真を送る。<br>AIが整える。<br>人が決める。/);
 });
 
 test("トップページではプロダクトを実績として整理する", () => {
-  assert.match(homepage, /10を超える開発経験を/);
+  assert.match(homepage, /つなぐための開発経験/);
   assert.match(homepage, /14 PRODUCTS/);
   assert.match(homepage, /Rain Interview AI/);
   assert.doesNotMatch(homepage, /3か月の有償実証を受付中/);
