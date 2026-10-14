@@ -269,3 +269,9 @@ img { display: block; max-width: 100%; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* AEO diagnosis uses the existing service card design across the full row. */
+.service-card-aeo { grid-column: 1 / -1; min-height: 0; scroll-margin-top: 100px; }
+.service-card-aeo .aeo-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; margin-top: 24px; color: var(--ink); }
+.aeo-price strong { font-size: 1.4rem; }
+.service-card-aeo .service-link { position: relative; display: inline-block; left: auto; bottom: auto; margin-top: 24px; }
