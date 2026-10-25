@@ -1,4 +1,5 @@
 import http from "node:http";
+import { isProbePath } from "./lib/probe-path.js";
 import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -77,6 +78,11 @@ const server = http.createServer(async (req, res) => {
 
   try {
     const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
+    if (isProbePath(url.pathname)) {
+      res.writeHead(403, { "cache-control": "no-store", "x-robots-tag": "noindex" });
+      res.end(req.method === "HEAD" ? undefined : "Forbidden");
+      return;
+    }
     if (url.pathname === "/api/chat") {
       const body = await readJson(req);
       const result = await handleChat({ method: req.method, body, ip: req.socket.remoteAddress || "local" });
