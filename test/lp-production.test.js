@@ -6,10 +6,18 @@ import { buildChatInstructions } from "../lib/chat-service.js";
 const LP_URL = new URL("../lp-production.html", import.meta.url);
 const INDEX_URL = new URL("../index.html", import.meta.url);
 
-test("LP制作ページに3プランの価格と役割を明示する", async () => {
+test("LP制作ページで買い切り受付停止と受付中プランを区別する", async () => {
   const html = await readFile(LP_URL, "utf8");
 
   assert.match(html, /店舗LP/);
+  const pausedCard = /<article class="plan-card plan-paused">([\s\S]*?)<\/article>/.exec(html)?.[1];
+  assert.ok(pausedCard);
+  assert.match(pausedCard, /新規受付.*一時停止/);
+  assert.doesNotMatch(pausedCard, /50,000円|mailto:|申し込む/);
+  assert.match(html, /id="buyout-notice"/);
+  const structured = JSON.parse(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html)[1]);
+  assert.equal(structured['@graph'][0].offers.offerCount, '2');
+  assert.match(structured['@graph'][2].mainEntity[0].acceptedAnswer.text, /新規受付を一時停止/);
   assert.match(html, /50,000円/);
   assert.match(html, /投稿できるLP/);
   assert.match(html, /月額 9,800円/);
@@ -58,7 +66,10 @@ test("相談BotがLP制作の公開料金と条件を案内できる", () => {
     { role: "user", content: "LP制作の3つの料金について教えて" },
   ]);
 
-  assert.match(instructions, /店舗LP: 50,000円/);
+  assert.match(instructions, /店舗LP（買い切り）:.*新規受付を一時停止中/);
+  assert.match(instructions, /旧料金での新規申込みを勧めない/);
+  assert.match(instructions, /再開時期や新しい提供条件・保守料金は未定/);
+  assert.doesNotMatch(instructions, /店舗LP: 50,000円|店舗LP50,000円買い切り/);
   assert.match(instructions, /投稿できるLP: 初期50,000円から、月額9,800円/);
   assert.match(instructions, /ズボラLP: 初期98,000円から、月額29,800円/);
   assert.match(instructions, /写真撮影は含まない/);

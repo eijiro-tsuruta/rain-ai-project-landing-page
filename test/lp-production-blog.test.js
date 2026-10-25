@@ -9,6 +9,7 @@ test("LP制作開始の記事にAI時代の役割・料金・安全な表現が�
 
   assert.match(html, /LP制作を始めました/);
   assert.match(html, /5万円買い切り/);
+  assert.match(html, /2026年10月25日追記：買い切りLPプランの新規受付を一時停止/);
   assert.match(html, /投稿できるLP/);
   assert.match(html, /ズボラLP/);
   assert.match(html, /公式な受け皿/);
