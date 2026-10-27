@@ -13,7 +13,7 @@ test("トップページは制作・集客支援を主役にする", () => {
 
 test("トップページではプロダクトを実績として整理する", () => {
   assert.match(homepage, /つなぐための開発経験/);
-  assert.match(homepage, /14 PRODUCTS/);
+  assert.match(homepage, /15 PRODUCTS/);
   assert.match(homepage, /Rain Interview AI/);
   assert.doesNotMatch(homepage, /3か月の有償実証を受付中/);
   assert.doesNotMatch(homepage, /id="products"/);
